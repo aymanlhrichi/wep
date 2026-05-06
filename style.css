@@ -404,51 +404,32 @@ body {
 @media (max-width: 600px) {
   .body {
     padding: 10px;
+
     background-color: #f4f4f9;
-    margin: 0 auto;
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
   }
 
   .header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    width: 100%;
-    background-color:white;
 
   }
 
   .title {
-    display: block;
-    text-align: center;
-    margin: 20px 0;
-    font-size: 24px;
-    color: #ffd700;
-    text-transform: capitalize;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10;
   }
 
   .landing-page-image-container {
+    position: static;
     width: 100%;
-    height: auto;
-    display: block;
+    padding: 0;
+    margin-top: 20px;
   }
 
   .gallery-section {
-    display: block;
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    margin: 15px 0;
-    color: #333;
-
+    flex-direction: column;
+    align-items: center;
   }
-  .gallery-section img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    object-fit: cover;
-  }
-   }
+}
