@@ -405,30 +405,48 @@ body {
   .body {
     padding: 10px;
     background-color: #f4f4f9;
+    margin: 0 auto;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
   }
 
   .header {
     position: sticky;
     top: 0;
     z-index: 1000;
+    width: 100%;
+    background-color:white;
 
   }
 
   .title {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10;
+    display: block;
+    text-align: center;
+    margin: 20px 0;
+    font-size: 24px;
+    color: #ffd700;
+    text-transform: capitalize;
   }
 
   .landing-page-image-container {
-    position: static;
     width: 100%;
-    padding: 0;
-    margin-top: 20px;
+    height: auto;
+    display: block;
   }
 
   .gallery-section {
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px;
+    justify-items: center;
   }
-}
+  .gallery-section img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+   }
