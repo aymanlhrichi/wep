@@ -1,3 +1,14 @@
+* {
+box-sizing: border-box;
+}
+html, body {
+   overflow-x: hidden;
+  width: 100ox;
+  margin: 0;
+    padding: 0;
+    
+}
+
 body {
     margin: 0;
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3a7bd5 100%);
