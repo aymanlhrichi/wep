@@ -437,11 +437,13 @@ body {
   }
 
   .gallery-section {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    padding: 10px;
-    justify-items: center;
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 15px 0;
+    color: #333;
+
   }
   .gallery-section img {
     width: 100%;
