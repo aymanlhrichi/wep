@@ -1,3 +1,225 @@
+body {
+            margin: 0;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3a7bd5 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            overflow-x: hidden;
+        }
 
+        .header {
+            background: linear-gradient(45deg, #8b4513 0%, #a0522d 50%, #daa520 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .title {
+            font-family: 'Pacifico', cursive;
+            font-size: clamp(24px, 8vw, 48px);
+            background: linear-gradient(45deg, #ffdd57 0%, #ffffff 50%, #ffdd57 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            margin: 0;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .landing-page {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            margin: 20px auto;
+            max-width: 1100px;
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .welcome-banner {
+            background: rgba(255, 255, 255, 0.14);
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 20px;
+            margin: 20px 0;
+        }
+
+        .intro-text h2 { color: #ffdd57; }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .insta-page, .whatsapp-page, .shop-page {
+            text-decoration: none;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .insta-page { background: linear-gradient(45deg, #f09433, #bc1888); }
+        .whatsapp-page { background: linear-gradient(45deg, #25d366, #128c3d); }
+        .shop-page { background: #3b82f6; }
+
+        /* Coming Soon & Arrow */
+        .coming-soon-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .coming-soon-badge {
+            background: #ff9800;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .side-arrow {
+            font-size: 20px;
+            color: #ff9800;
+            animation: move-arrow 1.5s infinite;
+        }
+
+        @keyframes move-arrow {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(8px); }
+        }
+
+        .maintenance-note {
+            font-size: 0.9rem;
+            color: #ddd;
+            margin-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 10px;
+        }
+
+        /* Products Grid */
+        .gallery-title { text-align: center; margin: 40px 0 20px; }
+        .gallery-title h2 { color: #ffdd57; font-size: 32px; }
+
+        .gallery-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .product-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .product-item:hover { transform: translateY(-5px); }
+
+        .product-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .price-tag { color: #2ecc71; font-weight: bold; font-size: 1.2rem; margin: 10px 0; }
+        .products-item { font-size: 0.8rem; opacity: 0.8; margin-bottom: 10px; }
+
+        .buy-btn {
+            background: #000;
+            color: white;
+            border: none;
+            width: 90%;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .sold-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: red;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            z-index: 5;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+        }
+
+        .modal-content {
+            background: white;
+            color: black;
+            margin: 10% auto;
+            padding: 20px;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .modal-content input, .modal-content select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .send-wa-btn {
+            background: #25d366;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .carousel {
+            max-width: 300px;
+            margin: 40px auto;
+            position: relative;
+        }
+
+        .carousel-image { width: 100%; border-radius: 20px; }
+    </style>
 
  
