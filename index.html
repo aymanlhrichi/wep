@@ -1,180 +1,269 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link 
-href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" 
-rel="stylesheet"
-/>
-    <title> AYMAN STORE </title>
-    <link rel="stylesheet" href="style.css"/>
-    </head> 
-    <body>
-        <!-- HEADER -->
-    <div class="header">  
-    
-    <h1 class="title">AYMANE STORE</h1>
-    
-    </div> 
-    <!-- landing Page -->
-     <div class="landing-page">
-        <div class="main-content"> 
-            <span> Welcom To my Store! </span>
-            <h1>Best Store In Morroco!</h1>
-               <div class="welcome-banner">
-                <p>Hello and welcome to Ayman Store. If you want to buy 
-                    something, send me a message on Instagram or WhatsApp and I will help you choose the best product quickly and professionally.</p>
-               </div>
-               <div class="social-links">
-                 <a class="insta-page" href="https://www.instagram.com/a.y.m.a.n.______lh/" target="_blank">Instagram</a>
-                 <a class="whatsapp-page" href="https://wa.me/212689248338?text=Hello%20I%20would%20like%20to%20buy%20something%20from%20Ayman%20Store.%20Please%20help%20me%20choose%20the%20best%20product." target="_blank">WhatsApp</a>
-                 
-               </div>
-               
-               <div class="intro-text">
-                 <h2>Upgrade Your Wardrobe Today!</h2>
-                 <p>Looking for the perfect blend of style and comfort? 
-                  Our latest collection is designed just for you,  Whether you're heading</P> 
-                  <P> out or staying cozy,
-                     we offer the fit that makes you stand out.</p>
-                 <ul>
-                   <li>Premium quality: soft, durable, and breathable fabric</li>
-                   <li>Perfect fit for every body type</li>
-                   <li>Available sizes: M | L | XL | 2XL</li>
-                 </ul>
-                 <p class="intro-cta">Shop now and find your perfect match! 🛒</p>
-                 <a class="shop-page" href="#payment-info">Shop Online</a>
-               </div>
-                
-              
-               </div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+    <title>AYMANE STORE</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* Modern UI Additions */
+        .price-tag { font-weight: bold; color: #2ecc71; margin: 5px 0; font-size: 1.1rem; }
+        .buy-btn { 
+            background-color: #000; color: white; border: none; padding: 10px 20px; 
+            border-radius: 5px; cursor: pointer; transition: 0.3s; width: 100%; font-weight: bold; margin-top: 5px;
+        }
+        .buy-btn:hover { background-color: #333; }
+        .sold-badge { 
+            position: absolute; background: red; color: white; padding: 5px 10px; 
+            font-weight: bold; border-radius: 5px; z-index: 10; font-size: 0.8rem;
+        }
+        .modal { 
+            display: none; position: fixed; z-index: 10000; left: 0; top: 0; 
+            width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); 
+        }
+        .modal-content { 
+            background-color: #fff; margin: 10% auto; padding: 25px; 
+            width: 90%; max-width: 400px; border-radius: 15px; text-align: center; position: relative;
+        }
+        .modal-content input, .modal-content select { 
+            width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; box-sizing: border-box;
+        }
+        .send-wa-btn { 
+            background-color: #25d366; color: white; border: none; padding: 15px; 
+            width: 100%; font-weight: bold; cursor: pointer; border-radius: 8px; font-size: 1.1rem; margin-top: 10px;
+        }
+        .close-modal { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; line-height: 20px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 class="title">AYMANE STORE</h1>
+    </div>
+
+    <div class="landing-page">
+        <div class="main-content">
+            <span>Welcome To my Store!</span>
+            <h1>Best Store In Morocco!</h1>
+            <div class="welcome-banner">
+                <p>Hello and welcome to Ayman Store. If you want to buy something, send me a message on Instagram or WhatsApp and I will help you quickly.</p>
+            </div>
+            <div class="social-links">
+                <a class="insta-page" href="https://www.instagram.com/a.y.m.a.n.______lh/" target="_blank">Instagram</a>
+                <a class="whatsapp-page" href="https://wa.me/212689248338" target="_blank">WhatsApp</a>
+            </div>
+
+            <div class="intro-text">
+                <h2>Upgrade Your Wardrobe Today!</h2>
+                <ul>
+                    <li>Premium quality: soft and durable</li>
+                    <li>Perfect fit for every body type</li>
+                    <li>Available sizes: M | L | XL | 2XL</li>
+                </ul>
             
-               </div>
-        </div>
-        
-        </div>
-        </div>
-        <div class="gallery-title">
-          <h2>styles</h2>
-          <p>Discover our best picks in a compact, modern layout.</p>
-        </div>
-        
-        </div>
-        <div class="gallery-section">
-            <div class="product-item">
-              <img src="imaggg/IMG_E0008.JPG" alt="Product 1">
-              <p class="products-item">2XL • XL • L • M</p>
+                <p class="intro-cta">Shop now and find your perfect match! 🛒</p>
+                <a class="shop-page" href="#gallery">Shop Online</a>
+                <div class="social-links"> </div>
+                <a>Sorry! Our Online Shop is currently under maintenance,We are working hard</a>
+                <div class="social-links">
+                <a> 
+                     to bring you the best shopping experience soon.
+                     <div class="title">Thank you!</div>
+                    </div> 
+                </span>
+            <div class="test">
+                <a>*</a>
+                <img src="imaggg/ayman.JPG">
             </div>
-            <div class="product-item">
-              <img src="imaggg/IMG_E0009.JPG" alt="Product 2">
-              <p class="products-item">2XL • XL • L • M</p>
             </div>
-            <div class="product-item">
-              <img src="imaggg/IMG_E0013.JPG" alt="Product 3">
-              <p class="products-item">2XL • XL • L • M</p>
-            </div>
-            <div class="product-item">
-              <img src="imaggg/IMG_E0012.JPG" alt="Product 3">
-              <p class="products-item">2XL • XL • L • M</p>
-            </div>
-            <div class="product-item">
-              <img src="imaggg/IMG_E0011.JPG" alt="Product 3">
-              <p class="products-item">2XL • XL • L • M</p>
-            </div>
-        <div>
-          <a></a>
         </div>
-        </div>
-         <div class="title">
-          <a>************************
-          </a>
-        </div>
-         
-        
-    
-        </div>
-        </div>
-    
-        </div>
-      
-        <div>
-          <a>-</a>
-        </div>
-        <div class="title">
-    
-          <a>
-************************************
-          </a>
-        </div>
-        <div class="gallery-section-2">
-            <div class="product-item">
-              <img src="imaggg/10.JPG" alt="Product 1">
-              <p class="products-item">2XL • XL • L • M</p>
-            </div>
-            <div class="product-item">
-              <img src="imaggg/4.JPG" alt="Product 2">
-              <p class="products-item">2XL • XL • L • M</p>
-            </div>
-            <div class="product-item">
-              <img src="imaggg/5.JPG" alt="Product 3">
-              <p class="products-item">2XL • XL • L • M</p>
-            </div>
-            <div class="product-item">
-              <img src="imaggg/11.JPG" alt="Product 3">
-              <p class="products-item">2XL • XL • L • M</p>
+    </div>
 
-            </div>
+    <div id="gallery" class="gallery-title">
+        <h2>Styles</h2>
+        <p>Discover our best picks in a compact, modern layout.</p>
+    </div>
+
+    <div class="gallery-section">
+        <div class="product-item">
+            <img src="imaggg/IMG_E0008.JPG" alt="Product" onclick="openModal('Classic White Set', '250 DH')">
+            <p class="price-tag">150 DH</p>
+            <p class="products-item">2XL • XL • L • M</p>
+            <button class="buy-btn" onclick="openModal('Classic White Set', '250 DH')">Order Now</button>
         </div>
-        <div class="gallery-section-2">
-            <div class="product-item">
-              <img src="imaggg/9.JPG" alt="Product 3">
-              <p class="products-item">2XL • XL • L • M</p>
-            </div>
-           <div class="product-item">
-              <img src="imaggg/8.JPG" alt="Product 3">
-              <p class="products-item">2XL • XL • L • M</p>
-            </div>  
-            <div class="product-item">
-              <img src="imaggg/12.JPG" alt="Product 3">
-              <p class="products-item">2XL • XL • L • M</p>
-            </div>
-              <div class="product-item">
-                <img src="imaggg/10.JPG" alt="Product 3">
-                <p class="products-item">2XL • XL • L • M</p>
-        </div> 
-            <div class="title">
-              <a>***************************</a>
-            </div>
-            </div>
-            <div class="new-acc">
-            <div class="carousel">
-                <button class="prev" onclick="changeImage(-1)">&#10094;</button>
-                <img id="carousel-image" src="imaggg/IMG_E0027.JPG" class="carousel-image">
-                <button class="next" onclick="changeImage(1)">&#10095;</button>
-            </div>
+         <div class="product-item">
+            <img src="imaggg/3.JPG" alt="Product" onclick="openModal('Classic White Set', '250 DH')">
+            <p class="price-tag">400 DH</p>
+            <p class="products-item">2XL • XL • L • M</p>
+            <button class="buy-btn" onclick="openModal('Classic White Set', '250 DH')">Order Now</button>
+        </div>
+         <div class="product-item">
+            <img src="imaggg/15.JPG" alt="Product" onclick="openModal('Classic White Set', '250 DH')">
+            <p class="price-tag">400 DH</p>
+            <p class="products-item">2XL • XL • L • M</p>
+            <button class="buy-btn" onclick="openModal('Classic White Set', '250 DH')">Order Now</button>
+        </div>
+        <div class="product-item">
+            <img src="imaggg/14.JPG" alt="Product" onclick="openModal('Summer Outfit', '250 DH')">
+            <p class="price-tag">450 DH</p>
+            <p class="products-item">2XL • XL • L • M</p>
+            <button class="buy-btn" onclick="openModal('Summer Outfit', '250 DH')">Order Now</button>
+        </div>
+        <div class="product-item">
+            <div class="sold-badge">SOLD</div>
+            <img src="imaggg/IMG_E0013.JPG" alt="Product" style="opacity: 0.7;">
+            <p class="price-tag">250 DH</p>
+            <p class="products-item">XL</p>
+            <button class="buy-btn" disabled style="background:#d33030;">Order Now</button>
+        </div>
+    </div>
 
-<script>
-            const images = [
-                'imaggg/IMG_E0027.JPG',
-                'imaggg/IMG_E0026.JPG',
-                'imaggg/1.JPG',
-                'imaggg/IMG_E0025.JPG',
-                'imaggg/2.JPG'
-            ];
-            let currentIndex = 0;
-            const carouselImage = document.getElementById('carousel-image');
+    <div class="title"><a>************</a></div>
 
-            function changeImage(direction) {
-                currentIndex += direction;
-                if (currentIndex < 0) {
-                    currentIndex = images.length - 1;
-                } else if (currentIndex >= images.length) {
-                    currentIndex = 0;
-                }
-                carouselImage.src = images[currentIndex];
+    <div class="gallery-section-2">
+        <div class="product-item">
+            <img src="imaggg/10.JPG" alt="Product" onclick="openModal('Baggy Jeans Blue', '250 DH')">
+            <p class="price-tag">199 DH</p>
+            <p class="products-item">2XL • XL • L • M</p>
+            <button class="buy-btn" onclick="openModal('Baggy Jeans Blue', '250 DH')">Order Now</button>
+        </div>
+        <div class="product-item">
+            <img src="imaggg/4.JPG" alt="Product" onclick="openModal('Urban Grey Jeans', '250 DH')">
+            <p class="price-tag">250 DH</p>
+            <p class="products-item">2XL • XL • L • M</p>
+            <button class="buy-btn" onclick="openModal('Urban Grey Jeans', '250 DH')">
+                Order Now</button>
+        </div>
+        <div class="product-item"> 
+            <div class="sold-badge">SOLD 30%</div>
+            <img src="imaggg/8.JPG" alt="Product" style="opacity: 0.6;">
+            <p class="price-tag">170 DH</p>
+            <p class="products-item">2XL • XL</p>
+            <button class="buy-btn" disabled style="background:#c41313;">
+                Order now</button>
+        </div>
+    
+        <div class="product-item">
+            <img src="imaggg/9.JPG" alt="Product" onclick="openModal('Classic Black Jeans', '250 DH')">
+            <p class="price-tag">199 DH</p>
+            <p class="products-item">2XL • XL • L • M</p>
+            <button class="buy-btn" onclick="openModal('Classic Black Jeans', '250 DH')">Order Now</button>
+        </div>
+    </div>
+    <div class="gallery-section-2">
+    <div class="product-item">
+            <img src="imaggg/9.JPG" alt="Product" onclick="openModal('Classic Black Jeans', '250 DH')">
+            <p class="price-tag">199 DH</p>
+            <p class="products-item">2XL • XL • L • M</p>
+            <button class="buy-btn" onclick="openModal('Classic Black Jeans', '250 DH')">
+                Order Now</button>"
+    </div>
+    <div class="product-item">
+            <img src="imaggg/11.JPG" alt="Product" onclick="openModal('Classic Black Jeans', '250 DH')">
+            <p class="price-tag">199 DH</p>
+            <p class="products-item">2XL • XL • L • M</p>
+            <button class="buy-btn" onclick="openModal('Classic Black Jeans', '250 DH')">Order Now</button>"
+    </div>
+    <div class="product-item">
+            <img src="imaggg/12.JPG" alt="Product" onclick="openModal('Classic Black Jeans', '250 DH')">
+            <p class="price-tag">170 DH</p>
+            <p class="products-item">2XL • XL • L • M</p>
+            <button class="buy-btn" onclick="openModal('Classic Black Jeans', '250 DH')">Order Now</button>"
+    </div>
+    <div class="product-item">
+            <img src="imaggg/8.JPG" alt="Product" onclick="openModal('Classic Black Jeans', '250 DH')">
+            <p class="price-tag">190 DH</p>
+            <p class="products-item">2XL • XL • L • M</p>
+            <button class="buy-btn" onclick="openModal('Classic Black Jeans', '250 DH')">Order Now</button>"
+    </div>
+     
+    </div>
+    <div class="new-acc">
+        <div class="carousel">
+            <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+            <img id="carousel-image" src="imaggg/IMG_E0027.JPG" class="carousel-image">
+            <button class="next" onclick="changeImage(1)">&#10095;</button>
+        </div>
+    </div>
+    </div>
+
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2 id="productTitle" style="color:#000;">Product Name</h2>
+            <p id="productPrice" style="color:#2ecc71; font-weight:bold; font-size:1.2rem;">250 DH</p>
+            <hr>
+            <input type="text" id="userName" placeholder="Your Full Name" required>
+            <input type="tel" id="userPhone" placeholder="WhatsApp Number" required>
+            <select id="userSize">
+                <option value="">Select Your Size</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="2XL">2XL</option>
+            </select>
+            <button class="send-wa-btn" onclick="sendToWhatsApp()">Send Order to WhatsApp</button>
+        </div>
+    </div>
+
+    <script>
+        // Carousel Logic
+        const images = ['imaggg/IMG_E0027.JPG', 'imaggg/IMG_E0026.JPG', 'imaggg/1.JPG', 'imaggg/IMG_E0025.JPG', 'imaggg/2.JPG'];
+        let currentIndex = 0;
+        const carouselImage = document.getElementById('carousel-image');
+
+        function changeImage(direction) {
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = images.length - 1;
+            else if (currentIndex >= images.length) currentIndex = 0;
+            carouselImage.src = images[currentIndex];
+        }
+
+        // Order Logic
+        let selectedProduct = "";
+        let selectedPrice = "";
+
+        function openModal(name, price) {
+            selectedProduct = name;
+            selectedPrice = price;
+            document.getElementById('productTitle').innerText = name;
+            document.getElementById('productPrice').innerText = price;
+            document.getElementById('orderModal').style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById('orderModal').style.display = "none";
+        }
+
+        function sendToWhatsApp() {
+            const name = document.getElementById('userName').value;
+            const phone = document.getElementById('userPhone').value;
+            const size = document.getElementById('userSize').value;
+            const myNumber = "212689248338"; 
+
+            if(name && phone && size) {
+                const text = New Order: AYMANE STORE%0A + 
+                             -------------------------%0A +
+                             Product: ${selectedProduct}%0A +
+                             Price: ${selectedPrice}%0A +
+                             Customer: ${name}%0A +
+                             Phone: ${phone}%0A +
+                             Size: ${size};
+                
+                window.open(https://wa.me/${myNumber}?text=${text}, '_blank');
+            } else {
+                alert("Please fill in all the required information.");
             }
-        </script>
-        </div>
-         <div class="title">
-          <a>
-    </body>
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('orderModal')) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
