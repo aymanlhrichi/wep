@@ -33,7 +33,10 @@ rel="stylesheet"
                
                <div class="intro-text">
                  <h2>Upgrade Your Wardrobe Today!</h2>
-                 <p>Looking for the perfect blend of style and comfort? Our latest collection is designed just for you. Whether you're heading out or staying cozy, we offer the fit that makes you stand out.</p>
+                 <p>Looking for the perfect blend of style and comfort? 
+                  Our latest collection is designed just for you,  Whether you're heading</P> 
+                  <P> out or staying cozy,
+                     we offer the fit that makes you stand out.</p>
                  <ul>
                    <li>Premium quality: soft, durable, and breathable fabric</li>
                    <li>Perfect fit for every body type</li>
@@ -48,13 +51,15 @@ rel="stylesheet"
             
                </div>
         </div>
-        <div class="landing-page-image-container">
-            <img src="imaggg/images.jpg" alt="Store image"/>
+        
         </div>
         </div>
         <div class="gallery-title">
           <h2>styles</h2>
           <p>Discover our best picks in a compact, modern layout.</p>
+        </div>
+        <div class="landing-page-image-container">
+            <img src="imaggg/images.jpg" alt="Store image"/>
         </div>
         <div class="gallery-section">
             <div class="product-item">
@@ -86,38 +91,13 @@ rel="stylesheet"
           </a>
         </div>
          
-        <div class="new-acc">
-            <div class="carousel">
-                <button class="prev" onclick="changeImage(-1)">&#10094;</button>
-                <img id="carousel-image" src="imaggg/IMG_E0027.JPG" class="carousel-image">
-                <button class="next" onclick="changeImage(1)">&#10095;</button>
-            </div>
+        
     
         </div>
         </div>
     
         </div>
-        <script>
-            const images = [
-                'imaggg/IMG_E0027.JPG',
-                'imaggg/IMG_E0026.JPG',
-                'imaggg/1.JPG',
-                'imaggg/IMG_E0025.JPG',
-                'imaggg/2.JPG'
-            ];
-            let currentIndex = 0;
-            const carouselImage = document.getElementById('carousel-image');
-
-            function changeImage(direction) {
-                currentIndex += direction;
-                if (currentIndex < 0) {
-                    currentIndex = images.length - 1;
-                } else if (currentIndex >= images.length) {
-                    currentIndex = 0;
-                }
-                carouselImage.src = images[currentIndex];
-            }
-        </script>
+      
         <div>
           <a>-</a>
         </div>
