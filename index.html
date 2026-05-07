@@ -125,17 +125,24 @@
             padding-top: 10px;
         }
 
-        /* Products Grid */
+        /* Products Grid - التعديل هنا لظهور الصور بجانب بعضها */
         .gallery-title { text-align: center; margin: 40px 0 20px; }
         .gallery-title h2 { color: #ffdd57; font-size: 32px; }
 
         .gallery-section {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
+            /* صورتين في السطر للموبايل و 4 للكمبيوتر */
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 15px;
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .gallery-section {
+                grid-template-columns: repeat(4, 1fr);
+            }
         }
 
         .product-item {
@@ -152,9 +159,13 @@
 
         .product-item img {
             width: 100%;
-            height: 250px;
+            height: 200px; /* تقليل الطول قليلاً ليظهر التصميم متناسق */
             object-fit: cover;
             cursor: pointer;
+        }
+
+        @media (min-width: 768px) {
+            .product-item img { height: 250px; }
         }
 
         .price-tag { color: #2ecc71; font-weight: bold; font-size: 1.2rem; margin: 10px 0; }
@@ -232,9 +243,7 @@
 
         .carousel-image { width: 100%; border-radius: 20px; }
     </style>
-        
 </head>
-
 <body>
 
     <div class="header">
@@ -269,8 +278,8 @@
                     Sorry! Our Online Shop is under maintenance. We are working hard to bring you the best experience soon. <strong>Thank you!</strong>
                 </div>
             </div>
-        
-        
+            <div style="text-align: center; margin-top: 20px;">
+                <img src="imaggg/ayman.JPG" style="width: 100px; height: 100px; border-radius: 50%; border: 2px solid #ffdd57; object-fit: cover;">
             </div>
         </div>
     </div>
@@ -287,38 +296,40 @@
             <p class="products-item">M • L • XL • 2XL</p>
             <button class="buy-btn" onclick="openModal('Classic White Set', '150 DH')">Order Now</button>
         </div>
-        <div class="product-item">
-            <img src="imaggg/7.JPG" onclick="openModal('Classic White Set', '150 DH')">
-            <p class="price-tag">150 DH</p>
-            <p class="products-item">M • L • XL • 2XL</p>
-            <button class="buy-btn" onclick="openModal('Classic White Set', '150 DH')">Order Now</button>
-        </div>
 
-        
         <div class="product-item">
             <img src="imaggg/3.JPG" onclick="openModal('Summer Fit Blue', '400 DH')">
             <p class="price-tag">400 DH</p>
             <p class="products-item">M • L • XL • 2XL</p>
             <button class="buy-btn" onclick="openModal('Summer Fit Blue', '400 DH')">Order Now</button>
         </div>
+
         <div class="product-item">
             <img src="imaggg/15.JPG" onclick="openModal('Urban Outfit', '400 DH')">
             <p class="price-tag">400 DH</p>
             <p class="products-item">M • L • XL • 2XL</p>
             <button class="buy-btn" onclick="openModal('Urban Outfit', '400 DH')">Order Now</button>
         </div>
-    </div>
 
-        <div class="gallery-section">
-            <div class="product-item">
+        <div class="product-item">
             <div class="sold-badge">SOLD</div>
             <img src="imaggg/IMG_E0013.JPG" style="opacity: 0.5;">
             <p class="price-tag">250 DH</p>
             <button class="buy-btn" disabled style="background: #555;">Sold Out</button>
-            </div>
-        
-</div>
-        
+        </div>
+
+        <div class="product-item">
+            <img src="imaggg/10.JPG" onclick="openModal('Baggy Jeans Blue', '199 DH')">
+            <p class="price-tag">199 DH</p>
+            <p class="products-item">M • L • XL • 2XL</p>
+            <button class="buy-btn" onclick="openModal('Baggy Jeans Blue', '199 DH')">Order Now</button>
+        </div>
+
+        <div class="product-item">
+            <img src="imaggg/4.JPG" onclick="openModal('Urban Grey Jeans', '250 DH')">
+            <p class="price-tag">250 DH</p>
+            <p class="products-item">M • L • XL • 2XL</p>
+            <button class="buy-btn" onclick="openModal('Urban Grey Jeans', '250 DH')">Order Now</button>
         </div>
     </div>
 
