@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
     <title>AYMANE STORE</title>
     <style>
-        /* CSS الكود الشامل للتنسيق */
         body {
             margin: 0;
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3a7bd5 100%);
@@ -36,7 +35,6 @@
             -webkit-text-fill-color: transparent;
             text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
             margin: 0;
-            text-align: center;
             text-transform: uppercase;
         }
 
@@ -48,374 +46,182 @@
             margin: 20px auto;
             max-width: 1100px;
             padding: 30px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         }
 
-        .welcome-banner {
-            background: rgba(255, 255, 255, 0.14);
-            padding: 15px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-        }
-
-        .intro-text {
-            background: rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            border-radius: 20px;
-            margin: 20px 0;
-        }
-
+        .welcome-banner { background: rgba(255, 255, 255, 0.14); padding: 15px; border-radius: 15px; margin-bottom: 20px; }
+        .intro-text { background: rgba(0, 0, 0, 0.2); padding: 20px; border-radius: 20px; margin: 20px 0; }
         .intro-text h2 { color: #ffdd57; }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin: 20px 0;
-        }
-
-        .insta-page, .whatsapp-page, .shop-page {
-            text-decoration: none;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 25px;
-            font-weight: bold;
-            transition: 0.3s;
-            display: inline-block;
-        }
-
-        .insta-page { background: linear-gradient(45deg, #f09433, #bc1888); }
-        .whatsapp-page { background: linear-gradient(45deg, #25d366, #128c3d); }
-        .shop-page { background: #3b82f6; }
-
-        /* Coming Soon & Arrow */
-        .coming-soon-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .coming-soon-badge {
-            background: #ff9800;
-            padding: 4px 10px;
-            border-radius: 5px;
-            font-size: 14px;
-            font-weight: bold;
-        }
-
-        .side-arrow {
-            font-size: 20px;
-            color: #ff9800;
-            animation: move-arrow 1.5s infinite;
-        }
-
-        @keyframes move-arrow {
-            0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(8px); }
-        }
-
-        .maintenance-note {
-            font-size: 0.9rem;
-            color: #ddd;
-            margin-top: 15px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 10px;
-        }
-
-        /* Products Grid - التعديل هنا لظهور الصور بجانب بعضها */
-        .gallery-title { text-align: center; margin: 40px 0 20px; }
-        .gallery-title h2 { color: #ffdd57; font-size: 32px; }
+        
+        .coming-soon-wrapper { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 15px; }
+        .coming-soon-badge { background: #ff9800; padding: 4px 10px; border-radius: 5px; font-size: 14px; font-weight: bold; }
+        .side-arrow { font-size: 20px; color: #ff9800; animation: move-arrow 1.5s infinite; }
+        @keyframes move-arrow { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(8px); } }
 
         .gallery-section {
             display: grid;
-            /* صورتين في السطر للموبايل و 4 للكمبيوتر */
-            grid-template-columns: repeat(2, 1fr); 
+            grid-template-columns: repeat(2, 1fr);
             gap: 15px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        @media (min-width: 768px) {
-            .gallery-section {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        .product-item {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            overflow: hidden;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: 0.3s;
-            position: relative;
-        }
-
-        .product-item:hover { transform: translateY(-5px); }
-
-        .product-item img {
-            width: 100%;
-            height: 200px; /* تقليل الطول قليلاً ليظهر التصميم متناسق */
-            object-fit: cover;
-            cursor: pointer;
-        }
-
-        @media (min-width: 768px) {
-            .product-item img { height: 250px; }
-        }
-
-        .price-tag { color: #2ecc71; font-weight: bold; font-size: 1.2rem; margin: 10px 0; }
-        .products-item { font-size: 0.8rem; opacity: 0.8; margin-bottom: 10px; }
-
-        .buy-btn {
-            background: #000;
-            color: white;
-            border: none;
-            width: 90%;
             padding: 10px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            cursor: pointer;
+        }
+        @media (min-width: 768px) { .gallery-section { grid-template-columns: repeat(4, 1fr); } }
+
+        .product-item { background: rgba(255, 255, 255, 0.1); border-radius: 15px; overflow: hidden; text-align: center; position: relative; padding-bottom: 10px; }
+        
+        .comparison-box { position: relative; width: 100%; height: 350px; overflow: hidden; }
+        .product-item img { width: 100%; height: 350px; object-fit: cover; }
+
+        .img-back, .img-front { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; }
+        .img-front { width: 50%; border-right: 2px solid #2ecc71; z-index: 1; }
+        .comp-slider { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: transparent; -webkit-appearance: none; z-index: 5; cursor: ew-resize; outline: none; }
+
+        .section-divider { border-top: 2px dashed rgba(255, 221, 87, 0.5); margin: 40px 0; text-align: center; }
+        .section-divider span { background: #1e3c72; padding: 0 20px; position: relative; top: -15px; color: #ffdd57; font-weight: bold; }
+
+        .price-tag { color: #2ecc71; font-weight: bold; margin: 10px 0 5px 0; font-size: 1.2rem; }
+        .size-info-text { color: #ffdd57; font-size: 12px; margin-bottom: 8px; display: block; }
+
+        .buy-btn { 
+            background: #000; 
+            color: white; 
+            border: 1px solid #ffdd57; 
+            width: 90%; 
+            padding: 12px; 
+            border-radius: 10px; 
+            cursor: pointer; 
             font-weight: bold;
+            transition: all 0.3s ease;
         }
+        .buy-btn:active { background: #ffdd57 !important; color: #000 !important; }
 
-        .sold-badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: red;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 12px;
-            z-index: 5;
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0; top: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.8);
-        }
-
-        .modal-content {
-            background: white;
-            color: black;
-            margin: 10% auto;
-            padding: 20px;
-            width: 90%;
-            max-width: 400px;
-            border-radius: 15px;
-            text-align: center;
-        }
-
-        .modal-content input, .modal-content select {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-
-        .send-wa-btn {
-            background: #25d366;
-            color: white;
-            border: none;
-            padding: 12px;
-            width: 100%;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .carousel {
-            max-width: 300px;
-            margin: 40px auto;
-            position: relative;
-        }
-
-        .carousel-image { width: 100%; border-radius: 20px; }
+        /* THE POPUP FORM (MODAL) */
+        .modal { display: none; position: fixed; z-index: 99999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); }
+        .modal-content { background: white; color: black; margin: 5% auto; padding: 25px; width: 90%; max-width: 400px; border-radius: 20px; text-align: left; position: relative; }
+        .modal-content label { font-weight: bold; display: block; margin-top: 10px; color: #333; }
+        .modal-content input, .modal-content select { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
+        .close-btn { position: absolute; top: 10px; right: 15px; font-size: 25px; cursor: pointer; }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1 class="title">AYMANE STORE</h1>
-    </div>
+    <div class="header"><h1 class="title">AYMANE STORE</h1></div>
 
     <div class="landing-page">
-        <div class="main-content">
-            <span style="color: #2ecc71;">Welcome To my Store!</span>
-            <h1>Best Store In Morocco!</h1>
-            <div class="welcome-banner">
-                <p>Hello and welcome to Ayman Store. Contact me via Instagram or WhatsApp for fast service.</p>
-            </div>
-
-            <div class="social-links">
-                <a class="insta-page" href="https://www.instagram.com/a.y.m.a.n.______lh/" target="_blank">Instagram</a>
-                <a class="whatsapp-page" href="https://wa.me/212689248338" target="_blank">WhatsApp</a>
-            </div>
-
-            <div class="intro-text">
-                <h2>Upgrade Your Wardrobe Today!</h2>
-                <ul style="list-style: none; padding: 0;">
-                    <li>✔️ Premium quality: soft and durable</li>
-                    <li>✔️ Available sizes: M | L | XL | 2XL</li>
-                </ul>
-                <div class="coming-soon-wrapper">
-                    <a class="shop-page" href="#gallery">Shop Online</a>
-                    <span class="side-arrow">➔</span>
-                    <span class="coming-soon-badge">Coming Soon</span>
-                </div>
-                <div class="maintenance-note">
-                    Sorry! Our Online Shop is under maintenance. We are working hard to bring you the best experience soon. <strong>Thank you!</strong>
-                </div>
-            </div>
-            
+        <span style="color: #2ecc71;">Welcome To my Store!</span>
+        <h1>Best Store In Morocco!</h1>
+        <div class="welcome-banner"><p>Hello and welcome to Ayman Store. Contact me via Instagram or WhatsApp for fast service.</p></div>
+        
+        <div style="text-align:center; margin: 20px 0;">
+            <a href="https://www.instagram.com/a.y.m.a.n.______lh/" style="background: linear-gradient(45deg, #f09433, #bc1888); color: white; padding: 10px 20px; text-decoration: none; border-radius: 20px;">Instagram</a>
+            <a href="https://wa.me/212689248338" style="background: #25d366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 20px; margin-left: 10px;">WhatsApp</a>
         </div>
-    </div>
 
-    <div id="gallery" class="gallery-title">
-        <h2>Styles</h2>
-        <p>Discover our best picks in Kenitra.</p>
+        <div class="intro-text">
+            <h2>Upgrade Your Wardrobe Today!</h2>
+            <ul style="list-style: none; padding: 0;">
+                <li>✔️ Premium quality: soft and durable</li>
+                <li>✔️ Available sizes: M | L | XL | 2XL</li>
+            </ul>
+            <div class="coming-soon-wrapper">
+                <button style="background: #3b82f6; color: white; border: none; padding: 10px 20px; border-radius: 20px;">Shop Online</button>
+                <span class="side-arrow">➔</span>
+                <span class="coming-soon-badge">Coming Soon</span>
+            </div>
+        </div>
     </div>
 
     <div class="gallery-section">
         <div class="product-item">
-            <img src="imaggg/IMG_E0008.JPG" onclick="openModal('Classic White Set', '150 DH')">
-            <p class="price-tag">150 DH</p>
-            <p class="products-item">M • L • XL • 2XL</p>
-            <button class="buy-btn" onclick="openModal('Classic White Set', '150 DH')">Order Now</button>
-        </div>
-
-        <div class="product-item">
-            <img src="imaggg/3.JPG" onclick="openModal('Summer Fit Blue', '400 DH')">
-            <p class="price-tag">400 DH</p>
-            <p class="products-item">M • L • XL • 2XL</p>
-            <button class="buy-btn" onclick="openModal('Summer Fit Blue', '400 DH')">Order Now</button>
-        </div>
-
-        <div class="product-item">
-            <img src="imaggg/15.JPG" onclick="openModal('Urban Outfit', '400 DH')">
-            <p class="price-tag">400 DH</p>
-            <p class="products-item">M • L • XL • 2XL</p>
-            <button class="buy-btn" onclick="openModal('Urban Outfit', '400 DH')">Order Now</button>
-        </div>
-
-        <div class="product-item">
-            <div class="sold-badge">SOLD</div>
-            <img src="imaggg/IMG_E0013.JPG" style="opacity: 0.5;">
-            <p class="price-tag">250 DH</p>
-            <button class="buy-btn" disabled style="background: #555;">Sold Out</button>
-        </div>
-
-        <div class="product-item">
-            <img src="imaggg/10.JPG" onclick="openModal('Baggy Jeans Blue', '199 DH')">
+            <div class="comparison-box">
+                <div class="img-back" style="background-image: url('imaggg/19.JPG');"></div>
+                <div class="img-front" id="f1" style="background-image: url('imaggg/18.JPG');"></div>
+                <input type="range" min="0" max="100" value="50" class="comp-slider" oninput="document.getElementById('f1').style.width = this.value + '%'">
+            </div>
             <p class="price-tag">199 DH</p>
-            <p class="products-item">M • L • XL • 2XL</p>
-            <button class="buy-btn" onclick="openModal('Baggy Jeans Blue', '199 DH')">Order Now</button>
+            <span class="size-info-text">2XL, XL, L, M</span>
+            <button class="buy-btn" onclick="openOrder('Classic White Set', '199 DH')">Order Now</button>
         </div>
 
         <div class="product-item">
-            <img src="imaggg/4.JPG" onclick="openModal('Urban Grey Jeans', '250 DH')">
-            <p class="price-tag">250 DH</p>
-            <p class="products-item">M • L • XL • 2XL</p>
-            <button class="buy-btn" onclick="openModal('Urban Grey Jeans', '250 DH')">Order Now</button>
-        </div>
-    </div>
-
-    <div class="carousel">
-        <img id="carousel-image" src="imaggg/IMG_E0027.JPG" class="carousel-image">
-    </div>
-
-    <div id="orderModal" class="modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7);">
-    <div class="modal-content" style="background-color: #fff; margin: 5% auto; padding: 25px; border-radius: 15px; width: 90%; max-width: 500px; position: relative; font-family: sans-serif;">
-        <span onclick="closeModal()" style="position: absolute; right: 20px; top: 15px; font-size: 28px; cursor: pointer; color: #888;">&times;</span>
-        
-        <h2 id="productTitle" style="margin-top: 0; color: #333; text-align: center;">Classic White Set</h2>
-        <p id="productPrice" style="text-align: center; color: #2ecc71; font-weight: bold; font-size: 22px;">150 DH</p>
-
-        <div style="display: flex; flex-direction: column; gap: 15px;">
-            <input type="text" id="userName" placeholder="Full Name" style="padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
-            <input type="tel" id="userPhone" placeholder="WhatsApp Number" style="padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
-            
-            <div style="display: flex; gap: 10px;">
-                <select id="userSize" style="flex: 2; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
-                    <option value="">Select Size</option>
-                    <option value="S">Small</option>
-                    <option value="M">Medium</option>
-                    <option value="L">Large</option>
-                    <option value="XL">X-Large</option>
-                </select>
-                <input type="number" id="userQty" value="1" min="1" style="flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+            <div class="comparison-box">
+                <div class="img-back" style="background-image: url('imaggg/17.JPG');"></div>
+                <div class="img-front" id="f2" style="background-image: url('imaggg/16.JPG');"></div>
+                <input type="range" min="0" max="100" value="50" class="comp-slider" oninput="document.getElementById('f2').style.width = this.value + '%'">
             </div>
+            <p class="price-tag">199 DH</p>
+            <span class="size-info-text">2XL, XL, L, M</span>
+            <button class="buy-btn" onclick="openOrder('Summer Fit Blue', '199 DH')">Order Now</button>
+        </div>
 
-            <input type="text" id="userAddress" placeholder="Delivery Address (City, Neighborhood)" style="padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+        <div class="product-item"><img src="imaggg/7.JPG"><p class="price-tag">199 DH</p>
+            <span class="size-info-text">2XL, XL, L, M</span><button class="buy-btn" onclick="openOrder('T-Shirt Style 7', '199 DH')">Order Now</button></div>
+        <div class="product-item"><img src="imaggg/malak.JPG"><p class="price-tag">199 DH</p>
+            <span class="size-info-text">2XL, XL, L, M</span><button class="buy-btn" onclick="openOrder('Malak Edition', '199 DH')">Order Now</button></div>
+    </div>
+
+    <div class="section-divider"><span>NEW JEANS COLLECTION</span></div>
+
+    <div class="gallery-section">
+        <div class="product-item"><img src="imaggg/10.JPG"><p class="price-tag">199 DH</p><span class="size-info-text">Size: 30 to 36</span><button class="buy-btn" onclick="openOrder('Jeans 1', '199 DH')">Order Now</button></div>
+        <div class="product-item"><img src="imaggg/8.JPG"><p class="price-tag">199 DH</p><span class="size-info-text">Size: 30 to 36</span><button class="buy-btn" onclick="openOrder('Jeans 2', '199 DH')">Order Now</button></div>
+        <div class="product-item"><img src="imaggg/11.JPG"><p class="price-tag">199 DH</p><span class="size-info-text">Size: 30 to 36</span><button class="buy-btn" onclick="openOrder('Jeans 3', '199 DH')">Order Now</button></div>
+        <div class="product-item"><img src="imaggg/4.JPG"><p class="price-tag">199 DH</p><span class="size-info-text">Size: 30 to 36</span><button class="buy-btn" onclick="openOrder('Jeans 4', '199 DH')">Order Now</button></div>
+    </div>
+
+    <div class="section-divider"><span>NEW ENSEMBLE COLLECTION</span></div>
+
+    <div class="gallery-section">
+        <div class="product-item"><img src="imaggg/1.JPG"><p class="price-tag">600 DH</p><span 
+            class="size-info-text">2XL, XL </span><button class="buy-btn" onclick="openOrder('Ensemble Style 1', '299 DH')">Order Now</button></div>
+        <div class="product-item"><img src="imaggg/14.JPG"><p class="price-tag">600 DH</p>
+            <span class="size-info-text">2XL, XL</span><button class="buy-btn" onclick="openOrder('Ensemble Style 2', '350 DH')">Order Now</button></div>
+        <div class="product-item"><img src="imaggg/3.JPG"><p class="price-tag">600 DH</p>
+            <span class="size-info-text">2XL, XL</span><button class="buy-btn" onclick="openOrder('Ensemble Style 3', '320 DH')">Order Now</button></div>
+        <div class="product-item"><img src="imaggg/6.JPG"><p class="price-tag">600 DH</p>
+            <span class="size-info-text">2XL, XL</span><button class="buy-btn" onclick="openOrder('Ensemble Style 4', '310 DH')">Order Now</button></div>
+    </div>
+
+    <!-- ORDER FORM MODAL -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeOrder()">&times;</span>
+            <h3 id="pNameDisplay">Order Product</h3>
+            <p id="pPriceDisplay" style="color: #2ecc71; font-weight: bold;"></p>
             
-            <button onclick="sendToWhatsApp()" style="background-color: #25d366; color: white; padding: 15px; border: none; border-radius: 8px; font-weight: bold; font-size: 16px; cursor: pointer;">
-                Confirm Order via WhatsApp
-            </button>
+            <label>Name:</label>
+            <input type="text" id="cust_name" placeholder="Full Name">
+            <label>Address:</label>
+            <input type="text" id="cust_addr" placeholder="City, Address">
+            <label>Size:</label>
+            <select id="cust_size">
+                <option value="M">M</option><option value="L">L</option><option value="XL">XL</option><option value="2XL">2XL</option>
+                <option value="30">30</option><option value="32">32</option><option value="34">34</option><option value="36">36</option>
+            </select>
+            <label>Quantity:</label>
+            <input type="number" id="cust_qty" value="1" min="1">
+            <button style="background:#25d366; color:white; width:100%; border:none; padding:15px; margin-top:20px; border-radius:10px; font-weight:bold; cursor:pointer;" onclick="sendOrder()">Confirm WhatsApp Order</button>
         </div>
     </div>
 
-</div> 
-<script>
-   let selectedProduct = "";
-let selectedPrice = "";
-
-function openModal(name, price) {
-    selectedProduct = name;
-    selectedPrice = price;
-    document.getElementById('productTitle').innerText = name;
-    document.getElementById('productPrice').innerText = price;
-    document.getElementById('orderModal').style.display = "block"; // يفتح فقط عند الضغط
-}
-
-function closeModal() {
-    document.getElementById('orderModal').style.display = "none";
-}
-
-function sendToWhatsApp() {
-    const name = document.getElementById('userName').value;
-    const phone = document.getElementById('userPhone').value;
-    const size = document.getElementById('userSize').value;
-    const qty = document.getElementById('userQty').value;
-    const address = document.getElementById('userAddress').value;
-    
-
-    if (name && size && phone && address) {
-        const message = "🚀 NEW ORDER - AYMANE STORE%0A%0A" +
-                        "📦 Product: " + selectedProduct + "%0A" +
-                        "💰 Price: " + selectedPrice + "%0A" +
-                        "📏 Size: " + size + "%0A" +
-                        "🔢 Qty: " + qty + "%0A" +
-                        "--------------------------%0A" +
-                        "👤 Customer: " + name + "%0A" +
-                        "📍 Address: " + address + "%0A" +
-                        "📱 Phone: " + phone + "%0A" +
-                    
-
-        window.open("https://wa.me/212689248338?text=" + message, "_blank");
-    } else {
-        alert("Please fill all required fields!");
-    }
-}
-
-</script>
+    <script>
+        let currentP = "", currentPr = "";
+        function openOrder(n, p) {
+            currentP = n; currentPr = p;
+            document.getElementById('pNameDisplay').innerText = n;
+            document.getElementById('pPriceDisplay').innerText = p;
+            document.getElementById('orderModal').style.display = "block";
+        }
+        function closeOrder() { document.getElementById('orderModal').style.display = "none"; }
+        function sendOrder() {
+            const name = document.getElementById('cust_name').value;
+            const addr = document.getElementById('cust_addr').value;
+            const size = document.getElementById('cust_size').value;
+            const qty = document.getElementById('cust_qty').value;
+            if(name && addr && qty) {
+                const msg = *ORDER FROM AYMANE STORE*%0A*Product:* ${currentP}%0A*Price:* ${currentPr}%0A*Size:* ${size}%0A*Qty:* ${qty}%0A*Name:* ${name}%0A*Address:* ${addr};
+                window.open("https://wa.me/212689248338?text=" + msg, "_blank");
+                closeOrder();
+            } else { alert("Please fill all fields"); }
+        }
+    </script>
 </body>
- <-- landing-page --!>
-</div> <!-- landing-page -->
-<-- new page --!>
->
-            
-            </div>
-
-
-           
+</html>
