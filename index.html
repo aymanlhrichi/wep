@@ -278,9 +278,7 @@
                     Sorry! Our Online Shop is under maintenance. We are working hard to bring you the best experience soon. <strong>Thank you!</strong>
                 </div>
             </div>
-            <div style="text-align: center; margin-top: 20px;">
-                <img src="imaggg/ayman.JPG" style="width: 100px; height: 100px; border-radius: 50%; border: 2px solid #ffdd57; object-fit: cover;">
-            </div>
+            
         </div>
     </div>
 
@@ -337,50 +335,87 @@
         <img id="carousel-image" src="imaggg/IMG_E0027.JPG" class="carousel-image">
     </div>
 
-    <div id="orderModal" class="modal">
-        <div class="modal-content">
-            <span onclick="closeModal()" style="float:right; cursor:pointer; font-weight:bold;">X</span>
-            <h2 id="productTitle">Product Name</h2>
-            <p id="productPrice" style="color: #2ecc71; font-weight: bold;"></p>
-            <input type="text" id="userName" placeholder="Your Name" required>
-            <input type="tel" id="userPhone" placeholder="WhatsApp Number" required>
-            <select id="userSize">
-                <option value="">Select Size</option>
-                <option value="M">M</option><option value="L">L</option>
-                <option value="XL">XL</option><option value="2XL">2XL</option>
-            </select>
-            <button class="send-wa-btn" onclick="sendToWhatsApp()">Order via WhatsApp</button>
+    <div id="orderModal" class="modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7);">
+    <div class="modal-content" style="background-color: #fff; margin: 5% auto; padding: 25px; border-radius: 15px; width: 90%; max-width: 500px; position: relative; font-family: sans-serif;">
+        <span onclick="closeModal()" style="position: absolute; right: 20px; top: 15px; font-size: 28px; cursor: pointer; color: #888;">&times;</span>
+        
+        <h2 id="productTitle" style="margin-top: 0; color: #333; text-align: center;">Classic White Set</h2>
+        <p id="productPrice" style="text-align: center; color: #2ecc71; font-weight: bold; font-size: 22px;">150 DH</p>
+
+        <div style="display: flex; flex-direction: column; gap: 15px;">
+            <input type="text" id="userName" placeholder="Full Name" style="padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+            <input type="tel" id="userPhone" placeholder="WhatsApp Number" style="padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+            
+            <div style="display: flex; gap: 10px;">
+                <select id="userSize" style="flex: 2; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+                    <option value="">Select Size</option>
+                    <option value="S">Small</option>
+                    <option value="M">Medium</option>
+                    <option value="L">Large</option>
+                    <option value="XL">X-Large</option>
+                </select>
+                <input type="number" id="userQty" value="1" min="1" style="flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+            </div>
+
+            <input type="text" id="userAddress" placeholder="Delivery Address (City, Neighborhood)" style="padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+            
+            <button onclick="sendToWhatsApp()" style="background-color: #25d366; color: white; padding: 15px; border: none; border-radius: 8px; font-weight: bold; font-size: 16px; cursor: pointer;">
+                Confirm Order via WhatsApp
+            </button>
         </div>
     </div>
 
-    <script>
-        let selectedProduct = "";
-        let selectedPrice = "";
+</div> 
+<script>
+   let selectedProduct = "";
+let selectedPrice = "";
 
-        function openModal(name, price) {
-            selectedProduct = name;
-            selectedPrice = price;
-            document.getElementById('productTitle').innerText = name;
-            document.getElementById('productPrice').innerText = price;
-            document.getElementById('orderModal').style.display = "block";
-        }
+function openModal(name, price) {
+    selectedProduct = name;
+    selectedPrice = price;
+    document.getElementById('productTitle').innerText = name;
+    document.getElementById('productPrice').innerText = price;
+    document.getElementById('orderModal').style.display = "block"; // يفتح فقط عند الضغط
+}
 
-        function closeModal() {
-            document.getElementById('orderModal').style.display = "none";
-        }
+function closeModal() {
+    document.getElementById('orderModal').style.display = "none";
+}
 
-        function sendToWhatsApp() {
-            const name = document.getElementById('userName').value;
-            const size = document.getElementById('userSize').value;
-            if(name && size) {
-                const text = New Order: AYMANE STORE%0AProduct: ${selectedProduct}%0ACustomer: ${name}%0ASize: ${size};
-                window.open(https://wa.me/212689248338?text=${text}, '_blank');
-            } else { alert("Please fill your Name and Size"); }
-        }
+function sendToWhatsApp() {
+    const name = document.getElementById('userName').value;
+    const phone = document.getElementById('userPhone').value;
+    const size = document.getElementById('userSize').value;
+    const qty = document.getElementById('userQty').value;
+    const address = document.getElementById('userAddress').value;
+    
 
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('orderModal')) closeModal();
-        }
-    </script>
+    if (name && size && phone && address) {
+        const message = "🚀 NEW ORDER - AYMANE STORE%0A%0A" +
+                        "📦 Product: " + selectedProduct + "%0A" +
+                        "💰 Price: " + selectedPrice + "%0A" +
+                        "📏 Size: " + size + "%0A" +
+                        "🔢 Qty: " + qty + "%0A" +
+                        "--------------------------%0A" +
+                        "👤 Customer: " + name + "%0A" +
+                        "📍 Address: " + address + "%0A" +
+                        "📱 Phone: " + phone + "%0A" +
+                    
+
+        window.open("https://wa.me/212689248338?text=" + message, "_blank");
+    } else {
+        alert("Please fill all required fields!");
+    }
+}
+
+</script>
 </body>
-</html>
+ <-- landing-page --!>
+</div> <!-- landing-page -->
+<-- new page --!>
+>
+            
+            </div>
+
+
+           
