@@ -91,14 +91,14 @@
             font-weight: bold;
             transition: all 0.3s ease;
         }
-        .buy-btn:active { background: #ffdd57 !important; color: #000 !important; }
+        .buy-btn:hover { background: #333; }
 
         /* THE POPUP FORM (MODAL) */
-        .modal { display: none; position: fixed; z-index: 99999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); }
-        .modal-content { background: white; color: black; margin: 5% auto; padding: 25px; width: 90%; max-width: 400px; border-radius: 20px; text-align: left; position: relative; }
+        .modal { display: none; position: fixed; z-index: 99999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); }
+        .modal-content { background: white; color: black; margin: 5% auto; padding: 25px; width: 90%; max-width: 400px; border-radius: 20px; text-align: left; position: relative; max-height: 85vh; overflow-y: auto; }
         .modal-content label { font-weight: bold; display: block; margin-top: 10px; color: #333; }
-        .modal-content input, .modal-content select { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
-        .close-btn { position: absolute; top: 10px; right: 15px; font-size: 25px; cursor: pointer; }
+        .modal-content input, .modal-content select { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; font-size: 16px; }
+        .close-btn { position: absolute; top: 10px; right: 15px; font-size: 25px; cursor: pointer; color: #000; }
     </style>
 </head>
 <body>
@@ -136,9 +136,9 @@
                 <div class="img-front" id="f1" style="background-image: url('imaggg/18.JPG');"></div>
                 <input type="range" min="0" max="100" value="50" class="comp-slider" oninput="document.getElementById('f1').style.width = this.value + '%'">
             </div>
-            <p class="price-tag">199 DH</p>
-            <span class="size-info-text">2XL, XL, L, M</span>
-            <button class="buy-btn" onclick="openOrder('Classic White Set', '199 DH')">Order Now</button>
+            <p class="price-tag">150 DH</p>
+            <span class="size-info-text">Available: M, L, XL, 2XL</span>
+            <button class="buy-btn" onclick="openOrder('Classic White Set', '150 DH')">Order Now</button>
         </div>
 
         <div class="product-item">
@@ -147,80 +147,112 @@
                 <div class="img-front" id="f2" style="background-image: url('imaggg/16.JPG');"></div>
                 <input type="range" min="0" max="100" value="50" class="comp-slider" oninput="document.getElementById('f2').style.width = this.value + '%'">
             </div>
-            <p class="price-tag">199 DH</p>
-            <span class="size-info-text">2XL, XL, L, M</span>
-            <button class="buy-btn" onclick="openOrder('Summer Fit Blue', '199 DH')">Order Now</button>
+            <p class="price-tag">400 DH</p>
+            <span class="size-info-text">Available: M, L, XL</span>
+            <button class="buy-btn" onclick="openOrder('Summer Fit Blue', '400 DH')">Order Now</button>
         </div>
 
-        <div class="product-item"><img src="imaggg/7.JPG"><p class="price-tag">199 DH</p>
-            <span class="size-info-text">2XL, XL, L, M</span><button class="buy-btn" onclick="openOrder('T-Shirt Style 7', '199 DH')">Order Now</button></div>
-        <div class="product-item"><img src="imaggg/malak.JPG"><p class="price-tag">199 DH</p>
-            <span class="size-info-text">2XL, XL, L, M</span><button class="buy-btn" onclick="openOrder('Malak Edition', '199 DH')">Order Now</button></div>
+        <div class="product-item"><img src="imaggg/7.JPG" alt="item"><p class="price-tag">199 DH</p><span class="size-info-text">Available: L, XL</span><button class="buy-btn" onclick="openOrder('T-Shirt Style 7', '199 DH')">Order Now</button></div>
+        <div class="product-item"><img src="imaggg/malak.JPG" alt="item"><p class="price-tag">199 DH</p><span class="size-info-text">Available: M, L, XL</span><button class="buy-btn" onclick="openOrder('Malak Edition', '199 DH')">Order Now</button></div>
     </div>
 
     <div class="section-divider"><span>NEW JEANS COLLECTION</span></div>
 
     <div class="gallery-section">
-        <div class="product-item"><img src="imaggg/10.JPG"><p class="price-tag">199 DH</p><span class="size-info-text">Size: 30 to 36</span><button class="buy-btn" onclick="openOrder('Jeans 1', '199 DH')">Order Now</button></div>
-        <div class="product-item"><img src="imaggg/8.JPG"><p class="price-tag">199 DH</p><span class="size-info-text">Size: 30 to 36</span><button class="buy-btn" onclick="openOrder('Jeans 2', '199 DH')">Order Now</button></div>
-        <div class="product-item"><img src="imaggg/11.JPG"><p class="price-tag">199 DH</p><span class="size-info-text">Size: 30 to 36</span><button class="buy-btn" onclick="openOrder('Jeans 3', '199 DH')">Order Now</button></div>
-        <div class="product-item"><img src="imaggg/4.JPG"><p class="price-tag">199 DH</p><span class="size-info-text">Size: 30 to 36</span><button class="buy-btn" onclick="openOrder('Jeans 4', '199 DH')">Order Now</button></div>
+        <div class="product-item"><img src="imaggg/10.JPG" alt="item"><p class="price-tag">199 DH</p><span class="size-info-text">Size: 30 to 36</span><button class="buy-btn" onclick="openOrder('Jeans 1', '199 DH')">Order Now</button></div>
+        <div class="product-item"><img src="imaggg/8.JPG" alt="item"><p class="price-tag">199 DH</p><span class="size-info-text">Size: 30 to 36</span><button class="buy-btn" onclick="openOrder('Jeans 2', '199 DH')">Order Now</button></div>
+        <div class="product-item"><img src="imaggg/11.JPG" alt="item"><p class="price-tag">199 DH</p><span class="size-info-text">Size: 30 to 36</span><button class="buy-btn" onclick="openOrder('Jeans 3', '199 DH')">Order Now</button></div>
+        <div class="product-item"><img src="imaggg/4.JPG" alt="item"><p class="price-tag">199 DH</p><span class="size-info-text">Size: 30 to 36</span><button class="buy-btn" onclick="openOrder('Jeans 4', '199 DH')">Order Now</button></div>
     </div>
 
     <div class="section-divider"><span>NEW ENSEMBLE COLLECTION</span></div>
 
     <div class="gallery-section">
-        <div class="product-item"><img src="imaggg/1.JPG"><p class="price-tag">600 DH</p><span 
-            class="size-info-text">2XL, XL </span><button class="buy-btn" onclick="openOrder('Ensemble Style 1', '299 DH')">Order Now</button></div>
-        <div class="product-item"><img src="imaggg/14.JPG"><p class="price-tag">600 DH</p>
-            <span class="size-info-text">2XL, XL</span><button class="buy-btn" onclick="openOrder('Ensemble Style 2', '350 DH')">Order Now</button></div>
-        <div class="product-item"><img src="imaggg/3.JPG"><p class="price-tag">600 DH</p>
-            <span class="size-info-text">2XL, XL</span><button class="buy-btn" onclick="openOrder('Ensemble Style 3', '320 DH')">Order Now</button></div>
-        <div class="product-item"><img src="imaggg/6.JPG"><p class="price-tag">600 DH</p>
-            <span class="size-info-text">2XL, XL</span><button class="buy-btn" onclick="openOrder('Ensemble Style 4', '310 DH')">Order Now</button></div>
+        <div class="product-item"><img src="imaggg/1.JPG" alt="item"><p class="price-tag">299 DH</p><span class="size-info-text">Available: M, L, XL</span><button class="buy-btn" onclick="openOrder('Ensemble Style 1', '299 DH')">Order Now</button></div>
+        <div class="product-item"><img src="imaggg/2.JPG" alt="item"><p class="price-tag">350 DH</p><span class="size-info-text">Available: M, L</span><button class="buy-btn" onclick="openOrder('Ensemble Style 2', '350 DH')">Order Now</button></div>
+        <div class="product-item"><img src="imaggg/3.JPG" alt="item"><p class="price-tag">320 DH</p><span class="size-info-text">Available: L, XL</span><button class="buy-btn" onclick="openOrder('Ensemble Style 3', '320 DH')">Order Now</button></div>
+        <div class="product-item"><img src="imaggg/5.JPG" alt="item"><p class="price-tag">310 DH</p><span class="size-info-text">Available: M, L, XL</span><button class="buy-btn" onclick="openOrder('Ensemble Style 4', '310 DH')">Order Now</button></div>
     </div>
 
-    <!-- ORDER FORM MODAL -->
     <div id="orderModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeOrder()">&times;</span>
             <h3 id="pNameDisplay">Order Product</h3>
             <p id="pPriceDisplay" style="color: #2ecc71; font-weight: bold;"></p>
+            <hr>
             
-            <label>Name:</label>
-            <input type="text" id="cust_name" placeholder="Full Name">
-            <label>Address:</label>
-            <input type="text" id="cust_addr" placeholder="City, Address">
+            <label>Full Name:</label>
+            <input type="text" id="cust_name" placeholder="Enter your name">
+            
+            <label>Phone Number:</label>
+            <input type="tel" id="cust_phone" placeholder="06... / 07...">
+            
+            <label>City & Address:</label>
+            <input type="text" id="cust_addr" placeholder="Your delivery address">
+            
             <label>Size:</label>
             <select id="cust_size">
                 <option value="M">M</option><option value="L">L</option><option value="XL">XL</option><option value="2XL">2XL</option>
                 <option value="30">30</option><option value="32">32</option><option value="34">34</option><option value="36">36</option>
             </select>
+            
             <label>Quantity:</label>
             <input type="number" id="cust_qty" value="1" min="1">
+            
             <button style="background:#25d366; color:white; width:100%; border:none; padding:15px; margin-top:20px; border-radius:10px; font-weight:bold; cursor:pointer;" onclick="sendOrder()">Confirm WhatsApp Order</button>
         </div>
     </div>
 
     <script>
         let currentP = "", currentPr = "";
-        function openOrder(n, p) {
-            currentP = n; currentPr = p;
-            document.getElementById('pNameDisplay').innerText = n;
-            document.getElementById('pPriceDisplay').innerText = p;
+
+        function openOrder(name, price) {
+            currentP = name; 
+            currentPr = price;
+            document.getElementById('pNameDisplay').innerText = "Ordering: " + name;
+            document.getElementById('pPriceDisplay').innerText = "Price: " + price;
             document.getElementById('orderModal').style.display = "block";
         }
-        function closeOrder() { document.getElementById('orderModal').style.display = "none"; }
+
+        function closeOrder() { 
+            document.getElementById('orderModal').style.display = "none"; 
+        }
+
+        // Close modal if user clicks outside of it
+        window.onclick = function(event) {
+            let modal = document.getElementById('orderModal');
+            if (event.target == modal) {
+                closeOrder();
+            }
+        }
+
         function sendOrder() {
             const name = document.getElementById('cust_name').value;
+            const phone = document.getElementById('cust_phone').value;
             const addr = document.getElementById('cust_addr').value;
             const size = document.getElementById('cust_size').value;
             const qty = document.getElementById('cust_qty').value;
-            if(name && addr && qty) {
-                const msg = *ORDER FROM AYMANE STORE*%0A*Product:* ${currentP}%0A*Price:* ${currentPr}%0A*Size:* ${size}%0A*Qty:* ${qty}%0A*Name:* ${name}%0A*Address:* ${addr};
-                window.open("https://wa.me/212689248338?text=" + msg, "_blank");
+
+            if(name && phone && addr && qty) {
+                // Formulate the message
+                const message = "NEW ORDER - AYMANE STORE\n\n" +
+                                "Product: " + currentP + "\n" +
+                                "Price: " + currentPr + "\n" +
+                                "Size: " + size + "\n" +
+                                "Quantity: " + qty + "\n\n" +
+                                "Customer Name: " + name + "\n" +
+                                "Phone: " + phone + "\n" +
+                                "Address: " + addr;
+
+                // Create the WhatsApp link
+                const waUrl = "https://wa.me/212689248338?text=" + encodeURIComponent(message);
+                
+                // Open WhatsApp
+                window.open(waUrl, "_blank");
                 closeOrder();
-            } else { alert("Please fill all fields"); }
+            } else { 
+                alert("Please fill in all details so we can process your order!"); 
+            }
         }
     </script>
 </body>
