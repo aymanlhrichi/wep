@@ -156,12 +156,62 @@
         }
         .buy-btn:hover { background: var(--primary-gold); box-shadow: 0 4px 10px rgba(255,221,87,0.3); }
 
-        /* MODAL STYLE */
-        .modal { display: none; position: fixed; z-index: 99999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); }
-        .modal-content { background: white; color: black; margin: 5% auto; padding: 25px; width: 90%; max-width: 400px; border-radius: 20px; text-align: right; position: relative; max-height: 85vh; overflow-y: auto; font-family: 'Cairo', sans-serif; direction: rtl; }
-        .modal-content label { font-weight: bold; display: block; margin-top: 10px; color: #333; }
-        .modal-content input, .modal-content select { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; font-size: 16px; font-family: 'Cairo', sans-serif; text-align: right; }
-        .close-btn { position: absolute; top: 10px; left: 15px; font-size: 25px; cursor: pointer; color: #000; }
+        /* MODAL STYLE - تم التعديل ليظهر في السنتر تماماً مع تزيين احترافي وبادج بروفيسيونال */
+        .modal { 
+            display: none; 
+            position: fixed; 
+            z-index: 99999; 
+            left: 0; 
+            top: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: rgba(0,0,0,0.7); 
+            backdrop-filter: blur(8px);
+            /* لضمان التوسط الكامل بالمنتصف */
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content { 
+            background: #ffffff; 
+            color: black; 
+            padding: 30px 25px 25px 25px; 
+            width: 92%; 
+            max-width: 420px; 
+            border-radius: 24px; 
+            text-align: right; 
+            position: relative; 
+            max-height: 90vh; 
+            overflow-y: auto; 
+            font-family: 'Cairo', sans-serif; 
+            direction: rtl; 
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(255, 221, 87, 0.2);
+            margin: auto; /* يتكامل مع الـ flexbox للتوسط */
+        }
+
+        /* بادج professionnels 100% الاحترافي */
+        .prof-badge-container {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .prof-badge {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: var(--primary-gold);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: bold;
+            display: inline-block;
+            border: 1px solid var(--primary-gold);
+            box-shadow: 0 3px 10px rgba(255,221,87,0.15);
+            letter-spacing: 0.5px;
+        }
+
+        .modal-content label { font-weight: 700; display: block; margin-top: 12px; color: #1e293b; font-size: 14px; }
+        .modal-content input, .modal-content select { width: 100%; padding: 12px; margin-top: 6px; border: 1px solid #cbd5e1; border-radius: 10px; box-sizing: border-box; font-size: 15px; font-family: 'Cairo', sans-serif; text-align: right; background: #f8fafc; transition: 0.3s; color: #0f172a; }
+        .modal-content input:focus, .modal-content select:focus { border-color: #0f172a; outline: none; background: #ffffff; box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.1); }
+        .close-btn { position: absolute; top: 12px; left: 18px; font-size: 28px; cursor: pointer; color: #64748b; transition: 0.3s; }
+        .close-btn:hover { color: #000; }
 
         /* صندوق ملخص الحساب التلقائي داخل المودال */
         .order-summary-box {
@@ -305,13 +355,13 @@
 
     <!-- شريط العد التنازلي الإحترافي -->
     <div class="countdown-bar">
-        🔥 عرض محدود جداً! ينتهي  تلقائياً خلال: <span id="timer-display">15:00</span> دقيقة
+        🔥 عرض محدود جداً! ينتهي تلقائياً خلال: <span id="timer-display">15:00</span> دقيقة
     </div>
 
     <!-- الهيدر المطور باللون الأسود الملكي والذهبي -->
     <div class="header"><h1 class="title">AYMANE STORE</h1></div>
 
-    <!-- زر واتساب العائم والمستمر المضاف حديثاً -->
+    <!-- زر واتساب العائم والمستمر -->
     <a href="https://wa.me/212689248338" class="whatsapp-float" target="_blank" aria-label="Contact us on WhatsApp">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35" height="35" alt="WhatsApp Icon">
     </a>
@@ -323,14 +373,14 @@
         
         <div style="text-align:center; margin: 25px 0;">
             <a href="https://www.instagram.com/a.y.m.a.n.______lh/" target="_blank" style="background: linear-gradient(45deg, #f09433, #bc1888); color: white; padding: 12px 25px; text-decoration: none; border-radius: 25px; font-weight: bold; box-shadow: 0 4px 10px rgba(188,24,136,0.3);">Instagram</a>
-            <a href="https://wa.me/212689248338" target="_blank" style="background: #25d366; color: white; padding: 12px 25px; text-decoration: none; border-radius: 25px; margin-left: 10px; font-weight: bold; box-shadow: 0 4px 10px rgba(37,211,102,0.3);">WhatsApp</a>
+           
         </div>
 
-    
+       
         </div>
     </div>
 
-    <!-- الخانة الجديدة المضافة: قسم الصولد (BIG SALE) -->
+    <!-- قسم الصولد (BIG SALE) -->
     <div class="section-divider"><span>تخفيضات  الحصرية - BIG SOLDE 🔥</span></div>
     <div class="gallery-section">
         <div class="product-item sale-item">
@@ -392,12 +442,12 @@
         <div class="product-item"><img src="imaggg/7.JPG" alt="item"><p class="price-tag">199 DH</p><span class="size-info-text">Available: 2XL, XL, L</span><button class="buy-btn" onclick="openOrder('Malak Edition', '199 DH')">اطلب الآن</button></div>
     </div>
 
-    <!-- NEW CINEMATIC SECTION 1 -->
+    <!-- SUMMER CLOTHING -->
     <div class="section-divider"><span> SUMMER CLOTHING</span></div>
     <section class="cinematic-section">
         <h2 class="cinematic-title">ENJOOOOOOOY!</h2>
         <div class="cinematic-container">
-            <div class="cinematic-card" onclick="openOrder('Luxury Piece 1', '199 DH')">
+            <div class="cinematic-card" onclick="openOrder('Luxury Piece 1', '499 DH')">
                 <span class="exclusive-badge">Summer</span>
                 <img src="imaggg/34.JPG" alt="Luxury Item">
                 <div class="card-overlay">
@@ -405,7 +455,7 @@
                     <small>اضغط للطلب</small>
                 </div>
             </div>
-            <div class="cinematic-card" onclick="openOrder('Luxury Piece 2', '199 DH')">
+            <div class="cinematic-card" onclick="openOrder('Luxury Piece 2', '599 DH')">
                 <span class="exclusive-badge">Summer</span>
                 <img src="imaggg/32.JPG" alt="Luxury Item">
                 <div class="card-overlay">
@@ -413,7 +463,7 @@
                     <small>اضغط للطلب</small>
                 </div>
             </div>
-            <div class="cinematic-card" onclick="openOrder('Luxury Piece 3', '199 DH')">
+            <div class="cinematic-card" onclick="openOrder('Luxury Piece 3', '499 DH')">
                 <span class="exclusive-badge">Summer</span>
                 <img src="imaggg/31.JPG" alt="Luxury Item">
                 <div class="card-overlay">
@@ -421,7 +471,7 @@
                     <small>اضغط للطلب</small>
                 </div>
             </div>
-            <div class="cinematic-card" onclick="openOrder('Luxury Piece 4', '199 DH')">
+            <div class="cinematic-card" onclick="openOrder('Luxury Piece 4', '599 DH')">
                 <span class="exclusive-badge">Summer</span>
                 <img src="imaggg/30.JPG" alt="Luxury Item">
                 <div class="card-overlay">
@@ -432,7 +482,7 @@
         </div>
     </section>
 
-    <!-- NEW JEANS -->
+    <!-- JEANS -->
     <div class="section-divider"><span> JEANS COLLECTION</span></div>
     <div class="gallery-section">
         <div class="product-item"><img src="imaggg/10.JPG" alt="item"><p class="price-tag">199 DH</p><span class="size-info-text">Size: 30 to 36</span><button class="buy-btn" onclick="openOrder('Jeans 1', '199 DH')">اطلب الآن</button></div>
@@ -441,12 +491,12 @@
         <div class="product-item"><img src="imaggg/4.JPG" alt="item"><p class="price-tag">199 DH</p><span class="size-info-text">Size: 30 to 36</span><button class="buy-btn" onclick="openOrder('Jeans 4', '199 DH')">اطلب الآن</button></div>
     </div>
 
-    <!-- NEW CINEMATIC SECTION 2 -->
+    <!-- LUXURY CLOTHING -->
     <div class="section-divider"><span>LUXURY CLOTHING</span></div>
     <section class="cinematic-section">
         <h2 class="cinematic-title">ENJOOOOOOOY!</h2>
         <div class="cinematic-container">
-            <div class="cinematic-card" onclick="openOrder('Luxury Piece 1', '199 DH')">
+            <div class="cinematic-card" onclick="openOrder('Luxury Piece 1', '449 DH')">
                 <span class="exclusive-badge">449 DH</span>
                 <img src="imaggg/34.JPG" alt="Luxury Item">
                 <div class="card-overlay">
@@ -454,7 +504,7 @@
                     <small>اضغط للطلب</small>
                 </div>
             </div>
-            <div class="cinematic-card" onclick="openOrder('Luxury Piece 2', '199 DH')">
+            <div class="cinematic-card" onclick="openOrder('Luxury Piece 2', '549 DH')">
                 <span class="exclusive-badge">549 DH</span>
                 <img src="imaggg/14.JPG" alt="Luxury Item">
                 <div class="card-overlay">
@@ -462,7 +512,7 @@
                     <small>اضغط للطلب</small>
                 </div>
             </div>
-            <div class="cinematic-card" onclick="openOrder('Luxury Piece 3', '199 DH')">
+            <div class="cinematic-card" onclick="openOrder('Luxury Piece 3', '499 DH')">
                 <span class="exclusive-badge">499 DH</span>
                 <img src="imaggg/35.JPG" alt="Luxury Item">
                 <div class="card-overlay">
@@ -470,7 +520,7 @@
                     <small>اضغط للطلب</small>
                 </div>
             </div>
-            <div class="cinematic-card" onclick="openOrder('Luxury Piece 4', '199 DH')">
+            <div class="cinematic-card" onclick="openOrder('Luxury Piece 4', '449 DH')">
                 <span class="exclusive-badge">449 DH</span>
                 <img src="imaggg/33.JPG" alt="Luxury Item">
                 <div class="card-overlay">
@@ -504,7 +554,7 @@
                 <div class="ai-label">
                     <div class="glitch-text">2XL, XL</div>
                     <p style="color:var(--neon-blue); margin:5px 0;">350 DH</p>
-                    <button class="neon-order-btn" onclick="openOrder('AI Edition 1', '199 DH')">اطلب الآن</button>
+                    <button class="neon-order-btn" onclick="openOrder('AI Edition 1', '350 DH')">اطلب الآن</button>
                 </div>
             </div>
             <div class="ai-card">
@@ -513,17 +563,13 @@
                 <div class="ai-label">
                     <div class="glitch-text">2XL, XL</div>
                     <p style="color:var(--neon-blue); margin:5px 0;">350 DH</p>
-                    <button class="neon-order-btn" onclick="openOrder('AI Edition 2', '199 DH')">اطلب الآن</button>
+                    <button class="neon-order-btn" onclick="openOrder('AI Edition 2', '350 DH')">اطلب الآن</button>
                 </div>
             </div>
         </div>
     </section>
 
-    
-        </div>
-    </section>
-
-    <!-- قسم آراء الزبائن الاحترافي -->
+    <!-- قسم آراء الزبائن -->
     <div class="section-divider"><span>ثقة زبنائنا هي رأسمالنا - REVIEWS & FEEDBACK</span></div>
     <section class="reviews-section">
         <div class="review-card ar">
@@ -540,13 +586,19 @@
         </div>
     </section>
 
-    <!-- MODAL FORM -->
+    <!-- MODAL FORM (تم تعديل السنتر، وإضافة بادج professionnels 100%) -->
     <div id="orderModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeOrder()">&times;</span>
-            <h3 id="pNameDisplay">Order Product</h3>
-            <p id="pPriceDisplay" style="color: #2ecc71; font-weight: bold;"></p>
-            <hr>
+            
+            <!-- بادج professionnels 100% المزين -->
+            <div class="prof-badge-container">
+                <span class="prof-badge">✓ Professionnels 100%</span>
+            </div>
+
+            <h3 id="pNameDisplay" style="margin-top: 5px; color: #0f172a;">Order Product</h3>
+            <p id="pPriceDisplay" style="color: #2ecc71; font-weight: bold; font-size: 18px; margin-bottom: 10px;"></p>
+            <hr style="border: 0; border-top: 1px solid #e2e8f0;">
             
             <label>الاسم الكامل / Full Name:</label>
             <input type="text" id="cust_name" placeholder="أدخل اسمك الكامل">
@@ -560,12 +612,10 @@
                 <option value="Kenitra">القنيطرة / Kenitra (توصيل: 20 DH)</option>
                 <option value="Rabat">الرباط / Rabat (توصيل: 35 DH)</option>
                 <option value="Casablanca">الدار البيضاء / Casablanca (توصيل: 40 DH)</option>
-               
                 <option value="Other">مدينة أخرى / Other City (توصيل: 45 DH)</option>
             </select>
-
     
-            <label>المقاس / Size:</label>
+            <label>المقاس / Size (Zise):</label>
             <select id="cust_size">
                 <option value="M">M</option><option value="L">L</option><option value="XL">XL</option><option value="2XL">2XL</option>
                 <option value="30">30</option><option value="32">32</option><option value="34">34</option><option value="36">36</option>
@@ -575,7 +625,7 @@
             <label>الكمية / Quantity:</label>
             <input type="number" id="cust_qty" value="1" min="1" onchange="calculateTotal()">
 
-            <!-- صندوق ملخص الحساب التلقائي الاحترافي -->
+            <!-- صندوق ملخص الحساب التلقائي -->
             <div class="order-summary-box">
                 <div class="summary-row">
                     <span>ثمن المنتج:</span>
@@ -592,7 +642,7 @@
                 </div>
             </div>
 
-            <button style="background:#25d366; color:white; width:100%; border:none; padding:15px; margin-top:20px; border-radius:10px; font-weight:bold; cursor:pointer; font-family:'Cairo';" onclick="sendOrder()">تأكيد الطلب عبر واتساب / Confirm Order</button>
+            <button style="background:#25d366; color:white; width:100%; border:none; padding:15px; margin-top:20px; border-radius:12px; font-weight:bold; cursor:pointer; font-family:'Cairo'; font-size:16px; box-shadow: 0 4px 12px rgba(37,211,102,0.3);" onclick="sendOrder()">تأكيد الطلب عبر واتساب / Confirm Order</button>
         </div>
     </div>
 
@@ -610,8 +660,12 @@
             document.getElementById('cust_city').selectedIndex = 0;
             document.getElementById('cust_qty').value = 1;
             
+            document.getElementById('cust_name').value = "";
+            document.getElementById('cust_phone').value = "";
+            
             calculateTotal();
-            document.getElementById('orderModal').style.display = "block";
+            // تفعيل نظام الـ flexbox ليتم التوسط بدقة بالمنتصف
+            document.getElementById('orderModal').style.display = "flex";
         }
 
         function closeOrder() { 
@@ -628,11 +682,10 @@
             const qty = parseInt(document.getElementById('cust_qty').value) || 1;
             
             let shipping = 0;
-            if (city === 'Kenitra') {
-                shipping = 20;
-            } else if (city !== '') {
-                shipping = 45;
-            }
+            if (city === 'Kenitra') shipping = 20;
+            else if (city === 'Rabat') shipping = 35;
+            else if (city === 'Casablanca') shipping = 40;
+            else if (city === 'Other') shipping = 45;
 
             let productTotal = basePriceNum * qty;
             let finalTotal = productTotal + shipping;
@@ -646,15 +699,20 @@
             const name = document.getElementById('cust_name').value;
             const phone = document.getElementById('cust_phone').value;
             const city = document.getElementById('cust_city').value;
-            const addr = document.getElementById('cust_addr').value;
             const size = document.getElementById('cust_size').value;
             const qty = document.getElementById('cust_qty').value;
 
-            if(name && phone && city && addr && qty) {
-                let shipping = (city === 'Kenitra') ? 20 : 45;
+            if(name && phone && city && qty) {
+                let shipping = 0;
+                if (city === 'Kenitra') shipping = 20;
+                else if (city === 'Rabat') shipping = 35;
+                else if (city === 'Casablanca') shipping = 40;
+                else if (city === 'Other') shipping = 45;
+
                 let finalTotal = (basePriceNum * parseInt(qty)) + shipping;
 
-                const message = "*NEW ORDER - AYMANE STORE*\n\n" +
+                const message = "*NEW ORDER - AYMANE STORE*\n" +
+                                "*✓ Professionnels 100%*\n\n" +
                                 "*Product:* " + currentP + "\n" +
                                 "*Base Price:* " + currentPr + "\n" +
                                 "*Size:* " + size + "\n" +
@@ -663,8 +721,7 @@
                                 "*Total Amount:* " + finalTotal + " DH\n\n" +
                                 "*Customer Name:* " + name + "\n" +
                                 "*Phone:* " + phone + "\n" +
-                                "*City:* " + city + "\n" +
-                                "*Address:* " + addr;
+                                "*City:* " + city;
                 const waUrl = "https://wa.me/212689248338?text=" + encodeURIComponent(message);
                 window.open(waUrl, "_blank");
                 closeOrder();
@@ -673,7 +730,7 @@
             }
         }
 
-        // نظام المؤقت التنازلي الإحترافي (15 دقيقة ويعيد نفسه)
+        // نظام المؤقت التنازلي (15 دقيقة)
         let timeInSeconds = 15 * 60;
         const timerElement = document.getElementById('timer-display');
         
