@@ -3,30 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>AYMANE STORE | أيمـن سطور - الفخامة والتميز</title>
+    <meta name="description" content="أفضل جودة بأحسن ثمن في المغرب - تشكيلات حصرية وملابس كلاسيكية وكاجوال بريميوم.">
+    <meta property="og:title" content="AYMANE STORE | أيمـن سطور">
+    <meta property="og:description" content="أفضل جودة بأحسن ثمن في المغرب - اضغط واطلب الآن عبر الواتساب">
+    <meta property="og:image" content="imaggg/AA.jpg">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="imaggg/AA.JPG" type="image/x-icon">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
-    <title>AYMANE STORE | أيمـن سطور</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Cairo:wght@400;600;700;900&family=Syncopate:wght@700&display=swap" rel="stylesheet" />
+    
     <style>
         :root {
             --primary-gold: #ffdd57;
-            --dark-bg: #0f172a;
+            --dark-bg: #090d16;
             --sale-red: #ff4d4d;
             --whatsapp-green: #25d366;
             --neon-blue: #0ff;
+            --cosmic-purple: #8a2be2;
+            --nebula-pink: #ff007f;
         }
 
         body {
             margin: 0;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            background: radial-gradient(circle at 50% 50%, #111726 0%, #070a12 70%, #020306 100%);
             background-attachment: fixed;
             min-height: 100vh;
             font-family: 'Cairo', 'Arial', sans-serif;
             color: white;
             overflow-x: hidden;
+            position: relative;
         }
 
-        /* ستايل شريط المؤقت التنازلي */
+        /* خلفية جزيئات الكون السحرية المتحركة */
+        #cosmic-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* الماوس السحري المضيء */
+        .magic-cursor {
+            width: 8px;
+            height: 8px;
+            background: var(--neon-blue);
+            border-radius: 50%;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9999999;
+            box-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
+            transition: width 0.2s, height 0.2s;
+        }
+
         .countdown-bar {
             background: var(--sale-red);
             color: white;
@@ -42,20 +78,39 @@
         }
         @keyframes barPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.8; } }
 
-        /* الهيدر الجديد باللون الأسود الملكي والذهبي */
         .header {
             background: #000000;
-            display: flex;
+            display: grid;
+            grid-template-columns: 80px 1fr 80px;
             align-items: center;
-            justify-content: center;
-            height: 100px;
+            padding: 0 20px;
+            height: 110px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
             border-bottom: 2px solid var(--primary-gold);
         }
 
+        .header-profile-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-avatar {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            border: 2px solid var(--primary-gold);
+            box-shadow: 0 0 15px var(--primary-gold);
+            object-fit: cover;
+        }
+
+        .header-center-title {
+            text-align: center;
+        }
+
         .title {
             font-family: 'Pacifico', cursive;
-            font-size: clamp(24px, 8vw, 48px);
+            font-size: clamp(22px, 7vw, 42px);
             background: linear-gradient(45deg, var(--primary-gold) 0%, #ffffff 50%, var(--primary-gold) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -64,39 +119,72 @@
             text-transform: uppercase;
         }
 
-        .landing-page {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            margin: 20px auto;
-            max-width: 1100px;
-            padding: 30px;
-            text-align: center;
+        .ticker-container {
+            background: linear-gradient(90deg, #0f172a 0%, #1e1b4b 100%);
+            border-bottom: 1px solid rgba(255, 221, 87, 0.15);
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 12px 0;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+            direction: ltr;
         }
 
-        .welcome-banner { background: rgba(255, 255, 255, 0.08); padding: 15px; border-radius: 15px; margin-bottom: 20px; }
-        .intro-text { background: rgba(0, 0, 0, 0.3); padding: 20px; border-radius: 20px; margin: 20px 0; }
-        .intro-text h2 { color: var(--primary-gold); }
-        
-        .coming-soon-wrapper { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 15px; }
-        .coming-soon-badge { background: #ff9800; padding: 4px 10px; border-radius: 5px; font-size: 14px; font-weight: bold; }
-        .side-arrow { font-size: 20px; color: #ff9800; animation: move-arrow 1.5s infinite; }
-        @keyframes move-arrow { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(8px); } }
+        .ticker-wrapper {
+            display: inline-block;
+            animation: tickerMove 28s linear infinite;
+        }
 
-        /* زر واتساب العائم الجديد */
+        .ticker-item {
+            display: inline-block;
+            margin-right: 50px;
+            color: #fff;
+            font-weight: bold;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        .ticker-item span {
+            color: var(--primary-gold);
+            background: rgba(255,221,87,0.1);
+            padding: 2px 10px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,221,87,0.3);
+            margin-left: 6px;
+        }
+
+        @keyframes tickerMove {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
+        }
+
+        .landing-page {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            margin: 30px auto;
+            max-width: 1100px;
+            padding: 35px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .welcome-banner { background: rgba(255, 255, 255, 0.06); padding: 18px; border-radius: 15px; margin-bottom: 25px; border-right: 4px solid var(--primary-gold); text-align: right; }
+        .intro-text { background: rgba(0, 0, 0, 0.4); padding: 25px; border-radius: 20px; margin: 25px 0; border: 1px solid rgba(255,255,255,0.05); }
+        .intro-text h2 { color: var(--primary-gold); font-weight: 900; }
+
         .whatsapp-float {
             position: fixed;
-            bottom: 20px;
-            left: 20px;
+            bottom: 25px;
+            left: 25px;
             background: var(--whatsapp-green);
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
             z-index: 99999;
             transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
@@ -105,16 +193,17 @@
         .gallery-section {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            padding: 10px;
+            gap: 20px;
+            padding: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         @media (min-width: 768px) { .gallery-section { grid-template-columns: repeat(4, 1fr); } }
 
-        .product-item { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 15px; overflow: hidden; text-align: center; position: relative; padding-bottom: 15px; transition: 0.3s; }
-        .product-item:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+        .product-item { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; text-align: center; position: relative; padding-bottom: 20px; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .product-item:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.4); border-color: rgba(255,221,87,0.3); }
         
-        /* ستايل الصولد ومؤشرات الخصم */
-        .sale-item { border: 1px solid var(--sale-red); box-shadow: 0 0 10px rgba(255, 77, 77, 0.15); }
+        .sale-item { border: 1px solid var(--sale-red); box-shadow: 0 0 15px rgba(255, 77, 77, 0.15); }
         .sale-badge {
             position: absolute;
             top: 12px;
@@ -122,11 +211,10 @@
             background: var(--sale-red);
             color: white;
             padding: 5px 12px;
-            border-radius: 6px;
+            border-radius: 8px;
             font-weight: bold;
             font-size: 13px;
             z-index: 10;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
         }
 
         .comparison-box { position: relative; width: 100%; height: 350px; overflow: hidden; }
@@ -136,215 +224,170 @@
         .img-front { width: 50%; border-right: 2px solid #2ecc71; z-index: 1; }
         .comp-slider { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: transparent; -webkit-appearance: none; z-index: 5; cursor: ew-resize; outline: none; }
 
-        .section-divider { border-top: 2px dashed rgba(255, 221, 87, 0.3); margin: 50px 0; text-align: center; }
-        .section-divider span { background: #1e293b; padding: 0 25px; position: relative; top: -15px; color: var(--primary-gold); font-weight: bold; letter-spacing: 1px; }
+        /* قسم الأطقم الهولوغرامي الخيالي الجديد اللانهائي والتفاعلي */
+        .hologram-ensemble-section {
+            background: linear-gradient(180deg, rgba(9,13,22,0) 0%, rgba(138,43,226,0.08) 50%, rgba(9,13,22,0) 100%);
+            padding: 60px 0;
+            overflow: hidden;
+            position: relative;
+        }
+        .hologram-marquee {
+            display: flex;
+            width: max-content;
+            animation: infiniteScrollHolo 30s linear infinite;
+        }
+        .hologram-marquee:hover {
+            animation-play-state: paused;
+        }
+        .holo-card {
+            width: 260px;
+            flex-shrink: 0;
+            margin: 0 20px;
+            background: rgba(10, 15, 30, 0.7);
+            border: 2px solid rgba(0, 255, 255, 0.2);
+            border-radius: 24px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.05), inset 0 0 15px rgba(138,43,226,0.2);
+            position: relative;
+            overflow: hidden;
+            transition: 0.4s;
+        }
+        .holo-card::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,0,127,0.1), transparent);
+            transform: rotate(45deg);
+            transition: 0.5s;
+            pointer-events: none;
+        }
+        .holo-card:hover {
+            border-color: var(--nebula-pink);
+            box-shadow: 0 0 30px rgba(255, 0, 127, 0.3), inset 0 0 20px rgba(0, 255, 255, 0.2);
+            transform: translateY(-10px);
+        }
+        .holo-card:hover::before {
+            left: 100%;
+        }
+        .holo-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 18px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .holo-title { font-size: 16px; font-weight: bold; color: #fff; margin: 12px 0 6px 0; text-shadow: 0 0 5px rgba(0,255,255,0.5); }
+        .holo-price { color: var(--primary-gold); font-weight: 900; font-size: 18px; margin-bottom: 12px; }
 
-        .price-tag { color: #2ecc71; font-weight: bold; margin: 10px 0 5px 0; font-size: 1.25rem; }
+        @keyframes infiniteScrollHolo {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
+        }
+
+        .caps-marquee-section {
+            background: #090d16;
+            padding: 50px 0;
+            overflow: hidden;
+            position: relative;
+        }
+        .caps-marquee-container {
+            display: flex;
+            width: max-content;
+            animation: infiniteScrollCaps 25s linear infinite;
+        }
+        .caps-marquee-container:hover {
+            animation-play-state: paused;
+        }
+        .marquee-cap-item {
+            width: 240px;
+            flex-shrink: 0;
+            margin: 0 15px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+        .marquee-cap-item:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: var(--primary-gold);
+        }
+        .marquee-cap-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin-bottom: 12px;
+        }
+        .marquee-cap-title { font-size: 15px; font-weight: bold; color: #cbd5e1; margin: 5px 0; }
+        .marquee-cap-price { color: #2ecc71; font-weight: 900; font-size: 16px; margin-bottom: 10px; }
+        
+        @keyframes infiniteScrollCaps {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
+        }
+
+        .section-divider { border-top: 2px dashed rgba(255, 221, 87, 0.3); margin: 60px 0; text-align: center; }
+        .section-divider span { background: #070a12; padding: 0 25px; position: relative; top: -15px; color: var(--primary-gold); font-weight: bold; letter-spacing: 1px; font-size: 1.25rem; }
+
+        .price-tag { color: #2ecc71; font-weight: bold; margin: 15px 0 5px 0; font-size: 1.35rem; }
         .old-price { text-decoration: line-through; color: #94a3b8; font-size: 0.95rem; margin-left: 8px; font-weight: normal; }
-        .size-info-text { color: #cbd5e1; font-size: 12px; margin-bottom: 10px; display: block; }
+        .size-info-text { color: #cbd5e1; font-size: 12px; margin-bottom: 15px; display: block; }
 
         .buy-btn { 
-            background: #ffffff; 
-            color: black; 
-            border: none; 
-            width: 90%; 
-            padding: 12px; 
-            border-radius: 10px; 
-            cursor: pointer; 
-            font-weight: bold;
-            transition: all 0.3s ease;
+            background: #ffffff; color: black; border: none; width: 90%; padding: 14px; border-radius: 12px; cursor: pointer; font-weight: bold; font-size: 15px; transition: all 0.3s ease;
         }
-        .buy-btn:hover { background: var(--primary-gold); box-shadow: 0 4px 10px rgba(255,221,87,0.3); }
+        .buy-btn:hover { background: var(--primary-gold); box-shadow: 0 4px 15px rgba(255,221,87,0.4); transform: scale(1.02); }
 
-        /* MODAL STYLE - تم التعديل ليظهر في السنتر تماماً مع تزيين احترافي وبادج بروفيسيونال */
         .modal { 
-            display: none; 
-            position: fixed; 
-            z-index: 99999; 
-            left: 0; 
-            top: 0; 
-            width: 100%; 
-            height: 100%; 
-            background: rgba(0,0,0,0.7); 
-            backdrop-filter: blur(8px);
-            /* لضمان التوسط الكامل بالمنتصف */
-            align-items: center;
-            justify-content: center;
+            display: none; position: fixed; z-index: 99999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); align-items: center; justify-content: center;
         }
         
         .modal-content { 
-            background: #ffffff; 
-            color: black; 
-            padding: 30px 25px 25px 25px; 
-            width: 92%; 
-            max-width: 420px; 
-            border-radius: 24px; 
-            text-align: right; 
-            position: relative; 
-            max-height: 90vh; 
-            overflow-y: auto; 
-            font-family: 'Cairo', sans-serif; 
-            direction: rtl; 
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(255, 221, 87, 0.2);
-            margin: auto; /* يتكامل مع الـ flexbox للتوسط */
+            background: #ffffff; color: black; padding: 30px 25px 25px 25px; width: 92%; max-width: 430px; border-radius: 28px; text-align: right; position: relative; max-height: 90vh; overflow-y: auto; font-family: 'Cairo', sans-serif; direction: rtl; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5); margin: auto;
         }
 
-        /* بادج professionnels 100% الاحترافي */
-        .prof-badge-container {
-            text-align: center;
-            margin-bottom: 15px;
-        }
-        .prof-badge {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            color: var(--primary-gold);
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: bold;
-            display: inline-block;
-            border: 1px solid var(--primary-gold);
-            box-shadow: 0 3px 10px rgba(255,221,87,0.15);
-            letter-spacing: 0.5px;
-        }
+        .prof-badge-container { text-align: center; margin-bottom: 15px; }
+        .prof-badge { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: var(--primary-gold); padding: 6px 18px; border-radius: 50px; font-size: 14px; font-weight: bold; display: inline-block; border: 1px solid var(--primary-gold); }
 
         .modal-content label { font-weight: 700; display: block; margin-top: 12px; color: #1e293b; font-size: 14px; }
-        .modal-content input, .modal-content select { width: 100%; padding: 12px; margin-top: 6px; border: 1px solid #cbd5e1; border-radius: 10px; box-sizing: border-box; font-size: 15px; font-family: 'Cairo', sans-serif; text-align: right; background: #f8fafc; transition: 0.3s; color: #0f172a; }
+        .modal-content input, .modal-content select { width: 100%; padding: 12px; margin-top: 6px; border: 1px solid #cbd5e1; border-radius: 12px; box-sizing: border-box; font-size: 15px; font-family: 'Cairo', sans-serif; text-align: right; background: #f8fafc; color: #0f172a; }
         .modal-content input:focus, .modal-content select:focus { border-color: #0f172a; outline: none; background: #ffffff; box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.1); }
-        .close-btn { position: absolute; top: 12px; left: 18px; font-size: 28px; cursor: pointer; color: #64748b; transition: 0.3s; }
-        .close-btn:hover { color: #000; }
+        .close-btn { position: absolute; top: 12px; left: 18px; font-size: 28px; cursor: pointer; color: #64748b; }
 
-        /* صندوق ملخص الحساب التلقائي داخل المودال */
-        .order-summary-box {
-            background: #f1f5f9;
-            padding: 15px;
-            border-radius: 12px;
-            margin-top: 15px;
-            border: 1px dashed #cbd5e1;
-            font-size: 14px;
-        }
+        .order-summary-box { background: #f1f5f9; padding: 15px; border-radius: 14px; margin-top: 15px; border: 1px dashed #cbd5e1; font-size: 14px; }
         .summary-row { display: flex; justify-content: space-between; margin-bottom: 5px; }
 
-        /* CINEMATIC SECTION STYLE */
         .cinematic-section { padding: 40px 20px; perspective: 1000px; overflow: hidden; }
         .cinematic-title { text-align: center; font-family: 'Cairo', sans-serif; font-size: 2rem; color: var(--primary-gold); margin-bottom: 40px; font-weight: bold; }
         .cinematic-container { display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; transform-style: preserve-3d; }
         .cinematic-card { position: relative; width: 250px; height: 400px; border-radius: 20px; overflow: hidden; transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); transform: rotateY(-15deg) rotateX(5deg); box-shadow: -20px 20px 50px rgba(0, 0, 0, 0.5); cursor: pointer; border: 1px solid rgba(255, 255, 255, 0.1); }
         .cinematic-card:hover { transform: rotateY(0deg) rotateX(0deg) scale(1.1); box-shadow: 0 0 40px rgba(255, 221, 87, 0.3); z-index: 10; }
-        .cinematic-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
-        .cinematic-card:hover img { transform: scale(1.1); }
+        .cinematic-card img { width: 100%; height: 100%; object-fit: cover; }
         .card-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; background: linear-gradient(transparent, rgba(0,0,0,0.9)); opacity: 0; transition: 0.4s; text-align: center; }
         .cinematic-card:hover .card-overlay { opacity: 1; }
-        .exclusive-badge { position: absolute; top: 15px; right: 15px; background: var(--primary-gold); color: #000; padding: 5px 15px; font-weight: bold; border-radius: 50px; font-size: 12px; text-transform: uppercase; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .exclusive-badge { position: absolute; top: 15px; right: 15px; background: var(--primary-gold); color: #000; padding: 5px 15px; font-weight: bold; border-radius: 50px; font-size: 12px; }
 
-        /* HOLOGRAPHIC CAPS STYLE */
-        .caps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 20px; max-width: 1200px; margin: 0 auto; }
-        .cap-item { position: relative; background: rgba(255, 255, 255, 0.05); border-radius: 30px; padding: 20px; text-align: center; border: 1px solid rgba(255, 255, 255, 0.1); transition: 0.5s; overflow: hidden; }
-        .cap-item:hover { background: rgba(255, 255, 255, 0.15); transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
-        .cap-img-container { width: 180px; height: 180px; margin: 0 auto 15px; background: rgba(0,0,0,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid var(--primary-gold); box-shadow: 0 0 20px rgba(255,221,87,0.3); transition: 0.5s; }
-        .cap-item:hover .cap-img-container { transform: rotate(15deg) scale(1.1); box-shadow: 0 0 30px var(--primary-gold); }
-        .cap-img-container img { width: 80%; }
+        .ai-portal-section { background: radial-gradient(circle at center, #0a192f 0%, #000 100%); padding: 60px 20px; }
+        .ai-portal-container { display: flex; justify-content: center; gap: 50px; flex-wrap: wrap; }
+        .ai-card { width: 300px; height: 450px; background: #000; border-radius: 20px; position: relative; border: 1px solid var(--neon-blue); box-shadow: 0 0 15px rgba(0, 255, 255, 0.2); overflow: hidden; transition: 0.5s; }
+        .ai-card:hover { box-shadow: 0 0 50px rgba(0, 255, 255, 0.8); transform: scale(1.05); }
+        .ai-scanner { position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: var(--neon-blue); box-shadow: 0 0 20px var(--neon-blue); z-index: 10; animation: scan 3s infinite linear; opacity: 0.7; }
+        @keyframes scan { 0% { top: 0%; } 50% { top: 100%; } 100% { top: 0%; } }
+        .ai-card img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) contrast(120%); transition: 0.5s; }
+        .ai-card:hover img { filter: grayscale(0%) contrast(100%); }
+        .ai-label { position: absolute; bottom: 20px; left: 0; width: 100%; background: rgba(0, 255, 255, 0.1); backdrop-filter: blur(5px); padding: 15px; box-sizing: border-box; border-top: 1px solid var(--neon-blue); text-align: center; z-index: 20; }
+        .glitch-text { font-weight: bold; color: var(--neon-blue); letter-spacing: 2px; animation: glitch 2s infinite; }
+        @keyframes glitch { 0% { text-shadow: 2px 0 #f0f, -2px 0 #0ff; } 50% { text-shadow: -2px 0 #f0f, 2px 0 #0ff; } 100% { text-shadow: 2px 0 #f0f, -2px 0 #0ff; } }
+        .neon-order-btn { background: none; border: 2px solid var(--neon-blue); color: var(--neon-blue); padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; margin-top: 10px; }
+        .neon-order-btn:hover { background: var(--neon-blue); color: #000; box-shadow: 0 0 20px var(--neon-blue); }
 
-        /* SECTION AI */
-        .ai-portal-section {
-            background: radial-gradient(circle at center, #0a192f 0%, #000 100%);
-            padding: 60px 20px;
-            position: relative;
-            overflow: hidden;
-        }
-        .ai-portal-container {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            flex-wrap: wrap;
-        }
-        .ai-card {
-            width: 300px;
-            height: 450px;
-            background: #000;
-            border-radius: 20px;
-            position: relative;
-            border: 1px solid var(--neon-blue);
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
-            overflow: hidden;
-            transition: 0.5s;
-        }
-        .ai-card:hover {
-            box-shadow: 0 0 50px rgba(0, 255, 255, 0.8);
-            transform: scale(1.05);
-        }
-        .ai-scanner {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 5px;
-            background: var(--neon-blue);
-            box-shadow: 0 0 20px var(--neon-blue);
-            z-index: 10;
-            animation: scan 3s infinite linear;
-            opacity: 0.7;
-        }
-        @keyframes scan {
-            0% { top: 0%; }
-            50% { top: 100%; }
-            100% { top: 0%; }
-        }
-        .ai-card img {
-            width: 100%; height: 100%; object-fit: cover;
-            filter: grayscale(100%) contrast(120%);
-            transition: 0.5s;
-        }
-        .ai-card:hover img {
-            filter: grayscale(0%) contrast(100%);
-        }
-        .ai-label {
-            position: absolute;
-            bottom: 20px; left: 0; width: 100%;
-            background: rgba(0, 255, 255, 0.1);
-            backdrop-filter: blur(5px);
-            padding: 15px;
-            box-sizing: border-box;
-            border-top: 1px solid var(--neon-blue);
-            text-align: center;
-            z-index: 20;
-        }
-        .glitch-text {
-            font-weight: bold; color: var(--neon-blue);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            animation: glitch 2s infinite;
-        }
-        @keyframes glitch {
-            0% { text-shadow: 2px 0 #f0f, -2px 0 #0ff; }
-            50% { text-shadow: -2px 0 #f0f, 2px 0 #0ff; }
-            100% { text-shadow: 2px 0 #f0f, -2px 0 #0ff; }
-        }
-        .neon-order-btn {
-            background: none; border: 2px solid var(--neon-blue); color: var(--neon-blue);
-            padding: 10px 20px; border-radius: 5px; cursor: pointer;
-            font-weight: bold; margin-top: 10px; transition: 0.3s;
-        }
-        .neon-order-btn:hover {
-            background: var(--neon-blue); color: #000; box-shadow: 0 0 20px var(--neon-blue);
-        }
-
-        /* ستايل قسم التعليقات بالعربية والإنجليزية */
-        .reviews-section {
-            padding: 40px 20px;
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .review-card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 20px;
-            border-radius: 15px;
-            width: 280px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-        .review-card.ar { direction: rtl; text-align: right; font-family: 'Cairo', sans-serif; }
+        .reviews-section { padding: 40px 20px; max-width: 1100px; margin: 0 auto; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .review-card { background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.15); padding: 20px; border-radius: 15px; width: 280px; }
+        .review-card.ar { direction: rtl; text-align: right; }
         .review-card.en { direction: ltr; text-align: left; }
         .review-stars { color: var(--primary-gold); margin-bottom: 10px; }
 
@@ -353,26 +396,48 @@
 </head>
 <body>
 
-    <!-- شريط العد التنازلي الإحترافي -->
+    <canvas id="cosmic-canvas"></canvas>
+    <div class="magic-cursor" id="magic-cursor"></div>
+
     <div class="countdown-bar">
         🔥 عرض محدود جداً! ينتهي تلقائياً خلال: <span id="timer-display">15:00</span> دقيقة
     </div>
 
-    <!-- الهيدر المطور باللون الأسود الملكي والذهبي -->
-    <div class="header"><h1 class="title">AYMANE STORE</h1></div>
+    <div class="header">
+        <div class="header-profile-left">
+            <img src="imaggg/aymane-profile.jpg" alt="Aymane Owner" class="header-avatar" onerror="this.src='https://ui-avatars.com/api/?name=Aymane&background=ffdd57&color=000'">
+        </div>
+        <div class="header-center-title">
+            <h1 class="title">AYMANE STORE</h1>
+        </div>
+        <div></div> 
+    </div>
 
-    <!-- زر واتساب العائم والمستمر -->
+    <div class="ticker-container">
+        <div class="ticker-wrapper">
+            <div class="ticker-item"> SPECIAL OFFER: HOT SUMMER T-SHIRTS ONLY <span>149 DH</span></div>
+            <div class="ticker-item"> PREMIUM JEANS COLLECTION AVAILABLE NOW FOR <span>199 DH</span></div>
+            
+            <div class="ticker-item"> EXCLUSIVE CLASSIC SUITS & COMBOS JUST <span>249 DH</span></div>
+            <div class="ticker-item"> FAST AND SECURED SHIPPING ALL OVER MOROCCO!</div>
+            <div class="ticker-item"> SPECIAL OFFER: HOT SUMMER T-SHIRTS ONLY <span>149 DH</span></div>
+            <div class="ticker-item"> PREMIUM JEANS COLLECTION AVAILABLE NOW FOR <span>199 DH</span></div>
+           
+            <div class="ticker-item"> EXCLUSIVE CLASSIC SUITS & COMBOS JUST <span>249 DH</span></div>
+        </div>
+    </div>
+
     <a href="https://wa.me/212689248338" class="whatsapp-float" target="_blank" aria-label="Contact us on WhatsApp">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35" height="35" alt="WhatsApp Icon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="38" height="38" alt="WhatsApp Icon">
     </a>
 
     <div class="landing-page">
-        <span style="color: #2ecc71;">Welcome To my Store!</span>
-        <h1 style="margin-top: 10px; font-size: clamp(22px, 5vw, 36px);">أفضل جودة بأحسن ثمن في المغرب!</h1>
+        <span style="color: #2ecc71; font-weight: bold; letter-spacing: 1px;">Welcome To My Store!</span>
+        <h1 style="margin-top: 10px; font-size: clamp(22px, 5vw, 36px); font-weight: 900;">أفضل جودة بأحسن ثمن في المغرب!</h1>
         <div class="welcome-banner"><p>مرحباً بكم في أيمن ستور. تواصل معنا مباشرة عبر إنستغرام أو واتساب لتأكيد طلبك بسرعة فائقة وخدمة مضمونة.</p></div>
         
         <div style="text-align:center; margin: 25px 0;">
-            <a href="https://www.instagram.com/a.y.m.a.n.______lh/" target="_blank" style="background: linear-gradient(45deg, #f09433, #bc1888); color: white; padding: 12px 25px; text-decoration: none; border-radius: 25px; font-weight: bold; box-shadow: 0 4px 10px rgba(188,24,136,0.3);">Instagram</a>
+            <a href="https://www.instagram.com/a.y.m.a.n.______lh/" target="_blank" style="background: linear-gradient(45deg, #f09433, #bc1888); color: white; padding: 12px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; box-shadow: 0 4px 15px rgba(188,24,136,0.4);">Instagram</a>
            
         </div>
 
@@ -380,8 +445,7 @@
         </div>
     </div>
 
-    <!-- قسم الصولد (BIG SALE) -->
-    <div class="section-divider"><span>تخفيضات  الحصرية - BIG SOLDE 🔥</span></div>
+    <div class="section-divider"><span>تخفيضات الحصرية - BIG SOLDE 🔥</span></div>
     <div class="gallery-section">
         <div class="product-item sale-item">
             <span class="sale-badge">SOLDE 30%-</span>
@@ -413,7 +477,6 @@
         </div>
     </div>
 
-    <!-- MAIN COLLECTION -->
     <div class="section-divider"><span>NEW ARRIVALS</span></div>
     <div class="gallery-section">
         <div class="product-item">
@@ -442,12 +505,113 @@
         <div class="product-item"><img src="imaggg/7.JPG" alt="item"><p class="price-tag">199 DH</p><span class="size-info-text">Available: 2XL, XL, L</span><button class="buy-btn" onclick="openOrder('Malak Edition', '199 DH')">اطلب الآن</button></div>
     </div>
 
-    <!-- SUMMER CLOTHING -->
+    <div class="section-divider"><span> OVERSIZED T-SHIRTS </span></div>
+    <div class="gallery-section">
+        <div class="product-item">
+            <img src="imaggg/55.JPG" alt="Oversized Tee" onerror="this.src='imaggg/26.JPG'">
+            <h3 style="font-size: 16px; margin: 10px 0 0 0;"></h3>
+            <p class="price-tag">170 DH</p>
+            <span class="size-info-text">Available: M, L, XL, 2XL</span>
+            <button class="buy-btn" onclick="openOrder('Heavy Weight Oversized Tee', '150 DH')">اطلب الآن</button>
+        </div>
+        <div class="product-item">
+            <img src="imaggg/50.JPG" alt="Oversized Tee" onerror="this.src='imaggg/27.JPG'">
+            <h3 style="font-size: 16px; margin: 10px 0 0 0;"></h3>
+            <p class="price-tag">170 DH</p>
+            <span class="size-info-text">Available: M, L, XL, 2XL</span>
+            <button class="buy-btn" onclick="openOrder('Graphic Streetwear Shirt', '150 DH')">اطلب الآن</button>
+        </div>
+        <div class="product-item">
+            <img src="imaggg/49.JPG" alt="Oversized Tee" onerror="this.src='imaggg/25.JPG'">
+            <h3 style="font-size: 16px; margin: 10px 0 0 0;"></h3>
+            <p class="price-tag">149 DH</p>
+            <span class="size-info-text">Available: M, L, XL, 2XL</span>
+            <button class="buy-btn" onclick="openOrder('Vintage Drop Shoulder', '150 DH')">اطلب الآن</button>
+        </div>
+        <div class="product-item">
+            <img src="imaggg/48.JPG" alt="Oversized Tee" onerror="this.src='imaggg/28.JPG'">
+            <h3 style="font-size: 16px; margin: 10px 0 0 0;"></h3>
+            <p class="price-tag">170 DH</p>
+            <span class="size-info-text">Available: M, L, XL, 2XL</span>
+            <button class="buy-btn" onclick="openOrder('Minimalist Aesthetic Tee', '150 DH')">اطلب الآن</button>
+        </div>
+    </div>
+
+    <div class="section-divider"><span> T-SHIRTE </span></div>
+    <section class="hologram-ensemble-section">
+        <div class="hologram-marquee">
+            <div class="holo-card">
+                <img src="imaggg/45.JPG" class="holo-img" onerror="this.src='imaggg/18.JPG'">
+                <div class="holo-title">T-Shirte</div>
+                <div class="holo-price">150 DH</div>
+                <button class="buy-btn" onclick="openOrder('T-Shirte', '120 DH')">طلب فوري</button>
+            </div>
+            <div class="holo-card">
+                <img src="imaggg/46.JPG" class="holo-img" onerror="this.src='imaggg/16.JPG'">
+                <div class="holo-title">T-Shirte</div>
+                <div class="holo-price">150 DH</div>
+                <button class="buy-btn" onclick="openOrder('T-Shirte', '120 DH')">طلب فوري</button>
+            </div>
+            <div class="holo-card">
+                <img src="imaggg/39.JPG" class="holo-img" onerror="this.src='imaggg/19.JPG'">
+                <div class="holo-title">T-Shirte</div>
+                <div class="holo-price">120 DH</div>
+                <button class="buy-btn" onclick="openOrder('T-Shirte', '120 DH')">طلب فوري</button>
+            </div>
+            <div class="holo-card">
+                <img src="imaggg/40.JPG" class="holo-img" onerror="this.src='imaggg/17.JPG'">
+                <div class="holo-title">T-Shirte</div>
+                <div class="holo-price">120 DH</div>
+                <button class="buy-btn" onclick="openOrder('T-Shirte', '120 DH')">طلب فوري</button>
+            </div>
+            <div class="holo-card">
+                <img src="imaggg/41.JPG" class="holo-img" onerror="this.src='imaggg/18.JPG'">
+                <div class="holo-title">T-Shirte</div>
+                <div class="holo-price">120 DH</div>
+                <button class="buy-btn" onclick="openOrder('T-Shirte', '120 DH')">طلب فوري</button>
+            </div>
+            <div class="holo-card">
+                <img src="imaggg/42.JPG" class="holo-img" onerror="this.src='imaggg/16.JPG'">
+                <div class="holo-title">T-Shirte</div>
+                <div class="holo-price">120 DH</div>
+                <button class="buy-btn" onclick="openOrder('T-Shirte', '120 DH')">طلب فوري</button>
+            </div>
+            <div class="holo-card">
+                <img src="imaggg/43.JPG" class="holo-img" onerror="this.src='imaggg/16.JPG'">
+                <div class="holo-title">T-Shirte</div>
+                <div class="holo-price">120 DH</div>
+                <button class="buy-btn" onclick="openOrder('T-Shirte', '120 DH')">طلب فوري</button>
+            </div>
+            <div class="holo-card">
+                <img src="imaggg/44.JPG" class="holo-img" onerror="this.src='imaggg/16.JPG'">
+                <div class="holo-title">T-Shirte</div>
+                <div class="holo-price">120 DH</div>
+                <button class="buy-btn" onclick="openOrder('T-Shirte', '120 DH')">طلب فوري</button>
+            </div>
+            <div class="holo-card">
+                <img src="imaggg/37.JPG" class="holo-img" onerror="this.src='imaggg/16.JPG'">
+                <div class="holo-title">T-Shirte</div>
+                <div class="holo-price">120 DH</div>
+                <button class="buy-btn" onclick="openOrder('T-Shirte', '120 DH')">طلب فوري</button>
+            </div>
+            <div class="holo-card">
+                <img src="imaggg/38.JPG" class="holo-img" onerror="this.src='imaggg/16.JPG'">
+                <div class="holo-title">T-SHIRTE</div>
+                <div class="holo-price">120 DH</div>
+                <button class="buy-btn" onclick="openOrder('T-Shirte', '120 DH')">طلب فوري</button>
+            </div>
+        </div>
+    </section>
+
+    
+        </div>
+    </section>
+
     <div class="section-divider"><span> SUMMER CLOTHING</span></div>
     <section class="cinematic-section">
         <h2 class="cinematic-title">ENJOOOOOOOY!</h2>
         <div class="cinematic-container">
-            <div class="cinematic-card" onclick="openOrder('Luxury Piece 1', '499 DH')">
+            <div class="cinematic-card" onclick="openOrder('Luxury Piece 1', '199 DH')">
                 <span class="exclusive-badge">Summer</span>
                 <img src="imaggg/34.JPG" alt="Luxury Item">
                 <div class="card-overlay">
@@ -455,7 +619,7 @@
                     <small>اضغط للطلب</small>
                 </div>
             </div>
-            <div class="cinematic-card" onclick="openOrder('Luxury Piece 2', '599 DH')">
+            <div class="cinematic-card" onclick="openOrder('Luxury Piece 2', '199 DH')">
                 <span class="exclusive-badge">Summer</span>
                 <img src="imaggg/32.JPG" alt="Luxury Item">
                 <div class="card-overlay">
@@ -463,7 +627,7 @@
                     <small>اضغط للطلب</small>
                 </div>
             </div>
-            <div class="cinematic-card" onclick="openOrder('Luxury Piece 3', '499 DH')">
+            <div class="cinematic-card" onclick="openOrder('Luxury Piece 3', '199 DH')">
                 <span class="exclusive-badge">Summer</span>
                 <img src="imaggg/31.JPG" alt="Luxury Item">
                 <div class="card-overlay">
@@ -471,7 +635,7 @@
                     <small>اضغط للطلب</small>
                 </div>
             </div>
-            <div class="cinematic-card" onclick="openOrder('Luxury Piece 4', '599 DH')">
+            <div class="cinematic-card" onclick="openOrder('Luxury Piece 4', '199 DH')">
                 <span class="exclusive-badge">Summer</span>
                 <img src="imaggg/30.JPG" alt="Luxury Item">
                 <div class="card-overlay">
@@ -482,16 +646,14 @@
         </div>
     </section>
 
-    <!-- JEANS -->
     <div class="section-divider"><span> JEANS COLLECTION</span></div>
     <div class="gallery-section">
-        <div class="product-item"><img src="imaggg/10.JPG" alt="item"><p class="price-tag">199 DH</p><span class="size-info-text">Size: 30 to 36</span><button class="buy-btn" onclick="openOrder('Jeans 1', '199 DH')">اطلب الآن</button></div>
-        <div class="product-item"><img src="imaggg/8.JPG" alt="item"><p class="price-tag">199 DH</p><span class="size-info-text">Size: 30 to 36</span><button class="buy-btn" onclick="openOrder('Jeans 2', '199 DH')">اطلب الآن</button></div>
-        <div class="product-item"><img src="imaggg/11.JPG" alt="item"><p class="price-tag">199 DH</p><span class="size-info-text">Size: 30 to 36</span><button class="buy-btn" onclick="openOrder('Jeans 3', '199 DH')">اطلب الآن</button></div>
-        <div class="product-item"><img src="imaggg/4.JPG" alt="item"><p class="price-tag">199 DH</p><span class="size-info-text">Size: 30 to 36</span><button class="buy-btn" onclick="openOrder('Jeans 4', '199 DH')">اطلب الآن</button></div>
+        <div class="product-item"><img src="imaggg/10.JPG" alt="item"><h3 style="font-size: 15px; margin: 8px 0 0 0;">Slim Fit Premium Denim</h3><p class="price-tag">199 DH</p><span class="size-info-text">Size: 30 to 36</span><button class="buy-btn" onclick="openOrder('Slim Fit Premium Denim', '199 DH')">اطلب الآن</button></div>
+        <div class="product-item"><img src="imaggg/8.JPG" alt="item"><h3 style="font-size: 15px; margin: 8px 0 0 0;">Classic Urban Cargo Jeans</h3><p class="price-tag">199 DH</p><span class="size-info-text">Size: 30 to 36</span><button class="buy-btn" onclick="openOrder('Classic Urban Cargo Jeans', '199 DH')">اطلب الآن</button></div>
+        <div class="product-item"><img src="imaggg/11.JPG" alt="item"><h3 style="font-size: 15px; margin: 8px 0 0 0;">Modern Ripped Comfort Denim</h3><p class="price-tag">199 DH</p><span class="size-info-text">Size: 30 to 36</span><button class="buy-btn" onclick="openOrder('Modern Ripped Comfort Denim', '199 DH')">اطلب الآن</button></div>
+        <div class="product-item"><img src="imaggg/4.JPG" alt="item"><h3 style="font-size: 15px; margin: 8px 0 0 0;">Relaxed Fit Light Blue Jeans</h3><p class="price-tag">199 DH</p><span class="size-info-text">Size: 30 to 36</span><button class="buy-btn" onclick="openOrder('Relaxed Fit Light Blue Jeans', '199 DH')">اطلب الآن</button></div>
     </div>
 
-    <!-- LUXURY CLOTHING -->
     <div class="section-divider"><span>LUXURY CLOTHING</span></div>
     <section class="cinematic-section">
         <h2 class="cinematic-title">ENJOOOOOOOY!</h2>
@@ -531,20 +693,6 @@
         </div>
     </section>
 
-    <!-- PREMIUM CAPS COLLECTION -->
-    <div class="section-divider"><span>PREMIUM COLLECTION</span></div>
-    <div class="caps-grid">
-        <div class="cap-item">
-            <div class="cap-img-container">
-                <img src="imaggg/29.JPG" alt="Cap">
-            </div>
-            <h3>Street Wear Cap</h3>
-            <p class="price-tag">150 DH</p>
-            <button class="buy-btn" onclick="openOrder('New Era Cap', '150 DH')">اطلب الآن</button>
-        </div>
-    </div>     
-
-    <!-- SECTION AI PORTAL 1 -->
     <div class="section-divider"><span>DARK SQUAD</span></div>
     <section class="ai-portal-section">
         <div class="ai-portal-container">
@@ -569,12 +717,11 @@
         </div>
     </section>
 
-    <!-- قسم آراء الزبائن -->
     <div class="section-divider"><span>ثقة زبنائنا هي رأسمالنا - REVIEWS & FEEDBACK</span></div>
     <section class="reviews-section">
         <div class="review-card ar">
             <div class="review-stars">⭐⭐⭐⭐⭐</div>
-            <p><strong>أمين (القنيطرة):</strong> "تبارك الله الجودة ناضية بزاف والتوصيل جاني في يومين تال باب الدار. تعامل احترافي!"</p>
+            <p><strong>أمين (القنيطرة):</strong> "تبارك الله الجودة ناضية بزاف والتوصيل جاني في يومين تال باب الدار هنا ف القنيطرة. تعامل احترافي!"</p>
         </div>
         <div class="review-card en">
             <div class="review-stars">⭐⭐⭐⭐⭐</div>
@@ -586,14 +733,12 @@
         </div>
     </section>
 
-    <!-- MODAL FORM (تم تعديل السنتر، وإضافة بادج professionnels 100%) -->
     <div id="orderModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeOrder()">&times;</span>
             
-            <!-- بادج professionnels 100% المزين -->
             <div class="prof-badge-container">
-                <span class="prof-badge">✓ Professionnels 100%</span>
+                <span class="prof-badge">✓ AYMANE STORE </span>
             </div>
 
             <h3 id="pNameDisplay" style="margin-top: 5px; color: #0f172a;">Order Product</h3>
@@ -609,13 +754,13 @@
             <label>المدينة / City:</label>
             <select id="cust_city" onchange="calculateTotal()">
                 <option value="" disabled selected>اختر مدينتك</option>
-                <option value="Kenitra">القنيطرة / Kenitra (توصيل: 20 DH)</option>
-                <option value="Rabat">الرباط / Rabat (توصيل: 35 DH)</option>
-                <option value="Casablanca">الدار البيضاء / Casablanca (توصيل: 40 DH)</option>
+                <option value="Kenitra">القنيطرة / Kenitra (توصيل: 00 DH)</option>
+                <option value="Rabat">الرباط / Rabat (توصيل: 20 DH)</option>
+                <option value="Casablanca">الدار البيضاء / Casablanca (توصيل: 30 DH)</option>
                 <option value="Other">مدينة أخرى / Other City (توصيل: 45 DH)</option>
             </select>
     
-            <label>المقاس / Size (Zise):</label>
+            <label>المقاس / Size:</label>
             <select id="cust_size">
                 <option value="M">M</option><option value="L">L</option><option value="XL">XL</option><option value="2XL">2XL</option>
                 <option value="30">30</option><option value="32">32</option><option value="34">34</option><option value="36">36</option>
@@ -625,7 +770,6 @@
             <label>الكمية / Quantity:</label>
             <input type="number" id="cust_qty" value="1" min="1" onchange="calculateTotal()">
 
-            <!-- صندوق ملخص الحساب التلقائي -->
             <div class="order-summary-box">
                 <div class="summary-row">
                     <span>ثمن المنتج:</span>
@@ -647,6 +791,84 @@
     </div>
 
     <script>
+        // تأثير خلفية النجوم السحرية
+        const canvas = document.getElementById('cosmic-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+                this.color = Math.random() > 0.5 ? '#0ff' : '#ff007f';
+                this.alpha = Math.random();
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+            }
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.alpha;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = this.color;
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        for (let i = 0; i < 70; i++) {
+            particles.push(new Particle());
+        }
+
+        function animateCosmicBackground() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animateCosmicBackground);
+        }
+        animateCosmicBackground();
+
+        // تتبع مؤشر الماوس السحري
+        const cursor = document.getElementById('magic-cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        document.querySelectorAll('button, a, input, select').forEach(elem => {
+            elem.addEventListener('mouseenter', () => {
+                cursor.style.width = '20px';
+                cursor.style.height = '20px';
+                cursor.style.background = '#ff007f';
+                cursor.style.shadowColor = '#ff007f';
+            });
+            elem.addEventListener('mouseleave', () => {
+                cursor.style.width = '8px';
+                cursor.style.height = '8px';
+                cursor.style.background = '#0ff';
+                cursor.style.shadowColor = '#0ff';
+            });
+        });
+
+        // منطق المتجر والطلب والعداد
         let currentP = "", currentPr = "", basePriceNum = 0;
 
         function openOrder(name, price) {
@@ -659,12 +881,10 @@
             
             document.getElementById('cust_city').selectedIndex = 0;
             document.getElementById('cust_qty').value = 1;
-            
             document.getElementById('cust_name').value = "";
             document.getElementById('cust_phone').value = "";
             
             calculateTotal();
-            // تفعيل نظام الـ flexbox ليتم التوسط بدقة بالمنتصف
             document.getElementById('orderModal').style.display = "flex";
         }
 
@@ -730,7 +950,6 @@
             }
         }
 
-        // نظام المؤقت التنازلي (15 دقيقة)
         let timeInSeconds = 15 * 60;
         const timerElement = document.getElementById('timer-display');
         
