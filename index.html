@@ -285,51 +285,6 @@
             100% { transform: translate3d(-50%, 0, 0); }
         }
 
-        .caps-marquee-section {
-            background: #090d16;
-            padding: 50px 0;
-            overflow: hidden;
-            position: relative;
-        }
-        .caps-marquee-container {
-            display: flex;
-            width: max-content;
-            animation: infiniteScrollCaps 25s linear infinite;
-        }
-        .caps-marquee-container:hover {
-            animation-play-state: paused;
-        }
-        .marquee-cap-item {
-            width: 240px;
-            flex-shrink: 0;
-            margin: 0 15px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 24px;
-            padding: 15px;
-            text-align: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-            transition: 0.3s;
-        }
-        .marquee-cap-item:hover {
-            background: rgba(255,255,255,0.08);
-            border-color: var(--primary-gold);
-        }
-        .marquee-cap-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 16px;
-            margin-bottom: 12px;
-        }
-        .marquee-cap-title { font-size: 15px; font-weight: bold; color: #cbd5e1; margin: 5px 0; }
-        .marquee-cap-price { color: #2ecc71; font-weight: 900; font-size: 16px; margin-bottom: 10px; }
-        
-        @keyframes infiniteScrollCaps {
-            0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-50%, 0, 0); }
-        }
-
         .section-divider { border-top: 2px dashed rgba(255, 221, 87, 0.3); margin: 60px 0; text-align: center; }
         .section-divider span { background: #070a12; padding: 0 25px; position: relative; top: -15px; color: var(--primary-gold); font-weight: bold; letter-spacing: 1px; font-size: 1.25rem; }
 
@@ -391,6 +346,109 @@
         .review-card.en { direction: ltr; text-align: left; }
         .review-stars { color: var(--primary-gold); margin-bottom: 10px; }
 
+        /* ستايل علبة المفاجآت السحرية الفاخر */
+        .mystery-box-section {
+            padding: 50px 20px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .mystery-container {
+            width: 100%;
+            max-width: 400px;
+            min-height: 380px;
+            background: rgba(13, 20, 35, 0.65);
+            backdrop-filter: blur(20px);
+            border: 2px dashed var(--neon-blue);
+            border-radius: 32px;
+            padding: 35px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.1), inset 0 0 20px rgba(138,43,226,0.15);
+            position: relative;
+            z-index: 5;
+            animation: chameleonBorder 8s infinite linear;
+        }
+        @keyframes chameleonBorder {
+            0% { border-color: var(--neon-blue); box-shadow: 0 0 25px rgba(0, 255, 255, 0.15); }
+            33% { border-color: var(--nebula-pink); box-shadow: 0 0 25px rgba(255, 0, 127, 0.15); }
+            66% { border-color: var(--primary-gold); box-shadow: 0 0 25px rgba(255, 221, 87, 0.15); }
+            100% { border-color: var(--neon-blue); box-shadow: 0 0 25px rgba(0, 255, 255, 0.15); }
+        }
+        .box-closed {
+            cursor: pointer;
+            text-align: center;
+            width: 100%;
+            position: relative;
+        }
+        .box-icon {
+            font-size: 85px;
+            animation: boxWobble 1.2s infinite ease-in-out;
+            display: inline-block;
+            filter: drop-shadow(0 0 20px rgba(255, 0, 127, 0.65));
+            transition: transform 0.3s;
+        }
+        .box-closed:hover .box-icon {
+            transform: scale(1.15);
+        }
+        .box-glow {
+            position: absolute;
+            top: 45%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 170px; height: 170px;
+            background: radial-gradient(circle, rgba(255, 0, 127, 0.35) 0%, transparent 70%);
+            z-index: -1;
+            animation: glowPulse 1.8s infinite ease-in-out;
+        }
+        .box-prompt {
+            font-size: 22px;
+            color: var(--primary-gold);
+            margin: 22px 0 6px 0;
+            font-weight: 900;
+            text-shadow: 0 0 12px rgba(255, 221, 87, 0.4);
+        }
+        .box-sub-prompt { color: #e2e8f0; font-size: 14px; margin: 0; letter-spacing: 0.5px; }
+        .box-open {
+            text-align: center;
+            width: 100%;
+            animation: scaleUpReveal 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+        .mystery-img {
+            width: 100%;
+            height: 290px;
+            object-fit: cover;
+            border-radius: 22px;
+            border: 2px solid var(--neon-blue);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+            margin-bottom: 15px;
+        }
+        .mystery-title { font-size: 19px; font-weight: bold; color: white; margin: 10px 0; }
+        #party-canvas {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 4;
+        }
+        @keyframes boxWobble {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(-10deg) scale(1.08); }
+            75% { transform: rotate(10deg) scale(1.08); }
+        }
+        @keyframes glowPulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+            50% { transform: translate(-50%, -50%) scale(1.35); opacity: 1; }
+        }
+        @keyframes scaleUpReveal {
+            0% { transform: scale(0.4); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
         @media (max-width: 768px) { .cinematic-card { width: 160px; height: 280px; transform: none; } }
     </style>
 </head>
@@ -438,11 +496,8 @@
         
         <div style="text-align:center; margin: 25px 0;">
             <a href="https://www.instagram.com/a.y.m.a.n.______lh/" target="_blank" style="background: linear-gradient(45deg, #f09433, #bc1888); color: white; padding: 12px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; box-shadow: 0 4px 15px rgba(188,24,136,0.4);">Instagram</a>
-           
         </div>
-
        
-        </div>
     </div>
 
     <div class="section-divider"><span>تخفيضات الحصرية - BIG SOLDE 🔥</span></div>
@@ -500,8 +555,6 @@
             <span class="size-info-text">Available: 2XL, XL, L, M</span>
             <button class="buy-btn" onclick="openOrder('Summer Fit Blue', '199 DH')">اطلب الآن</button>
         </div>
-
-       
     </div>
 
     <div class="section-divider"><span> OVERSIZED T-SHIRTS </span></div>
@@ -535,6 +588,33 @@
             <button class="buy-btn" onclick="openOrder('Minimalist Aesthetic Tee', '150 DH')">اطلب الآن</button>
         </div>
     </div>
+
+    <!-- [موقع العلبة الجديد والكامل] مباشرة أسفل الـ Oversized T-shirts -->
+    <div class="section-divider"><span>صندوق المفاجآت السحري </span></div>
+    <section class="mystery-box-section">
+        <div class="mystery-container" id="mysteryContainer">
+            <!-- وضعية الإغلاق التفاعلية -->
+            <div class="box-closed" id="boxClosed" onclick="revealMystery()">
+                <div class="box-glow"></div>
+                <div class="box-icon">🎁</div>
+                <h3 class="box-prompt">اضغط لفتح هدية المفاجأة الكبرى!</h3>
+                <p class="box-sub-prompt">عرض حصري وخاص جداً </p>
+            </div>
+
+            <!-- وضعية الفتح التفاعلية -->
+            <div class="box-open" id="boxOpen" style="display: none;">
+                <span class="exclusive-badge">Gift</span>
+                <img src="imaggg/51.JPG" alt="Mystery Gift" class="mystery-img" onerror="this.src='imaggg/16.JPG'">
+                <h3 class="mystery-title">FOR YOU</h3>
+                <p class="price-tag">99 DH <span class="old-price">170 DH</span></p>
+                <span class="size-info-text">2XL, XL, L</span>
+                <button class="buy-btn" onclick="openOrder('Mystery Box Special Tee', '99 DH')
+                "> ORDER NOW 
+                   </button>
+            </div>
+        </div>
+        <canvas id="party-canvas"></canvas>
+    </section>
 
     <div class="section-divider"><span> T-SHIRTE </span></div>
     <section class="hologram-ensemble-section">
@@ -608,45 +688,42 @@
         </div>
     </section>
 
-    
-        </div>
-    </section>
-
     <div class="section-divider"><span> SUMMER CLOTHING</span></div>
+    <h2 class="cinematic-title">ENJOOOOOOOY!</h2>
     <section class="cinematic-section">
-        <h2 class="cinematic-title">ENJOOOOOOOY!</h2>
         <div class="cinematic-container">
-            <div class="cinematic-card" onclick="openOrder('Luxury Piece 1', '199 DH')">
-                <span class="exclusive-badge">Summer</span>
-                <img src="imaggg/34.JPG" alt="Luxury Item">
-                <div class="card-overlay">
-                    <p style="color: var(--primary-gold); font-weight: bold; margin: 0;">NEW STYLE</p>
-                    <small>اضغط للطلب</small>
-                </div>
-            </div>
-            <div class="cinematic-card" onclick="openOrder('Luxury Piece 2', '199 DH')">
-                <span class="exclusive-badge">Summer</span>
+            <div class="cinematic-card" onclick="openOrder('Luxury Piece 1', '449 DH')">
+                <span class="exclusive-badge">449 DH</span>
                 <img src="imaggg/32.JPG" alt="Luxury Item">
                 <div class="card-overlay">
-                    <p style="color: var(--primary-gold); font-weight: bold; margin: 0;">NEW STYLE</p>
+                    <p style="color: var(--primary-gold); font-weight: bold; margin: 0;">SUMMER</p>
                     <small>اضغط للطلب</small>
                 </div>
             </div>
-            <div class="cinematic-card" onclick="openOrder('Luxury Piece 3', '199 DH')">
-                <span class="exclusive-badge">Summer</span>
-                <img src="imaggg/31.JPG" alt="Luxury Item">
+            <div class="cinematic-card" onclick="openOrder('Luxury Piece 2', '449 DH')">
+                <span class="exclusive-badge">449 DH</span>
+                <img src="imaggg/3.JPG" alt="Luxury Item">
                 <div class="card-overlay">
-                    <p style="color: var(--primary-gold); font-weight: bold; margin: 0;">NEW STYLE</p>
+                    <p style="color: var(--primary-gold); font-weight: bold; margin: 0;">SUMMER</p>
                     <small>اضغط للطلب</small>
                 </div>
             </div>
-            <div class="cinematic-card" onclick="openOrder('Luxury Piece 4', '199 DH')">
-                <span class="exclusive-badge">Summer</span>
+            <div class="cinematic-card" onclick="openOrder('Luxury Piece 3', '499 DH')">
+                <span class="exclusive-badge">499 DH</span>
                 <img src="imaggg/30.JPG" alt="Luxury Item">
                 <div class="card-overlay">
-                    <p style="color: var(--primary-gold); font-weight: bold; margin: 0;">NEW STYLE</p>
+                    <p style="color: var(--primary-gold); font-weight: bold; margin: 0;">SUMMER</p>
                     <small>اضغط للطلب</small>
                 </div>
+            </div>
+            <div class="cinematic-card" onclick="openOrder('Luxury Piece 4', '449 DH')">
+                <span class="exclusive-badge">449 DH</span>
+                <img src="imaggg/31.JPG" alt="Luxury Item">
+                <div class="card-overlay">
+                    <p style="color: var(--primary-gold); font-weight: bold; margin: 0;">SUMMER</p>
+                    <small>اضغط للطلب</small>
+                </div>
+            </div>
             </div>
         </div>
     </section>
@@ -698,7 +775,7 @@
         </div>
     </section>
 
-    <div class="section-divider"><span>DARK SQUAD</span></div>
+    <div class="section-divider"><span>MAGIC WEP</span></div>
     <section class="ai-portal-section">
         <div class="ai-portal-container">
             <div class="ai-card">
@@ -706,17 +783,17 @@
                 <img src="imaggg/20.JPG" alt="AI Item">
                 <div class="ai-label">
                     <div class="glitch-text">2XL, XL</div>
-                    <p style="color:var(--neon-blue); margin:5px 0;">350 DH</p>
-                    <button class="neon-order-btn" onclick="openOrder('AI Edition 1', '350 DH')">اطلب الآن</button>
+                    <p style="color:var(--neon-blue); margin:5px 0;">499 DH</p>
+                    <button class="neon-order-btn" onclick="openOrder('AI Edition 1', '499 DH')">اطلب الآن</button>
                 </div>
             </div>
             <div class="ai-card">
                 <div class="ai-scanner" style="animation-delay: 1.5s;"></div>
-                <img src="imaggg/14.JPG" alt="AI Item">
+                <img src="imaggg/21.JPG" alt="AI Item">
                 <div class="ai-label">
                     <div class="glitch-text">2XL, XL</div>
-                    <p style="color:var(--neon-blue); margin:5px 0;">350 DH</p>
-                    <button class="neon-order-btn" onclick="openOrder('AI Edition 2', '350 DH')">اطلب الآن</button>
+                    <p style="color:var(--neon-blue); margin:5px 0;">170 DH</p>
+                    <button class="neon-order-btn" onclick="openOrder('AI Edition 2', '170 DH')">اطلب الآن</button>
                 </div>
             </div>
         </div>
@@ -907,9 +984,9 @@
             const qty = parseInt(document.getElementById('cust_qty').value) || 1;
             
             let shipping = 0;
-            if (city === 'Kenitra') shipping = 20;
-            else if (city === 'Rabat') shipping = 35;
-            else if (city === 'Casablanca') shipping = 40;
+            if (city === 'Kenitra') shipping = 00;
+            else if (city === 'Rabat') shipping = 20;
+            else if (city === 'Casablanca') shipping = 30;
             else if (city === 'Other') shipping = 45;
 
             let productTotal = basePriceNum * qty;
@@ -929,9 +1006,9 @@
 
             if(name && phone && city && qty) {
                 let shipping = 0;
-                if (city === 'Kenitra') shipping = 20;
-                else if (city === 'Rabat') shipping = 35;
-                else if (city === 'Casablanca') shipping = 40;
+                if (city === 'Kenitra') shipping = OO;
+                else if (city === 'Rabat') shipping = 20;
+                else if (city === 'Casablanca') shipping = 30;
                 else if (city === 'Other') shipping = 45;
 
                 let finalTotal = (basePriceNum * parseInt(qty)) + shipping;
@@ -973,6 +1050,117 @@
                 timeInSeconds = 15 * 60; 
             }
         }, 1000);
+
+        // محرك صندوق المفاجآت السحري المتطور (Confetti + Fantasy Sound Synthesis)
+        function revealMystery() {
+            const closedView = document.getElementById('boxClosed');
+            const openView = document.getElementById('boxOpen');
+            const container = document.getElementById('mysteryContainer');
+
+            closedView.style.display = 'none';
+            openView.style.display = 'block';
+            
+            // تثبيت شكل النيون المضيء بعد الفتح
+            container.style.animation = 'none';
+            container.style.borderColor = 'var(--neon-blue)';
+            container.style.boxShadow = '0 0 40px rgba(0, 255, 255, 0.5)';
+
+            // توليد الصوت الخيالي السينمائي فوراً عند الضغط
+            try {
+                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                
+                // النغمة الأولى: تذبذب تصاعدي سحري
+                let osc1 = audioCtx.createOscillator();
+                let gain1 = audioCtx.createGain();
+                osc1.type = 'triangle';
+                osc1.frequency.setValueAtTime(200, audioCtx.currentTime);
+                osc1.frequency.exponentialRampToValueAtTime(800, audioCtx.currentTime + 0.4);
+                gain1.gain.setValueAtTime(0.25, audioCtx.currentTime);
+                gain1.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.4);
+                osc1.connect(gain1);
+                gain1.connect(audioCtx.destination);
+                osc1.start(); 
+                osc1.stop(audioCtx.currentTime + 0.4);
+
+                // النغمة الثانية: رنين خيالي متناغم مكمل لزيادة التشويق
+                setTimeout(() => {
+                    let osc2 = audioCtx.createOscillator();
+                    let gain2 = audioCtx.createGain();
+                    osc2.type = 'sine';
+                    osc2.frequency.setValueAtTime(500, audioCtx.currentTime);
+                    osc2.frequency.exponentialRampToValueAtTime(1500, audioCtx.currentTime + 0.5);
+                    gain2.gain.setValueAtTime(0.2, audioCtx.currentTime);
+                    gain2.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.5);
+                    osc2.connect(gain2);
+                    gain2.connect(audioCtx.destination);
+                    osc2.start(); 
+                    osc2.stop(audioCtx.currentTime + 0.5);
+                }, 120);
+                
+            } catch(e) { 
+                console.log('Audio Context Synthesis Initialized'); 
+            }
+
+            initPartyConfetti();
+        }
+
+        function initPartyConfetti() {
+            const pCanvas = document.getElementById('party-canvas');
+            const pCtx = pCanvas.getContext('2d');
+            
+            pCanvas.width = pCanvas.parentElement.clientWidth;
+            pCanvas.height = pCanvas.parentElement.clientHeight;
+
+            let confettiPieces = [];
+            const colors = ['#0ff', '#ff007f', '#ffdd57', '#2ecc71', '#ffffff'];
+
+            for (let i = 0; i < 120; i++) {
+                confettiPieces.push({
+                    x: pCanvas.width / 2,
+                    y: pCanvas.height / 2 + 30,
+                    size: Math.random() * 8 + 4,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    speedX: (Math.random() - 0.5) * 14,
+                    speedY: (Math.random() - 0.8) * 18,
+                    rotation: Math.random() * 360,
+                    rotationSpeed: (Math.random() - 0.5) * 12,
+                    opacity: 1
+                });
+            }
+
+            function animateConfetti() {
+                pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
+                let active = false;
+
+                confettiPieces.forEach(p => {
+                    if (p.opacity > 0) {
+                        p.x += p.speedX;
+                        p.y += p.speedY;
+                        p.speedY += 0.45;
+                        p.speedX *= 0.97;
+                        p.rotation += p.rotationSpeed;
+                        p.opacity -= 0.012;
+
+                        pCtx.save();
+                        pCtx.globalAlpha = p.opacity;
+                        pCtx.translate(p.x, p.y);
+                        pCtx.rotate(p.rotation * Math.PI / 180);
+                        pCtx.fillStyle = p.color;
+                        pCtx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+                        pCtx.restore();
+                        
+                        active = true;
+                    }
+                });
+
+                if (active) {
+                    requestAnimationFrame(animateConfetti);
+                } else {
+                    pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
+                }
+            }
+            animateConfetti();
+        }
     </script>
 </body>
 </html>
