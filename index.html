@@ -49,20 +49,6 @@
             pointer-events: none;
         }
 
-        /* الماوس السحري المضيء */
-        .magic-cursor {
-            width: 8px;
-            height: 8px;
-            background: var(--neon-blue);
-            border-radius: 50%;
-            position: fixed;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            z-index: 9999999;
-            box-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
-            transition: width 0.2s, height 0.2s;
-        }
-
         .countdown-bar {
             background: var(--sale-red);
             color: white;
@@ -455,7 +441,6 @@
 <body>
 
     <canvas id="cosmic-canvas"></canvas>
-    <div class="magic-cursor" id="magic-cursor"></div>
 
     <div class="countdown-bar">
         🔥 عرض محدود جداً! ينتهي تلقائياً خلال: <span id="timer-display">15:00</span> دقيقة
@@ -589,11 +574,9 @@
         </div>
     </div>
 
-    <!-- [موقع العلبة الجديد والكامل] مباشرة أسفل الـ Oversized T-shirts -->
     <div class="section-divider"><span>صندوق المفاجآت السحري </span></div>
     <section class="mystery-box-section">
         <div class="mystery-container" id="mysteryContainer">
-            <!-- وضعية الإغلاق التفاعلية -->
             <div class="box-closed" id="boxClosed" onclick="revealMystery()">
                 <div class="box-glow"></div>
                 <div class="box-icon">🎁</div>
@@ -601,16 +584,13 @@
                 <p class="box-sub-prompt">عرض حصري وخاص جداً </p>
             </div>
 
-            <!-- وضعية الفتح التفاعلية -->
             <div class="box-open" id="boxOpen" style="display: none;">
                 <span class="exclusive-badge">Gift</span>
                 <img src="imaggg/51.JPG" alt="Mystery Gift" class="mystery-img" onerror="this.src='imaggg/16.JPG'">
                 <h3 class="mystery-title">FOR YOU</h3>
                 <p class="price-tag">99 DH <span class="old-price">170 DH</span></p>
                 <span class="size-info-text">2XL, XL, L</span>
-                <button class="buy-btn" onclick="openOrder('Mystery Box Special Tee', '99 DH')
-                "> ORDER NOW 
-                   </button>
+                <button class="buy-btn" onclick="openOrder('Mystery Box Special Tee', '99 DH')"> ORDER NOW </button>
             </div>
         </div>
         <canvas id="party-canvas"></canvas>
@@ -723,7 +703,6 @@
                     <p style="color: var(--primary-gold); font-weight: bold; margin: 0;">SUMMER</p>
                     <small>اضغط للطلب</small>
                 </div>
-            </div>
             </div>
         </div>
     </section>
@@ -928,28 +907,6 @@
         }
         animateCosmicBackground();
 
-        // تتبع مؤشر الماوس السحري
-        const cursor = document.getElementById('magic-cursor');
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-
-        document.querySelectorAll('button, a, input, select').forEach(elem => {
-            elem.addEventListener('mouseenter', () => {
-                cursor.style.width = '20px';
-                cursor.style.height = '20px';
-                cursor.style.background = '#ff007f';
-                cursor.style.shadowColor = '#ff007f';
-            });
-            elem.addEventListener('mouseleave', () => {
-                cursor.style.width = '8px';
-                cursor.style.height = '8px';
-                cursor.style.background = '#0ff';
-                cursor.style.shadowColor = '#0ff';
-            });
-        });
-
         // منطق المتجر والطلب والعداد
         let currentP = "", currentPr = "", basePriceNum = 0;
 
@@ -984,7 +941,7 @@
             const qty = parseInt(document.getElementById('cust_qty').value) || 1;
             
             let shipping = 0;
-            if (city === 'Kenitra') shipping = 00;
+            if (city === 'Kenitra') shipping = 0;
             else if (city === 'Rabat') shipping = 20;
             else if (city === 'Casablanca') shipping = 30;
             else if (city === 'Other') shipping = 45;
@@ -1006,7 +963,7 @@
 
             if(name && phone && city && qty) {
                 let shipping = 0;
-                if (city === 'Kenitra') shipping = OO;
+                if (city === 'Kenitra') shipping = 0;
                 else if (city === 'Rabat') shipping = 20;
                 else if (city === 'Casablanca') shipping = 30;
                 else if (city === 'Other') shipping = 45;
