@@ -38,7 +38,6 @@
             position: relative;
         }
 
-        /* خلفية جزيئات الكون السحرية المتحركة */
         #cosmic-canvas {
             position: fixed;
             top: 0;
@@ -156,9 +155,7 @@
         }
 
         .welcome-banner { background: rgba(255, 255, 255, 0.06); padding: 18px; border-radius: 15px; margin-bottom: 25px; border-right: 4px solid var(--primary-gold); text-align: right; }
-        .intro-text { background: rgba(0, 0, 0, 0.4); padding: 25px; border-radius: 20px; margin: 25px 0; border: 1px solid rgba(255,255,255,0.05); }
-        .intro-text h2 { color: var(--primary-gold); font-weight: 900; }
-
+        
         .whatsapp-float {
             position: fixed;
             bottom: 25px;
@@ -210,7 +207,6 @@
         .img-front { width: 50%; border-right: 2px solid #2ecc71; z-index: 1; }
         .comp-slider { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: transparent; -webkit-appearance: none; z-index: 5; cursor: ew-resize; outline: none; }
 
-        /* قسم الأطقم الهولوغرامي الخيالي الجديد اللانهائي والتفاعلي */
         .hologram-ensemble-section {
             background: linear-gradient(180deg, rgba(9,13,22,0) 0%, rgba(138,43,226,0.08) 50%, rgba(9,13,22,0) 100%);
             padding: 60px 0;
@@ -253,9 +249,7 @@
             box-shadow: 0 0 30px rgba(255, 0, 127, 0.3), inset 0 0 20px rgba(0, 255, 255, 0.2);
             transform: translateY(-10px);
         }
-        .holo-card:hover::before {
-            left: 100%;
-        }
+        .holo-card:hover::before { left: 100%; }
         .holo-img {
             width: 100%;
             height: 240px;
@@ -332,7 +326,6 @@
         .review-card.en { direction: ltr; text-align: left; }
         .review-stars { color: var(--primary-gold); margin-bottom: 10px; }
 
-        /* ستايل علبة المفاجآت السحرية الفاخر */
         .mystery-box-section {
             padding: 50px 20px;
             position: relative;
@@ -379,9 +372,7 @@
             filter: drop-shadow(0 0 20px rgba(255, 0, 127, 0.65));
             transition: transform 0.3s;
         }
-        .box-closed:hover .box-icon {
-            transform: scale(1.15);
-        }
+        .box-closed:hover .box-icon { transform: scale(1.15); }
         .box-glow {
             position: absolute;
             top: 45%; left: 50%;
@@ -460,12 +451,10 @@
         <div class="ticker-wrapper">
             <div class="ticker-item"> SPECIAL OFFER: HOT SUMMER T-SHIRTS ONLY <span>149 DH</span></div>
             <div class="ticker-item"> PREMIUM JEANS COLLECTION AVAILABLE NOW FOR <span>199 DH</span></div>
-            
             <div class="ticker-item"> EXCLUSIVE CLASSIC SUITS & COMBOS JUST <span>249 DH</span></div>
             <div class="ticker-item"> FAST AND SECURED SHIPPING ALL OVER MOROCCO!</div>
             <div class="ticker-item"> SPECIAL OFFER: HOT SUMMER T-SHIRTS ONLY <span>149 DH</span></div>
             <div class="ticker-item"> PREMIUM JEANS COLLECTION AVAILABLE NOW FOR <span>199 DH</span></div>
-           
             <div class="ticker-item"> EXCLUSIVE CLASSIC SUITS & COMBOS JUST <span>249 DH</span></div>
         </div>
     </div>
@@ -847,7 +836,6 @@
     </div>
 
     <script>
-        // تأثير خلفية النجوم السحرية
         const canvas = document.getElementById('cosmic-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
@@ -902,7 +890,6 @@
         }
         animateCosmicBackground();
 
-        // منطق المتجر والطلب والعداد
         let currentP = "", currentPr = "", basePriceNum = 0;
 
         function openOrder(name, price) {
@@ -913,7 +900,8 @@
             document.getElementById('pNameDisplay').innerText = "Ordering: " + name;
             document.getElementById('pPriceDisplay').innerText = "Price: " + price;
             
-            document.getElementById('cust_city').selectedIndex = 0;
+            // جعل القنيطرة الاختيار التلقائي الأسرع
+            document.getElementById('cust_city').value = "Kenitra";
             document.getElementById('cust_qty').value = 1;
             document.getElementById('cust_name').value = "";
             document.getElementById('cust_phone').value = "";
@@ -954,7 +942,7 @@
             const phone = document.getElementById('cust_phone').value;
             const city = document.getElementById('cust_city').value;
             const size = document.getElementById('cust_size').value;
-            const qty = document.getElementById('cust_qty').value;
+            const qty = parseInt(document.getElementById('cust_qty').value) || 1;
 
             if(name && phone && city && qty) {
                 let shipping = 0;
@@ -963,7 +951,9 @@
                 else if (city === 'Casablanca') shipping = 30;
                 else if (city === 'Other') shipping = 45;
 
-                let finalTotal = (basePriceNum * parseInt(qty)) + shipping;
+                // تم إصلاح الحساب هنا ليعتمد دائماً على basePriceNum الحقيقي للمنتج مضروباً في الكمية
+                let productTotal = basePriceNum * qty;
+                let finalTotal = productTotal + shipping;
 
                 const message = "*NEW ORDER - AYMANE STORE*\n" +
                                 "*✓ Professionnels 100%*\n\n" +
@@ -978,15 +968,11 @@
                                 "*City:* " + city;
                 const waUrl = "https://wa.me/212689248338?text=" + encodeURIComponent(message);
                 
-                // إغلاق النافذة المنبثقة أولاً لتهيئة الموقع للعودة
                 closeOrder();
 
-                // فحص ذكي لنوع الجهاز لضمان حل مشكلة عدم الاستجابة عند الرجوع في الموبايل
                 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                    // فتح الرابط في نفس النافذة للهواتف ليبقى السكريبت مخزناً في ذاكرة النظام النشطة
                     window.location.href = waUrl;
                 } else {
-                    // فتح في نافذة جديدة للحاسوب فقط
                     window.open(waUrl, "_blank");
                 }
             } else { 
@@ -1013,7 +999,6 @@
             }
         }, 1000);
 
-        // محرك صندوق المفاجآت السحري المتطور (Confetti + Fantasy Sound Synthesis)
         function revealMystery() {
             const closedView = document.getElementById('boxClosed');
             const openView = document.getElementById('boxOpen');
