@@ -14,7 +14,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Cairo:wght@400;600;700;900&family=Syncopate:wght@700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Cairo:wght@400;600;700;900&family=Syncopate:wght@700&family=Orbitron:wght@500;800;900&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
     
     <style>
         :root {
@@ -25,6 +25,13 @@
             --neon-blue: #0ff;
             --cosmic-purple: #8a2be2;
             --nebula-pink: #ff007f;
+            --anime-crimson: #dd1c1c;
+            
+            /* لوحة الألوان الصيفية الباردة للقسم الأخير */
+            --summer-sky: #e0f2fe;
+            --summer-blue: #38bdf8;
+            --summer-mint: #06b6d4;
+            --summer-dark: #0f172a;
         }
 
         body {
@@ -278,7 +285,7 @@
         .buy-btn:hover { background: var(--primary-gold); box-shadow: 0 4px 15px rgba(255,221,87,0.4); transform: scale(1.02); }
 
         .modal { 
-            display: none; position: fixed; z-index: 99999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); align-items: center; justify-content: center;
+            display: none; position: fixed; z-index: 999999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); align-items: center; justify-content: center;
         }
         
         .modal-content { 
@@ -319,12 +326,6 @@
         @keyframes glitch { 0% { text-shadow: 2px 0 #f0f, -2px 0 #0ff; } 50% { text-shadow: -2px 0 #f0f, 2px 0 #0ff; } 100% { text-shadow: 2px 0 #f0f, -2px 0 #0ff; } }
         .neon-order-btn { background: none; border: 2px solid var(--neon-blue); color: var(--neon-blue); padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; margin-top: 10px; }
         .neon-order-btn:hover { background: var(--neon-blue); color: #000; box-shadow: 0 0 20px var(--neon-blue); }
-
-        .reviews-section { padding: 40px 20px; max-width: 1100px; margin: 0 auto; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        .review-card { background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.15); padding: 20px; border-radius: 15px; width: 280px; }
-        .review-card.ar { direction: rtl; text-align: right; }
-        .review-card.en { direction: ltr; text-align: left; }
-        .review-stars { color: var(--primary-gold); margin-bottom: 10px; }
 
         .mystery-box-section {
             padding: 50px 20px;
@@ -427,6 +428,211 @@
         }
 
         @media (max-width: 768px) { .cinematic-card { width: 160px; height: 280px; transform: none; } }
+
+        /* ==========================================================================
+           🌟 المظهر الصيفي الجديد كلياً للأنصومبلات والمقاسات الثابتة 
+           ========================================================================== */
+        .cypher-showcase-wrapper {
+            max-width: 1250px;
+            margin: 40px auto;
+            padding: 0 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* شريط التذاكر الصيفي العلوي */
+        .laser-banner-ticker-summer {
+            background: linear-gradient(90deg, #0284c7 0%, var(--summer-mint) 50%, #0284c7 100%);
+            border-top: 2px solid var(--summer-sky);
+            border-bottom: 2px solid var(--summer-sky);
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 14px 0;
+            box-shadow: 0 0 25px rgba(6, 182, 212, 0.4);
+            margin-bottom: 30px;
+        }
+        .laser-ticker-track {
+            display: inline-block;
+            animation: continuousLaser 20s linear infinite;
+        }
+        .laser-ticker-msg-summer {
+            display: inline-block;
+            color: #fff;
+            font-weight: 800;
+            font-size: 15px;
+            letter-spacing: 2px;
+            margin-right: 60px;
+            text-transform: uppercase;
+        }
+        .laser-ticker-msg-summer span {
+            color: #fff;
+            text-shadow: 0 0 8px #fff;
+            background: rgba(255,255,255,0.2);
+            padding: 2px 8px;
+            border-radius: 6px;
+        }
+
+        /* الهيكل الرئيسي الصيفي المنقسم لجهتين */
+        .premium-split-container-summer {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 40px;
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(56, 189, 248, 0.2);
+            border-radius: 35px;
+            padding: 35px;
+            box-shadow: 0 30px 70px rgba(0,0,0,0.4);
+            align-items: center;
+            direction: ltr; /* التوجيه لليسار ليناسب البراند الإنجليزية */
+        }
+
+        @media (max-width: 900px) {
+            .premium-split-container-summer {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+        }
+
+        /* الجهة اليسرى: معلومات المنتج بالإنجليزية */
+        .spec-capsule-zone-summer {
+            text-align: left;
+        }
+        .spec-capsule-tag-summer {
+            font-size: 12px;
+            color: var(--summer-blue);
+            letter-spacing: 3px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .spec-main-title-summer {
+            font-size: clamp(26px, 4vw, 38px);
+            font-weight: 800;
+            color: #fff;
+            margin: 0 0 20px 0;
+            line-height: 1.2;
+        }
+        .spec-info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+        .spec-feature-bar-summer {
+            background: rgba(255, 255, 255, 0.04);
+            border-left: 4px solid var(--summer-blue);
+            border-radius: 14px;
+            padding: 14px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s;
+        }
+        .spec-feature-bar-summer:hover {
+            background: rgba(56, 189, 248, 0.1);
+            transform: translateX(6px);
+        }
+        .feat-label-summer {
+            font-size: 14px;
+            color: #94a3b8;
+            font-weight: 600;
+        }
+        .feat-value-summer {
+            font-size: 14px;
+            color: #fff;
+            font-weight: 700;
+        }
+        
+        .spec-pricing-card-summer {
+            background: rgba(56, 189, 248, 0.05);
+            border: 1px dashed rgba(56, 189, 248, 0.3);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        .spec-price-row {
+            display: flex;
+            align-items: baseline;
+            gap: 15px;
+        }
+        .spec-price-now-summer {
+            font-size: 38px;
+            font-weight: 800;
+            color: #2ecc71;
+        }
+        .spec-price-before-summer {
+            font-size: 18px;
+            text-decoration: line-through;
+            color: #94a3b8;
+        }
+        .spec-shipping-alert-summer {
+            font-size: 13px;
+            color: var(--primary-gold);
+            margin-top: 6px;
+            display: block;
+            font-weight: 600;
+        }
+
+        /* منتقي الألوان والصور المصغرة الصيفي */
+        .color-switcher-box {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .switcher-title-summer {
+            font-size: 13px;
+            color: #cbd5e1;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        .thumbs-flex {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .thumb-capsule-summer {
+            width: 70px;
+            height: 70px;
+            border-radius: 14px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: #0f172a;
+        }
+        .thumb-capsule-summer:hover, .thumb-capsule-summer.active {
+            border-color: var(--summer-blue);
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+            transform: scale(1.08);
+        }
+
+        /* 🖼️ الإطار الصيفي الكبير بمقاس تابلـو ثابت وموحد هندسياً */
+        .standing-product-frame-summer {
+            position: relative;
+            background: radial-gradient(circle at center, rgba(56, 189, 248, 0.15) 0%, transparent 75%);
+            border-radius: 28px;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            
+            /* تثبيت المقاس بشكل صارم والتحكم بالنسب */
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            max-height: 520px;
+            box-sizing: border-box;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .standing-product-img-summer {
+            width: 100%;
+            height: 100%;
+            /* احتواء الصورة بالكامل داخل مقاس التابلو الموحد دون تغيير أبعاد الصندوق */
+            object-fit: contain; 
+            border-radius: 22px;
+            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.5));
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
     </style>
 </head>
 <body>
@@ -565,7 +771,7 @@
                 <div class="box-glow"></div>
                 <div class="box-icon">🎁</div>
                 <h3 class="box-prompt">اضغط لفتح هدية المفاجأة الكبرى!</h3>
-                <p class="box-sub-prompt">عرض حصري وخاص جداً </p>
+                <p class="box-sub-prompt">عرض حسنري وخاص جداً </p>
             </div>
 
             <div class="box-open" id="boxOpen" style="display: none;">
@@ -587,78 +793,67 @@
                 <img src="imaggg/45.JPG" class="holo-img" onerror="this.src='imaggg/18.JPG'">
                 <div class="holo-title">T-Shirte</div>
                 <div class="holo-price">150 DH</div>
-                <button class="buy-btn" onclick="openOrder('T-Shirte 45', '150 DH')"
-                >ORDER NOW</button>
+                <button class="buy-btn" onclick="openOrder('T-Shirte 45', '150 DH')">طلب فوري</button>
             </div>
             <div class="holo-card">
                 <img src="imaggg/46.JPG" class="holo-img" onerror="this.src='imaggg/16.JPG'">
                 <div class="holo-title">T-Shirte</div>
                 <div class="holo-price">150 DH</div>
-                <button class="buy-btn" onclick="openOrder('T-Shirte 46', '150 DH')"
-                >ORDER NOW</button>
+                <button class="buy-btn" onclick="openOrder('T-Shirte 46', '150 DH')">طلب فوري</button>
             </div>
             <div class="holo-card">
                 <img src="imaggg/39.JPG" class="holo-img" onerror="this.src='imaggg/19.JPG'">
                 <div class="holo-title">T-Shirte</div>
                 <div class="holo-price">120 DH</div>
-                <button class="buy-btn" onclick="openOrder('T-Shirte 39', '120 DH')"
-                >ORDER NOW</button>
+                <button class="buy-btn" onclick="openOrder('T-Shirte 39', '120 DH')">طلب فوري</button>
             </div>
             <div class="holo-card">
                 <img src="imaggg/40.JPG" class="holo-img" onerror="this.src='imaggg/17.JPG'">
                 <div class="holo-title">T-Shirte</div>
                 <div class="holo-price">120 DH</div>
-                <button class="buy-btn" onclick="openOrder('T-Shirte 40', '120 DH')"
-                >ORDER NOW</button>
+                <button class="buy-btn" onclick="openOrder('T-Shirte 40', '120 DH')">طلب فوري</button>
             </div>
             <div class="holo-card">
                 <img src="imaggg/41.JPG" class="holo-img" onerror="this.src='imaggg/18.JPG'">
                 <div class="holo-title">T-Shirte</div>
                 <div class="holo-price">120 DH</div>
-                <button class="buy-btn" onclick="openOrder('T-Shirte 41', '120 DH')"
-                >ORDER NOW</button>
+                <button class="buy-btn" onclick="openOrder('T-Shirte 41', '120 DH')">طلب فوري</button>
             </div>
             <div class="holo-card">
                 <img src="imaggg/42.JPG" class="holo-img" onerror="this.src='imaggg/16.JPG'">
                 <div class="holo-title">T-Shirte</div>
                 <div class="holo-price">120 DH</div>
-                <button class="buy-btn" onclick="openOrder('T-Shirte 42', '120 DH')"
-                >ORDER NOW</button>
+                <button class="buy-btn" onclick="openOrder('T-Shirte 42', '120 DH')">طلب فوري</button>
             </div>
             <div class="holo-card">
                 <img src="imaggg/43.JPG" class="holo-img" onerror="this.src='imaggg/16.JPG'">
                 <div class="holo-title">T-Shirte</div>
                 <div class="holo-price">120 DH</div>
-                <button class="buy-btn" onclick="openOrder('T-Shirte 43', '120 DH')"
-                >ORDER NOW</button>
+                <button class="buy-btn" onclick="openOrder('T-Shirte 43', '120 DH')">طلب فوري</button>
             </div>
             <div class="holo-card">
                 <img src="imaggg/44.JPG" class="holo-img" onerror="this.src='imaggg/16.JPG'">
                 <div class="holo-title">T-Shirte</div>
                 <div class="holo-price">120 DH</div>
-                <button class="buy-btn" onclick="openOrder('T-Shirte 44', '120 DH')"
-                >ORDER NOW</button>
+                <button class="buy-btn" onclick="openOrder('T-Shirte 44', '120 DH')">طلب فوري</button>
             </div>
              <div class="holo-card">
                 <img src="imaggg/T,SHIRT.JPG" class="holo-img" onerror="this.src='imaggg/16.JPG'">
                 <div class="holo-title">T-Shirte</div>
                 <div class="holo-price">120 DH</div>
-                <button class="buy-btn" onclick="openOrder('T-Shirte Main', '120 DH')"
-                >ORDER NOW</button>
+                <button class="buy-btn" onclick="openOrder('T-Shirte Main', '120 DH')">طلب فوري</button>
             </div>
             <div class="holo-card">
                 <img src="imaggg/37.JPG" class="holo-img" onerror="this.src='imaggg/16.JPG'">
                 <div class="holo-title">T-Shirte</div>
                 <div class="holo-price">120 DH</div>
-                <button class="buy-btn" onclick="openOrder('T-Shirte 37', '120 DH')"
-                >ORDER NOW</button>
+                <button class="buy-btn" onclick="openOrder('T-Shirte 37', '120 DH')">طلب فوري</button>
             </div>
             <div class="holo-card">
                 <img src="imaggg/38.JPG" class="holo-img" onerror="this.src='imaggg/16.JPG'">
                 <div class="holo-title">T-SHIRTE</div>
                 <div class="holo-price">120 DH</div>
-                <button class="buy-btn" onclick="openOrder('T-Shirte 38', '120 DH')"
-                >ORDER NOW</button>
+                <button class="buy-btn" onclick="openOrder('T-Shirte 38', '120 DH')">طلب فوري</button>
             </div>
         </div>
     </section>
@@ -704,14 +899,10 @@
 
     <div class="section-divider"><span> JEANS COLLECTION</span></div>
     <div class="gallery-section">
-        <div class="product-item"><img src="imaggg/10.JPG" alt="item"><h3
-             style="font-size: 15px; margin: 8px 0 0 0;">Grean Jeans</h3><p class="price-tag">199 DH</p><span class="size-info-text">Size: 30 to 36</span><button class="buy-btn" onclick="openOrder('Slim Fit Premium Denim', '199 DH')">اطلب الآن</button></div>
-        <div class="product-item"><img src="imaggg/8.JPG" alt="item">
-            <h3 style="font-size: 15px; margin: 8px 0 0 0;"> Cargo Jeans</h3><p class="price-tag">199 DH</p><span class="size-info-text">Size: 30 to 36</span><button class="buy-btn" onclick="openOrder('Classic Urban Cargo Jeans', '199 DH')">اطلب الآن</button></div>
-        <div class="product-item"><img src="imaggg/11.JPG" alt="item"><h3
-             style="font-size: 15px; margin: 8px 0 0 0;">Black Jeans </h3><p class="price-tag">199 DH</p><span class="size-info-text">Size: 30 to 36</span><button class="buy-btn" onclick="openOrder('Modern Ripped Comfort Denim', '199 DH')">اطلب الآن</button></div>
-        <div class="product-item"><img src="imaggg/4.JPG" alt="item"><h3
-             style="font-size: 15px; margin: 8px 0 0 0;"> Blue Jeans</h3><p class="price-tag">199 DH</p><span class="size-info-text">Size: 30 to 36</span><button class="buy-btn" onclick="openOrder('Relaxed Fit Light Blue Jeans', '199 DH')">اطلب الآن</button></div>
+        <div class="product-item"><img src="imaggg/10.JPG" alt="item"><h3 style="font-size: 15px; margin: 8px 0 0 0;">Slim Fit Premium Denim</h3><p class="price-tag">199 DH</p><span class="size-info-text">Size: 30 to 36</span><button class="buy-btn" onclick="openOrder('Slim Fit Premium Denim', '199 DH')">اطلب الآن</button></div>
+        <div class="product-item"><img src="imaggg/8.JPG" alt="item"><h3 style="font-size: 15px; margin: 8px 0 0 0;">Classic Urban Cargo Jeans</h3><p class="price-tag">199 DH</p><span class="size-info-text">Size: 30 to 36</span><button class="buy-btn" onclick="openOrder('Classic Urban Cargo Jeans', '199 DH')">اطلب الآن</button></div>
+        <div class="product-item"><img src="imaggg/11.JPG" alt="item"><h3 style="font-size: 15px; margin: 8px 0 0 0;">Modern Ripped Comfort Denim</h3><p class="price-tag">199 DH</p><span class="size-info-text">Size: 30 to 36</span><button class="buy-btn" onclick="openOrder('Modern Ripped Comfort Denim', '199 DH')">اطلب الآن</button></div>
+        <div class="product-item"><img src="imaggg/4.JPG" alt="item"><h3 style="font-size: 15px; margin: 8px 0 0 0;">Relaxed Fit Light Blue Jeans</h3><p class="price-tag">199 DH</p><span class="size-info-text">Size: 30 to 36</span><button class="buy-btn" onclick="openOrder('Relaxed Fit Light Blue Jeans', '199 DH')">اطلب الآن</button></div>
     </div>
 
     <div class="section-divider"><span>LUXURY CLOTHING</span></div>
@@ -762,7 +953,7 @@
                 <div class="ai-label">
                     <div class="glitch-text">2XL, XL</div>
                     <p style="color:var(--neon-blue); margin:5px 0;">499 DH</p>
-                    <button class="neon-order-btn" onclick="openOrder('AI Edition 1', '499 DH')">اطلب الآن</button>
+                    <input type="button" class="neon-order-btn" value="اطلب الآن" onclick="openOrder('AI Edition 1', '499 DH')">
                 </div>
             </div>
             <div class="ai-card">
@@ -771,27 +962,87 @@
                 <div class="ai-label">
                     <div class="glitch-text">2XL, XL</div>
                     <p style="color:var(--neon-blue); margin:5px 0;">170 DH</p>
-                    <button class="neon-order-btn" onclick="openOrder('AI Edition 2', '170 DH')">اطلب الآن</button>
+                    <input type="button" class="neon-order-btn" value="اطلب الآن" onclick="openOrder('AI Edition 2', '170 DH')">
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="section-divider"><span>ثقة زبنائنا هي رأسمالنا - REVIEWS & FEEDBACK</span></div>
-    <section class="reviews-section">
-        <div class="review-card ar">
-            <div class="review-stars">⭐⭐⭐⭐⭐</div>
-            <p><strong>أمين (القنيطرة):</strong> "تبارك الله الجودة ناضية بزاف والتوصيل جاني في يومين تال باب الدار هنا ف القنيطرة. تعامل احترافي!"</p>
+    <div class="section-divider"><span>PREMIUM LUXURY ENSEMBLE</span></div>
+    
+    <div class="cypher-showcase-wrapper">
+        <div class="laser-banner-ticker-summer">
+            <div class="laser-ticker-track">
+                <div class="laser-ticker-msg-summer">☀️  SUMMER OUTFIT</div>
+                <div class="laser-ticker-msg-summer">🌴  SUMMER OUTFIT </div>
+                <div class="laser-ticker-msg-summer">☀️  SUMMER OUTFIT </div>
+                <div class="laser-ticker-msg-summer">🌴  SUMMER OUTFIT </div>
+                <div class="laser-ticker-msg-summer">☀️  SUMMER OUTFIT </div>
+                <div class="laser-ticker-msg-summer">🌴  SUMMER OUTFIT </div>
+            </div>
         </div>
-        <div class="review-card en">
-            <div class="review-stars">⭐⭐⭐⭐⭐</div>
-            <p><strong>achraf (Rabat):</strong> "The fabric quality is amazing and fits perfectly! Very friendly support. Totally recommend AYMANE STORE."</p>
+
+        <div class="premium-split-container-summer">
+            
+            <div class="spec-capsule-zone-summer">
+                <span class="spec-capsule-tag-summer">// EXCLUSIVE CHILL ARCHIVE //</span>
+                <h2 class="spec-main-title-summer"> OUTFIT</h2>
+                
+                <div class="spec-info-grid">
+                    <div class="spec-feature-bar-summer">
+                        <span class="feat-label-summer">Package Style:</span>
+                        <span class="feat-value-summer">Premium Shirt + Matching Shorts</span>
+                    </div>
+                    <div class="spec-feature-bar-summer">
+                        <span class="feat-label-summer">Fabric Profile:</span>
+                        <span class="feat-value-summer">Ultra-Breathing Premium Linen Blend</span>
+                    </div>
+                    <div class="spec-feature-bar-summer">
+                        <span class="feat-label-summer">Fit Texture:</span>
+                        <span class="feat-value-summer">Relaxed Fit / Perfect For Summer Chilling</span>
+                    </div>
+                    <div class="spec-feature-bar-summer">
+                        <span class="feat-label-summer">Available Sizes:</span>
+                        <span class="feat-value-summer">M, L, XL, 2XL</span>
+                    </div>
+                </div>
+
+                <div class="spec-pricing-card-summer">
+                    <div class="spec-price-row">
+                        <span class="spec-price-now-summer">349 DH</span>
+                        <span class="spec-price-before-summer">499 DH</span>
+                    </div>
+                    
+                </div>
+
+                <div class="color-switcher-box">
+                    <div class="switcher-title-summer">SELECT YOUR STYLE & DESIGN:</div>
+                 <div class="thumbs-flex">
+                        <img class="thumb-capsule-summer active" src="imaggg/62.JPG" 
+                        alt="Summer Ensemble 1" onerror="this.src=
+                        'https://images.unsplash.com/photo-1593032465175-481da7e4725f?w=500'"
+                         onclick="switchCypherImage(this)">
+                        <img class="thumb-capsule-summer" src="imaggg/60.JPG"
+                         alt="Summer Ensemble 2" onerror="this.src='https://images.unsplash.com/photo-1603252109303-2751441dd157?w=500'" onclick="switchCypherImage(this)">
+                       
+                        <img class="thumb-capsule-summer" src="imaggg/61.JPG" alt="Summer Ensemble 3" onerror="this.src='https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=500'" onclick="switchCypherImage(this)">
+                  
+                       
+                        <img class="thumb-capsule-summer" src="imaggg/63.JPG" alt="Summer Ensemble 3" onerror="this.src='https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=500'" onclick="switchCypherImage(this)">
+                   <img class="thumb-capsule-summer" src="imaggg/64.JPG" alt="Summer Ensemble 3" onerror="this.src='https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=500'" onclick="switchCypherImage(this)">
+                   
+                    </div>
+                </div>
+                
+                <button class="buy-btn" style="width: 100%; margin-top: 25px; background: linear-gradient(135deg, #0284c7, var(--summer-mint)); color: white;" onclick="openOrder('URBAN HAWAIIAN RESORT OUTFIT', '349    DH')">ORDER NOW - SUMMER OFFER</button>
+            </div>
+
+            <div class="standing-product-frame-summer">
+                <img id="cypherMainImg" src="imaggg/62.JPG" class="standing-product-img-summer" alt="Summer Standing Outfit" onerror="this.src='https://images.unsplash.com/photo-1593032465175-481da7e4725f?w=500'">
+            </div>
+
         </div>
-        <div class="review-card ar">
-            <div class="review-stars">⭐⭐⭐⭐⭐</div>
-            <p><strong>ياسين (الدار البيضاء):</strong> "توصيل سريع والسيرفيس طوب، والثوب مريح بزااف ومكيبهاتش فالغسيل. الله يسخر ليك أخويا أيمن."</p>
-        </div>
-    </section>
+    </div>
 
     <div id="orderModal" class="modal">
         <div class="modal-content">
@@ -851,6 +1102,20 @@
     </div>
 
     <script>
+        // دالة تبديل صور الألوان الاحترافية لـ Cypher-Dome
+        function switchCypherImage(element) {
+            // 1. تغيير مسار الصورة الكبيرة بصورة الخانة الصغيرة المضغوطة
+            document.getElementById('cypherMainImg').src = element.src;
+            
+            // 2. إزالة الحالة النشطة من كل الأزرار المصغرة
+            let thumbnails = document.querySelectorAll('.thumb-capsule-summer');
+            thumbnails.forEach(thumb => thumb.classList.remove('active'));
+            
+            // 3. إضافة الإضاءة والحالة النشطة للزر الحالي
+            element.classList.add('active');
+        }
+
+        // Cosmic Background setup
         const canvas = document.getElementById('cosmic-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
@@ -905,6 +1170,7 @@
         }
         animateCosmicBackground();
 
+        // Core Order Functions
         let currentP = "", currentPr = "", basePriceNum = 0;
 
         function openOrder(name, price) {
@@ -915,7 +1181,6 @@
             document.getElementById('pNameDisplay').innerText = "Ordering: " + name;
             document.getElementById('pPriceDisplay').innerText = "Price: " + price;
             
-            // جعل القنيطرة الاختيار التلقائي الأسرع
             document.getElementById('cust_city').value = "Kenitra";
             document.getElementById('cust_qty').value = 1;
             document.getElementById('cust_name').value = "";
@@ -966,7 +1231,6 @@
                 else if (city === 'Casablanca') shipping = 30;
                 else if (city === 'Other') shipping = 45;
 
-                // تم إصلاح الحساب هنا ليعتمد دائماً على basePriceNum الحقيقي للمنتج مضروباً في الكمية
                 let productTotal = basePriceNum * qty;
                 let finalTotal = productTotal + shipping;
 
@@ -995,6 +1259,7 @@
             }
         }
 
+        // Timer Bar
         let timeInSeconds = 15 * 60;
         const timerElement = document.getElementById('timer-display');
         
@@ -1014,6 +1279,7 @@
             }
         }, 1000);
 
+        // Mystery Box
         function revealMystery() {
             const closedView = document.getElementById('boxClosed');
             const openView = document.getElementById('boxOpen');
@@ -1028,7 +1294,6 @@
 
             try {
                 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-                
                 let osc1 = audioCtx.createOscillator();
                 let gain1 = audioCtx.createGain();
                 osc1.type = 'triangle';
@@ -1040,24 +1305,7 @@
                 gain1.connect(audioCtx.destination);
                 osc1.start(); 
                 osc1.stop(audioCtx.currentTime + 0.4);
-
-                setTimeout(() => {
-                    let osc2 = audioCtx.createOscillator();
-                    let gain2 = audioCtx.createGain();
-                    osc2.type = 'sine';
-                    osc2.frequency.setValueAtTime(500, audioCtx.currentTime);
-                    osc2.frequency.exponentialRampToValueAtTime(1500, audioCtx.currentTime + 0.5);
-                    gain2.gain.setValueAtTime(0.2, audioCtx.currentTime);
-                    gain2.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.5);
-                    osc2.connect(gain2);
-                    gain2.connect(audioCtx.destination);
-                    osc2.start(); 
-                    osc2.stop(audioCtx.currentTime + 0.5);
-                }, 120);
-                
-            } catch(e) { 
-                console.log('Audio Context Synthesis Initialized'); 
-            }
+            } catch(e) { console.log('Audio Active'); }
 
             initPartyConfetti();
         }
@@ -1065,7 +1313,6 @@
         function initPartyConfetti() {
             const pCanvas = document.getElementById('party-canvas');
             const pCtx = pCanvas.getContext('2d');
-            
             pCanvas.width = pCanvas.parentElement.clientWidth;
             pCanvas.height = pCanvas.parentElement.clientHeight;
 
@@ -1089,7 +1336,6 @@
             function animateConfetti() {
                 pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
                 let active = false;
-
                 confettiPieces.forEach(p => {
                     if (p.opacity > 0) {
                         p.x += p.speedX;
@@ -1098,7 +1344,6 @@
                         p.speedX *= 0.97;
                         p.rotation += p.rotationSpeed;
                         p.opacity -= 0.012;
-
                         pCtx.save();
                         pCtx.globalAlpha = p.opacity;
                         pCtx.translate(p.x, p.y);
@@ -1106,16 +1351,10 @@
                         pCtx.fillStyle = p.color;
                         pCtx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
                         pCtx.restore();
-                        
                         active = true;
                     }
                 });
-
-                if (active) {
-                    requestAnimationFrame(animateConfetti);
-                } else {
-                    pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
-                }
+                if (active) requestAnimationFrame(animateConfetti);
             }
             animateConfetti();
         }
