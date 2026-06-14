@@ -30,14 +30,14 @@
 
         body {
             margin: 0;
-            background-color: var(--soft-white);
+            background-color: var(--primary-black);
             font-family: 'Montserrat', 'Cairo', sans-serif;
-            color: var(--text-dark);
+            color: var(--soft-white);
             overflow-x: hidden;
             line-height: 1.6;
         }
 
-        /* --- Header --- */
+        /* --- Header (KEEP CURRENT) --- */
         .header {
             background: var(--primary-black);
             display: flex;
@@ -45,7 +45,7 @@
             align-items: center;
             padding: 0 5%;
             height: 90px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
             border-bottom: 2px solid var(--luxury-gold);
             position: sticky;
             top: 0;
@@ -72,7 +72,7 @@
 
         /* --- Ticker --- */
         .ticker-container {
-            background: var(--primary-black);
+            background: #111;
             border-bottom: 1px solid rgba(200, 169, 107, 0.2);
             overflow: hidden;
             white-space: nowrap;
@@ -99,11 +99,12 @@
 
         @keyframes tickerMove { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-50%, 0, 0); } }
 
-        /* --- Landing Page --- */
+        /* --- Landing Page (KEEP CURRENT) --- */
         .landing-page {
             padding: 60px 5%;
             text-align: center;
-            background-color: var(--off-white);
+            background-color: #050505;
+            border-bottom: 1px solid #222;
         }
 
         .welcome-badge {
@@ -118,32 +119,31 @@
             font-family: 'Playfair Display', serif;
             font-size: clamp(28px, 6vw, 48px);
             margin: 20px 0;
-            color: var(--primary-black);
+            color: var(--soft-white);
         }
 
         .welcome-banner {
             max-width: 800px;
             margin: 0 auto 30px;
-            color: var(--text-gray);
+            color: #aaa;
             font-size: 18px;
         }
 
         .instagram-btn {
-            background: var(--primary-black);
-            color: var(--luxury-gold);
+            background: var(--luxury-gold);
+            color: var(--primary-black);
             padding: 15px 40px;
             text-decoration: none;
             border-radius: 0;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 2px;
-            border: 1px solid var(--luxury-gold);
             transition: var(--transition-premium);
         }
 
         .instagram-btn:hover {
-            background: var(--luxury-gold);
-            color: var(--primary-black);
+            background: var(--soft-white);
+            transform: translateY(-3px);
         }
 
         .whatsapp-float {
@@ -154,26 +154,27 @@
             width: 60px; height: 60px;
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             z-index: 9999;
             transition: var(--transition-premium);
         }
         .whatsapp-float:hover { transform: scale(1.1) rotate(10deg); }
 
-        /* --- Sections --- */
+        /* --- Section Divider --- */
         .section-divider {
-            padding: 80px 0 40px;
+            padding: 60px 0 30px;
             text-align: center;
         }
 
         .section-divider span {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: var(--primary-black);
+            font-size: 1.8rem;
+            color: var(--luxury-gold);
             font-weight: 700;
             position: relative;
             padding-bottom: 10px;
             text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .section-divider span::after {
@@ -181,132 +182,145 @@
             position: absolute;
             bottom: 0; left: 50%;
             transform: translateX(-50%);
-            width: 60px; height: 3px;
+            width: 60px; height: 2px;
             background: var(--luxury-gold);
         }
 
-        /* --- Product Grid --- */
+        /* --- Product Grid (REVERT TO ORIGINAL: 2 cols mobile, 4 cols desktop) --- */
         .gallery-section {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 40px;
-            padding: 20px 5%;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            padding: 15px 5%;
             max-width: 1400px;
             margin: 0 auto;
         }
 
+        @media (min-width: 992px) {
+            .gallery-section { grid-template-columns: repeat(4, 1fr); gap: 30px; }
+        }
+
         .product-item {
-            background: var(--soft-white);
+            background: #151515;
             text-align: center;
             position: relative;
-            padding-bottom: 25px;
+            padding-bottom: 20px;
             transition: var(--transition-premium);
-            border: 1px solid var(--off-white);
+            border: 1px solid #222;
         }
 
         .product-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            transform: translateY(-8px);
+            border-color: var(--luxury-gold);
         }
 
-        /* --- Image Aspect Ratios --- */
+        /* --- Image Sizes (REVERT TO ORIGINAL: 350px height) --- */
         .product-item img {
             width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
             transition: var(--transition-premium);
         }
 
-        /* T-Shirts: Strict 1:1 Square */
-        .t-shirt-grid .product-item img,
-        .sale-item img {
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
+        @media (max-width: 768px) {
+            .product-item img { height: 280px; }
         }
 
-        /* Jeans & Ensembles: Vertical (Original) */
-        .jeans-grid .product-item img,
-        .ensemble-grid .standing-product-img-summer,
-        .cinematic-card img {
-            aspect-ratio: auto;
-            object-fit: contain;
-            height: auto;
+        /* --- Comparison Box (Original Interactive) --- */
+        .comparison-box { position: relative; width: 100%; height: 350px; overflow: hidden; }
+        @media (max-width: 768px) { .comparison-box { height: 280px; } }
+        
+        .img-back, .img-front { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; }
+        .img-front { width: 50%; border-right: 2px solid var(--luxury-gold); z-index: 2; }
+        .comp-slider {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0; cursor: ew-resize; z-index: 5;
         }
 
-        .product-item:hover img {
-            transform: scale(1.05);
+        /* --- Marquee (Original Interactive) --- */
+        .hologram-marquee {
+            display: flex; gap: 20px; overflow-x: auto; padding: 20px 5%;
+            scrollbar-width: none;
         }
+        .hologram-marquee::-webkit-scrollbar { display: none; }
+        .holo-card {
+            min-width: 200px; background: #111; border: 1px solid #222;
+            padding: 15px; text-align: center;
+        }
+        .holo-img { width: 100%; height: 250px !important; object-fit: cover; margin-bottom: 10px; }
 
         /* --- Badges & Buttons --- */
         .sale-badge {
             position: absolute;
-            top: 15px; right: 15px;
-            background: var(--primary-black);
-            color: var(--luxury-gold);
-            padding: 5px 15px;
+            top: 10px; right: 10px;
+            background: var(--luxury-gold);
+            color: var(--primary-black);
+            padding: 4px 10px;
             font-weight: 800;
-            font-size: 12px;
+            font-size: 11px;
             z-index: 10;
-            border: 1px solid var(--luxury-gold);
             text-transform: uppercase;
         }
 
         .price-tag {
-            color: var(--primary-black);
+            color: var(--soft-white);
             font-weight: 800;
             margin: 15px 0 5px;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
         }
 
         .old-price {
             text-decoration: line-through;
-            color: var(--text-gray);
+            color: #666;
             font-size: 0.9rem;
-            margin-left: 10px;
+            margin-left: 8px;
             font-weight: 400;
         }
 
         .size-info-text {
-            color: var(--text-gray);
-            font-size: 12px;
-            margin-bottom: 20px;
+            color: #888;
+            font-size: 11px;
+            margin-bottom: 15px;
             display: block;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .buy-btn {
-            background: var(--primary-black);
-            color: var(--luxury-gold);
-            border: 1px solid var(--luxury-gold);
+            background: var(--luxury-gold);
+            color: var(--primary-black);
+            border: none;
             width: 90%;
-            padding: 15px;
+            padding: 12px;
             cursor: pointer;
             font-weight: 800;
-            font-size: 14px;
+            font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: var(--transition-premium);
         }
 
         .buy-btn:hover {
-            background: var(--luxury-gold);
-            color: var(--primary-black);
+            background: var(--soft-white);
         }
 
-        /* --- Ensemble / Cypher Section Refined --- */
+        /* --- Ensemble / Jacket Sections (KEEP CURRENT DESIGN) --- */
         .cypher-showcase-wrapper {
-            max-width: 1200px;
-            margin: 40px auto;
-            background: var(--off-white);
-            padding: 40px;
+            max-width: 1100px;
+            margin: 30px auto;
+            background: #111;
+            padding: 30px;
             text-align: center;
+            border: 1px solid #222;
         }
 
         .standing-product-frame-summer {
             width: 100%;
-            max-width: 500px;
-            margin: 0 auto 30px;
-            background: var(--soft-white);
-            border: 1px solid var(--medium-gray);
+            max-width: 450px;
+            margin: 0 auto 25px;
+            background: #000;
+            border: 1px solid #333;
         }
 
         .standing-product-img-summer {
@@ -318,73 +332,124 @@
         .thumbs-flex {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 12px;
             flex-wrap: wrap;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .thumb-capsule-summer {
-            width: 80px; height: 100px;
+            width: 70px; height: 90px;
             object-fit: cover;
             cursor: pointer;
-            border: 1px solid var(--medium-gray);
+            border: 1px solid #333;
             transition: var(--transition-premium);
         }
 
         .thumb-capsule-summer.active, .thumb-capsule-summer:hover {
             border-color: var(--luxury-gold);
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
-        /* --- Mystery Box --- */
-        .mystery-container {
-            width: 100%; max-width: 450px;
-            background: var(--primary-black);
-            border: 2px solid var(--luxury-gold);
-            padding: 40px;
-            border-radius: 0;
-            color: var(--soft-white);
-        }
-
-        /* --- Cinematic Section --- */
+        /* --- Cinematic Section (Exclusive Pieces) --- */
         .cinematic-container {
-            display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            padding: 0 5%;
+        }
+        @media (min-width: 768px) {
+            .cinematic-container { grid-template-columns: repeat(4, 1fr); }
         }
         .cinematic-card {
-            width: 280px; height: 420px;
-            border-radius: 0;
-            border: 1px solid var(--luxury-gold);
+            aspect-ratio: 2 / 3;
+            border: 1px solid #333;
             overflow: hidden;
             position: relative;
+            cursor: pointer;
+        }
+        .cinematic-card img {
+            width: 100%; height: 100%; object-fit: cover;
             transition: var(--transition-premium);
         }
-        .cinematic-card:hover { transform: scale(1.05); z-index: 10; }
+        .cinematic-card:hover img { transform: scale(1.1); }
 
-        /* --- Modal --- */
+        /* --- Modal (REVERT TO DIRECT POPUP FEEL) --- */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
         .modal-content {
-            border-radius: 0;
-            padding: 40px;
-            border: 2px solid var(--luxury-gold);
-        }
-
-        .prof-badge {
-            background: var(--primary-black);
-            color: var(--luxury-gold);
+            background: #151515;
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
             border: 1px solid var(--luxury-gold);
-            padding: 8px 20px;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
-        /* --- Mobile Responsive --- */
-        @media (max-width: 768px) {
-            .header { height: 70px; }
-            .gallery-section { grid-template-columns: 1fr; gap: 30px; }
-            .cinematic-card { width: 90%; height: auto; }
-            .standing-product-frame-summer { aspect-ratio: auto; }
+        .close-btn {
+            position: absolute;
+            top: 15px; right: 20px;
+            font-size: 30px;
+            color: var(--luxury-gold);
+            cursor: pointer;
         }
+
+        .modal-content label {
+            display: block;
+            margin: 15px 0 5px;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #aaa;
+        }
+
+        .modal-content input, .modal-content select {
+            width: 100%;
+            padding: 12px;
+            background: #000;
+            border: 1px solid #333;
+            color: #fff;
+            font-family: inherit;
+        }
+
+        .order-summary-box {
+            background: #0a0a0a;
+            padding: 15px;
+            margin-top: 20px;
+            border: 1px dashed #333;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: #050505;
+            border-top: 1px solid #222;
+            color: #666;
+            font-size: 12px;
+        }
+
     </style>
 </head>
 <body>
 
+    <!-- Header (KEEP CURRENT) -->
     <div class="header">
         <div class="header-profile-left">
             <img src="imaggg/AA.JPG" alt="Owner" class="header-avatar">
@@ -395,6 +460,7 @@
         <div style="width: 55px;"></div> 
     </div>
 
+    <!-- Ticker -->
     <div class="ticker-container">
         <div class="ticker-wrapper">
             <div class="ticker-item">New Season: Premium T-Shirts Only <span>149 DH</span></div>
@@ -406,6 +472,7 @@
         </div>
     </div>
 
+    <!-- Landing Page (KEEP CURRENT) -->
     <div class="landing-page">
         <span class="welcome-badge">Elegance Redefined</span>
         <h1>Welcome to AS' Store</h1>
@@ -420,55 +487,33 @@
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35" height="35" alt="WhatsApp">
     </a>
 
-    <!-- ENSEMBLE SECTION (Vertical Layout) -->
-    <div class="section-divider"><span>ENSEMBLE</span></div>
-    
-    <div class="cypher-showcase-wrapper ensemble-grid">
-        <div class="standing-product-frame-summer">
-            <img id="cypherMainImg" src="imaggg/61.JPG" class="standing-product-img-summer" alt="Premium Outfit">
-        </div>
+    <!-- ORIGINAL ORDER START -->
 
-        <div class="thumbs-flex">
-            <img class="thumb-capsule-summer active" src="imaggg/61.JPG" onclick="switchCypherImage(this)">
-            <img class="thumb-capsule-summer" src="imaggg/62.JPG" onclick="switchCypherImage(this)">
-            <img class="thumb-capsule-summer" src="imaggg/60.JPG" onclick="switchCypherImage(this)">
-            <img class="thumb-capsule-summer" src="imaggg/63.JPG" onclick="switchCypherImage(this)">
-            <img class="thumb-capsule-summer" src="imaggg/64.JPG" onclick="switchCypherImage(this)">
-        </div>
-
-        <div class="spec-price-row" style="margin-bottom: 25px;">
-            <span style="font-size: 2.5rem; font-weight: 800;">349 DH</span>
-            <span class="old-price" style="font-size: 1.2rem;">499 DH</span>
-        </div>
-        
-        <button class="buy-btn" onclick="openOrder('URBAN HAWAIIAN RESORT OUTFIT', '349 DH')">ORDER NOW</button>
-    </div>
-
-    <!-- SALE SECTION (T-Shirts: Square Layout) -->
-    <div class="section-divider"><span>عروض الموسم | SEASON OFFERS</span></div>
-    <div class="gallery-section t-shirt-grid">
-        <div class="product-item sale-item">
+    <!-- 1. SALE SECTION -->
+    <div class="section-divider"><span>SEASON OFFERS 🔥</span></div>
+    <div class="gallery-section">
+        <div class="product-item">
             <span class="sale-badge">OFF 30%</span>
             <img src="imaggg/25.JPG" alt="Sale Item">
             <p class="price-tag">149 DH <span class="old-price">199 DH</span></p>
             <span class="size-info-text">Available: 2XL, XL, L</span>
             <button class="buy-btn" onclick="openOrder('Black Luxury Tee', '149 DH')">ORDER NOW</button>
         </div>
-        <div class="product-item sale-item">
+        <div class="product-item">
             <span class="sale-badge">OFF 30%</span>
             <img src="imaggg/7.JPG" alt="Sale Item">
             <p class="price-tag">149 DH <span class="old-price">199 DH</span></p>
             <span class="size-info-text">Available: 2XL, XL, L</span>
             <button class="buy-btn" onclick="openOrder('Summer Tee Promo', '149 DH')">ORDER NOW</button>
         </div>
-        <div class="product-item sale-item">
+        <div class="product-item">
             <span class="sale-badge">OFF 30%</span>
             <img src="imaggg/26.JPG" alt="Sale Item">
             <p class="price-tag">149 DH <span class="old-price">199 DH</span></p>
             <span class="size-info-text">Available: 2XL, XL, L</span>
             <button class="buy-btn" onclick="openOrder('Urban Street Sale', '149 DH')">ORDER NOW</button>
         </div>
-        <div class="product-item sale-item">
+        <div class="product-item">
             <span class="sale-badge">OFF 30%</span>
             <img src="imaggg/27.JPG" alt="Sale Item">
             <p class="price-tag">149 DH <span class="old-price">199 DH</span></p>
@@ -477,9 +522,69 @@
         </div>
     </div>
 
-    <!-- OVERSIZED SECTION (T-Shirts: Square Layout) -->
+    <!-- 2. ENSEMBLE SECTION (KEEP CURRENT DESIGN) -->
+    <div class="section-divider"><span>PREMIUM ENSEMBLE</span></div>
+    <div class="cypher-showcase-wrapper">
+        <div class="standing-product-frame-summer">
+            <img id="cypherMainImg" src="imaggg/61.JPG" class="standing-product-img-summer" alt="Premium Outfit">
+        </div>
+
+        <div class="thumbs-flex">
+            <img class="thumb-capsule-summer active" src="imaggg/61.JPG" onclick="switchImage('cypherMainImg', this)">
+            <img class="thumb-capsule-summer" src="imaggg/62.JPG" onclick="switchImage('cypherMainImg', this)">
+            <img class="thumb-capsule-summer" src="imaggg/60.JPG" onclick="switchImage('cypherMainImg', this)">
+            <img class="thumb-capsule-summer" src="imaggg/63.JPG" onclick="switchImage('cypherMainImg', this)">
+            <img class="thumb-capsule-summer" src="imaggg/64.JPG" onclick="switchImage('cypherMainImg', this)">
+        </div>
+
+        <div style="margin-bottom: 25px;">
+            <span style="font-size: 2rem; font-weight: 800; color: var(--luxury-gold);">349 DH</span>
+            <span class="old-price" style="font-size: 1.1rem;">499 DH</span>
+        </div>
+        
+        <button class="buy-btn" style="width: 300px;" onclick="openOrder('URBAN HAWAIIAN RESORT OUTFIT', '349 DH')">ORDER NOW</button>
+    </div>
+
+    <!-- 3. NEW ARRIVALS (REVERT TO ORIGINAL INTERACTIVE SLIDER) -->
+    <div class="section-divider"><span>NEW ARRIVALS</span></div>
+    <div class="gallery-section">
+        <div class="product-item">
+            <div class="comparison-box">
+                <div class="img-back" style="background-image: url('imaggg/19.JPG');"></div>
+                <div class="img-front" id="f1" style="background-image: url('imaggg/18.JPG');"></div>
+                <input type="range" min="0" max="100" value="50" class="comp-slider" oninput="document.getElementById('f1').style.width = this.value + '%'">
+            </div>
+            <p class="price-tag">199 DH</p>
+            <span class="size-info-text">Available: 2XL, XL, L, M</span>
+            <button class="buy-btn" onclick="openOrder('Classic White Set', '199 DH')">ORDER NOW</button>
+        </div>
+        <div class="product-item">
+            <div class="comparison-box">
+                <div class="img-back" style="background-image: url('imaggg/17.JPG');"></div>
+                <div class="img-front" id="f2" style="background-image: url('imaggg/16.JPG');"></div>
+                <input type="range" min="0" max="100" value="50" class="comp-slider" oninput="document.getElementById('f2').style.width = this.value + '%'">
+            </div>
+            <p class="price-tag">199 DH</p>
+            <span class="size-info-text">Available: 2XL, XL, L, M</span>
+            <button class="buy-btn" onclick="openOrder('Summer Fit Blue', '199 DH')">ORDER NOW</button>
+        </div>
+        <div class="product-item">
+            <img src="imaggg/T,SHIRT.JPG" alt="Item">
+            <p class="price-tag">199 DH</p>
+            <span class="size-info-text">Available: 2XL, XL, L</span>
+            <button class="buy-btn" onclick="openOrder('T-Shirt Style 7', '199 DH')">ORDER NOW</button>
+        </div>
+        <div class="product-item">
+            <img src="imaggg/7.JPG" alt="Item">
+            <p class="price-tag">199 DH</p>
+            <span class="size-info-text">Available: 2XL, XL, L</span>
+            <button class="buy-btn" onclick="openOrder('Malak Edition', '199 DH')">ORDER NOW</button>
+        </div>
+    </div>
+
+    <!-- 4. OVERSIZED SECTION -->
     <div class="section-divider"><span>OVERSIZED T-SHIRTS</span></div>
-    <div class="gallery-section t-shirt-grid">
+    <div class="gallery-section">
         <div class="product-item">
             <img src="imaggg/55.JPG" alt="Oversized Tee">
             <p class="price-tag">170 DH</p>
@@ -506,111 +611,112 @@
         </div>
     </div>
 
-    <!-- JEANS SECTION (Vertical Layout) -->
-    <div class="section-divider"><span>JEANS COLLECTION</span></div>
-    <div class="gallery-section jeans-grid">
+    <!-- 5. MARQUEE SECTION (Original Interactive) -->
+    <div class="section-divider"><span>SIGNATURE COLLECTION</span></div>
+    <div class="hologram-marquee">
+        <div class="holo-card">
+            <img src="imaggg/45.JPG" class="holo-img">
+            <div style="color:var(--luxury-gold); font-weight:800;">120 DH</div>
+            <button class="buy-btn" style="padding:5px; margin-top:5px;" onclick="openOrder('Signature Tee 45', '120 DH')">ORDER</button>
+        </div>
+        <div class="holo-card">
+            <img src="imaggg/46.JPG" class="holo-img">
+            <div style="color:var(--luxury-gold); font-weight:800;">120 DH</div>
+            <button class="buy-btn" style="padding:5px; margin-top:5px;" onclick="openOrder('Signature Tee 46', '120 DH')">ORDER</button>
+        </div>
+        <div class="holo-card">
+            <img src="imaggg/39.JPG" class="holo-img">
+            <div style="color:var(--luxury-gold); font-weight:800;">120 DH</div>
+            <button class="buy-btn" style="padding:5px; margin-top:5px;" onclick="openOrder('Signature Tee 39', '120 DH')">ORDER</button>
+        </div>
+        <div class="holo-card">
+            <img src="imaggg/40.JPG" class="holo-img">
+            <div style="color:var(--luxury-gold); font-weight:800;">120 DH</div>
+            <button class="buy-btn" style="padding:5px; margin-top:5px;" onclick="openOrder('Signature Tee 40', '120 DH')">ORDER</button>
+        </div>
+        <div class="holo-card">
+            <img src="imaggg/41.JPG" class="holo-img">
+            <div style="color:var(--luxury-gold); font-weight:800;">120 DH</div>
+            <button class="buy-btn" style="padding:5px; margin-top:5px;" onclick="openOrder('Signature Tee 41', '120 DH')">ORDER</button>
+        </div>
+    </div>
+
+    <!-- 6. JEANS SECTION -->
+    <div class="section-divider"><span>PREMIUM JEANS</span></div>
+    <div class="gallery-section">
         <div class="product-item">
             <img src="imaggg/10.JPG" alt="Jeans">
-            <h3 style="font-size: 16px; margin: 15px 0 0;">Green Premium Jeans</h3>
             <p class="price-tag">199 DH</p>
             <span class="size-info-text">Size: 30 to 36</span>
             <button class="buy-btn" onclick="openOrder('Slim Fit Premium Denim', '199 DH')">ORDER NOW</button>
         </div>
         <div class="product-item">
             <img src="imaggg/8.JPG" alt="Jeans">
-            <h3 style="font-size: 16px; margin: 15px 0 0;">Urban Cargo Jeans</h3>
             <p class="price-tag">199 DH</p>
             <span class="size-info-text">Size: 30 to 36</span>
             <button class="buy-btn" onclick="openOrder('Classic Urban Cargo Jeans', '199 DH')">ORDER NOW</button>
         </div>
         <div class="product-item">
             <img src="imaggg/11.JPG" alt="Jeans">
-            <h3 style="font-size: 16px; margin: 15px 0 0;">Black Modern Jeans</h3>
             <p class="price-tag">199 DH</p>
             <span class="size-info-text">Size: 30 to 36</span>
             <button class="buy-btn" onclick="openOrder('Modern Ripped Comfort Denim', '199 DH')">ORDER NOW</button>
         </div>
         <div class="product-item">
             <img src="imaggg/4.JPG" alt="Jeans">
-            <h3 style="font-size: 16px; margin: 15px 0 0;">Relaxed Blue Jeans</h3>
             <p class="price-tag">199 DH</p>
             <span class="size-info-text">Size: 30 to 36</span>
             <button class="buy-btn" onclick="openOrder('Relaxed Fit Light Blue Jeans', '199 DH')">ORDER NOW</button>
         </div>
     </div>
 
-    <!-- CINEMATIC SECTION (Vertical Layout) -->
+    <!-- 7. EXCLUSIVE PIECES -->
     <div class="section-divider"><span>EXCLUSIVE PIECES</span></div>
-    <section class="cinematic-section">
-        <div class="cinematic-container">
-            <div class="cinematic-card" onclick="openOrder('Luxury Piece 34', '449 DH')">
-                <span class="sale-badge">449 DH</span>
-                <img src="imaggg/34.JPG" alt="Luxury Piece">
-            </div>
-            <div class="cinematic-card" onclick="openOrder('Luxury Piece 14', '549 DH')">
-                <span class="sale-badge">549 DH</span>
-                <img src="imaggg/14.JPG" alt="Luxury Piece">
-            </div>
-            <div class="cinematic-card" onclick="openOrder('Luxury Piece 35', '499 DH')">
-                <span class="sale-badge">499 DH</span>
-                <img src="imaggg/35.JPG" alt="Luxury Piece">
-            </div>
-            <div class="cinematic-card" onclick="openOrder('Luxury Piece 33', '449 DH')">
-                <span class="sale-badge">449 DH</span>
-                <img src="imaggg/33.JPG" alt="Luxury Piece">
-            </div>
+    <div class="cinematic-container">
+        <div class="cinematic-card" onclick="openOrder('Luxury Piece 34', '449 DH')">
+            <img src="imaggg/34.JPG" alt="Luxury Piece">
         </div>
-    </section>
-
-    <!-- T-SHIRT MARQUEE (Square Layout) -->
-    <div class="section-divider"><span>SIGNATURE T-SHIRTS</span></div>
-    <div class="gallery-section t-shirt-grid">
-        <div class="product-item">
-            <img src="imaggg/45.JPG" alt="T-Shirt">
-            <p class="price-tag">120 DH</p>
-            <button class="buy-btn" onclick="openOrder('Signature Tee 45', '120 DH')">ORDER NOW</button>
+        <div class="cinematic-card" onclick="openOrder('Luxury Piece 14', '549 DH')">
+            <img src="imaggg/14.JPG" alt="Luxury Piece">
         </div>
-        <div class="product-item">
-            <img src="imaggg/46.JPG" alt="T-Shirt">
-            <p class="price-tag">120 DH</p>
-            <button class="buy-btn" onclick="openOrder('Signature Tee 46', '120 DH')">ORDER NOW</button>
+        <div class="cinematic-card" onclick="openOrder('Luxury Piece 35', '499 DH')">
+            <img src="imaggg/35.JPG" alt="Luxury Piece">
         </div>
-        <div class="product-item">
-            <img src="imaggg/39.JPG" alt="T-Shirt">
-            <p class="price-tag">120 DH</p>
-            <button class="buy-btn" onclick="openOrder('Signature Tee 39', '120 DH')">ORDER NOW</button>
-        </div>
-        <div class="product-item">
-            <img src="imaggg/40.JPG" alt="T-Shirt">
-            <p class="price-tag">120 DH</p>
-            <button class="buy-btn" onclick="openOrder('Signature Tee 40', '120 DH')">ORDER NOW</button>
+        <div class="cinematic-card" onclick="openOrder('Luxury Piece 33', '449 DH')">
+            <img src="imaggg/33.JPG" alt="Luxury Piece">
         </div>
     </div>
 
-    <!-- JACKET SECTION (Vertical Layout) -->
-    <div class="section-divider"><span>JACKETS & SHOMES</span></div>
-    <div class="cypher-showcase-wrapper ensemble-grid">
+    <!-- 8. JACKET SECTION (KEEP CURRENT DESIGN) -->
+    <div class="section-divider"><span>JACKETS & CHEMISE</span></div>
+    <div class="cypher-showcase-wrapper">
         <div class="standing-product-frame-summer">
             <img id="jacketImg" src="imaggg/66.JPG" class="standing-product-img-summer" alt="Jacket">
         </div>
         <div class="thumbs-flex">
-            <img class="thumb-capsule-summer" src="imaggg/66.JPG" onclick="document.getElementById('jacketImg').src=this.src">
-            <img class="thumb-capsule-summer" src="imaggg/67.JPG" onclick="document.getElementById('jacketImg').src=this.src">
-            <img class="thumb-capsule-summer" src="imaggg/68.JPG" onclick="document.getElementById('jacketImg').src=this.src">
-            <img class="thumb-capsule-summer" src="imaggg/69.JPG" onclick="document.getElementById('jacketImg').src=this.src">
-            <img class="thumb-capsule-summer" src="imaggg/70.JPG" onclick="document.getElementById('jacketImg').src=this.src">
+            <img class="thumb-capsule-summer active" src="imaggg/66.JPG" onclick="switchImage('jacketImg', this)">
+            <img class="thumb-capsule-summer" src="imaggg/67.JPG" onclick="switchImage('jacketImg', this)">
+            <img class="thumb-capsule-summer" src="imaggg/68.JPG" onclick="switchImage('jacketImg', this)">
+            <img class="thumb-capsule-summer" src="imaggg/69.JPG" onclick="switchImage('jacketImg', this)">
+            <img class="thumb-capsule-summer" src="imaggg/70.JPG" onclick="switchImage('jacketImg', this)">
         </div>
-        <button class="buy-btn" onclick="openOrder('Premium Urban Jacket', '199 DH')">ORDER NOW</button>
+        <div style="margin-bottom: 25px;">
+            <span style="font-size: 2rem; font-weight: 800; color: var(--luxury-gold);">199 DH</span>
+        </div>
+        <button class="buy-btn" style="width: 300px;" onclick="openOrder('Premium Urban Jacket', '199 DH')">ORDER NOW</button>
     </div>
 
-    <!-- ORDER MODAL -->
+    <footer>
+        <p>&copy; 2024 AS' STORE - PREMIUM QUALITY FASHION MOROCCO</p>
+    </footer>
+
+    <!-- ORDER MODAL (DIRECT POPUP) -->
     <div id="orderModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeOrder()">&times;</span>
-            <div class="prof-badge-container"><span class="prof-badge">AS' Store Verified</span></div>
-            <h3 id="pNameDisplay">Complete Your Order</h3>
-            <p id="pPriceDisplay" style="color: var(--luxury-gold); font-weight: 800; font-size: 20px;"></p>
-            <hr style="border: 0; border-top: 1px solid #EAEAEA; margin: 20px 0;">
+            <h3 id="pNameDisplay" style="color: var(--luxury-gold);">Complete Your Order</h3>
+            <p id="pPriceDisplay" style="font-weight: 800; font-size: 20px; color: #fff;"></p>
+            <hr style="border: 0; border-top: 1px solid #333; margin: 15px 0;">
             
             <label>Full Name:</label>
             <input type="text" id="cust_name" placeholder="Enter your full name">
@@ -636,23 +742,23 @@
             <input type="number" id="cust_qty" value="1" min="1" onchange="calculateTotal()">
 
             <div class="order-summary-box">
-                <div class="summary-row"><span>Product Price:</span><span id="summary-product-price">0 DH</span></div>
-                <div class="summary-row"><span>Shipping:</span><span id="summary-shipping-price">0 DH</span></div>
+                <div class="summary-row"><span>Product Total:</span><span id="summary-product-price">0 DH</span></div>
+                <div class="summary-row"><span>Shipping Fee:</span><span id="summary-shipping-price">0 DH</span></div>
                 <hr style="border: 0; border-top: 1px dashed var(--luxury-gold); margin: 10px 0;">
-                <div class="summary-row" style="font-weight: 800; color: var(--primary-black); font-size: 18px;">
+                <div class="summary-row" style="font-weight: 800; color: var(--luxury-gold); font-size: 18px;">
                     <span>Grand Total:</span><span id="summary-total-price">0 DH</span>
                 </div>
             </div>
 
-            <button style="background: var(--primary-black); color: var(--luxury-gold); border: 1px solid var(--luxury-gold); width:100%; padding:18px; margin-top:20px; font-weight:bold; cursor:pointer;" onclick="sendOrder()">CONFIRM VIA WHATSAPP</button>
+            <button class="buy-btn" style="width:100%; padding:18px; margin-top:20px; font-size: 16px;" onclick="sendOrder()">CONFIRM VIA WHATSAPP</button>
         </div>
     </div>
 
     <script>
-        function switchCypherImage(element) {
-            document.getElementById('cypherMainImg').src = element.src;
-            let thumbnails = document.querySelectorAll('.thumb-capsule-summer');
-            thumbnails.forEach(thumb => thumb.classList.remove('active'));
+        function switchImage(imgId, element) {
+            document.getElementById(imgId).src = element.src;
+            let siblings = element.parentElement.querySelectorAll('.thumb-capsule-summer');
+            siblings.forEach(s => s.classList.remove('active'));
             element.classList.add('active');
         }
 
@@ -661,7 +767,7 @@
         function openOrder(name, price) {
             currentP = name; 
             currentPr = price;
-            basePriceNum = parseInt(price.replace(/[^\d]/g, '')) || 199;
+            basePriceNum = parseInt(price.replace(/[^\d]/g, '')) || 0;
             document.getElementById('pNameDisplay').innerText = name;
             document.getElementById('pPriceDisplay').innerText = price;
             document.getElementById('orderModal').style.display = "flex";
